@@ -1,0 +1,26 @@
+{
+  "name": "Amazing-App",
+  "version": "1.0.0",
+  "description": "Our second project for our full-stack bootcamp. A party planning app! MILLION DOLLAR IDEA!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThorNolan/Amazing-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThorNolan/Amazing-App/issues"
+  },
+  "homepage": "https://github.com/ThorNolan/Amazing-App#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.16.0"
+  }
+}
