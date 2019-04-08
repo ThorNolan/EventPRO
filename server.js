@@ -1,8 +1,12 @@
 //=============================== DEPENDENCIES ==========================================
 
+// Require express and express-handlebars.
 var express = require("express");
-
 var exphbs = require("express-handlebars");
+
+// Require passport.
+var passport = require("passport")
+var session = require("express-session")
 
 //======================== EXPRESS/HANDLEBARS CONFIGURATION =============================
 
@@ -27,10 +31,14 @@ app.set("view engine", "handlebars");
 //=================================== ROUTING ===========================================
 
 // Import routes from controllers and give the server access to them.
-var routes = require("./controllers/butters_controller.js");
+var routes = require("./controllers");
 
 // Tell my app to use the imported routes.
 app.use(routes);
+
+var authRoute = require("./controllers/authenticate.js")(app,passport);
+
+require("./config/passport.js")(passport, db.Users);
 
 //=================================== INITIATION =========================================
 
