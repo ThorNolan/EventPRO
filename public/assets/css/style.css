@@ -1,12 +1,33 @@
 /* ================================== THOR ==================================================== */
 
+/* label focus color for contact form */
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #1191CC !important;
+   }
 
+.input-field input[type=email]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #1191CC !important;
+}
 
+.input-field input[type=password]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #1191CC !important;
+}
 
+/* label underline focus color for contact form */
+.input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1191CC !important;
+    box-shadow: 0 1px 0 0 #1191CC !important;
+}
 
+.input-field input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1191CC !important;
+    box-shadow: 0 1px 0 0 #1191CC !important;
+}
 
-
-
+.input-field input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1191CC !important;
+    box-shadow: 0 1px 0 0 #1191CC !important;
+}
 
 
 
