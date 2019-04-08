@@ -1,7 +1,7 @@
 {
   "name": "Amazing-App",
   "version": "1.0.0",
-  "description": "Our second project for our full-stack bootcamp. A party planning app! MILLION DOLLAR IDEA!",
+  "description": "An event planning app for organizing events and keeping track of to-do's.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,6 +25,7 @@
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.42.0"
+    "sequelize": "^4.42.0",
+    "bcrypt": "^3.0.5"
   }
 }
