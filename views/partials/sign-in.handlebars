@@ -1,6 +1,6 @@
-<div class="valign-wrapper row login-box">
+<div class="valign-wrapper row signin-box">
     <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-        <form>
+        <form id="signin" name="signin" method="post" action="/signin">
             <div class="card-content">
                 <span class="card-title center">Log In</span>
 
@@ -8,13 +8,13 @@
 
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="user_name" type="text" class="validate">
-                        <label for="user_name" class="center-align">Username</label>
+                        <input id="username" name="username" type="text" class="validate" required/>
+                        <label for="username" class="center-align">Username</label>
                     </div>  
                     
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
-                        <input id="user_pass" type="password">
+                        <input id="userpassword" name="password" type="password" required/>
                         <label for="password">Password</label>         
                     </div>
 

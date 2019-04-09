@@ -1,6 +1,6 @@
 <div class="valign-wrapper row signup-box">
     <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-        <form>
+        <form id="register" name="register" method="post" action="/register">
             <div class="card-content">
                 <span class="card-title center">Sign Up</span>
 
@@ -8,25 +8,25 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="user_name" type="text" class="validate">
-                    <label for="user_name" class="center-align">Username</label>
+                    <input id="username" type="text" class="validate" required/>
+                    <label for="username" class="center-align">Username</label>
                 </div>  
                 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">mail</i>
-                    <input id="user_email" type="email" class="validate">
-                    <label for="user_email" class="center-align">Email</label>
+                    <input id="useremail" type="email" class="validate" required/>
+                    <label for="useremail" class="center-align">Email</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
-                    <input id="user_passw" type="password" class="validate">
+                    <input id="user_passw" type="password" class="validate" minlength="7" required/>
                     <label for="user_passw">Password</label>
                 </div>
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
-                    <input id="confirm_pass" type="password">
+                    <input id="confirm_pass" type="password" minlength="7" required/>
                     <label for="confirm_pass">Confirm password</label>
                 </div>
 
