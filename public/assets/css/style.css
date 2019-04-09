@@ -1,34 +1,41 @@
 /* ================================== THOR ==================================================== */
 
-/* label focus color for contact form */
+/* label focus color for contact form and icons*/
 .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #1191CC !important;
+    color: #039be5 !important;
    }
 
 .input-field input[type=email]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #1191CC !important;
+    color: #039be5 !important;
 }
 
 .input-field input[type=password]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #1191CC !important;
+    color: #039be5 !important;
+}
+
+.input-field > i:hover {
+    color: #039be5 !important;
+}
+
+.input-field .prefix.active {
+    color: #039be5 !important;  
 }
 
 /* label underline focus color for contact form */
 .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #1191CC !important;
-    box-shadow: 0 1px 0 0 #1191CC !important;
+    border-bottom: 1px solid #039be5 !important;
+    box-shadow: 0 1px 0 0 #039be5 !important;
 }
 
 .input-field input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #1191CC !important;
-    box-shadow: 0 1px 0 0 #1191CC !important;
+    border-bottom: 1px solid #039be5 !important;
+    box-shadow: 0 1px 0 0 #039be5 !important;
 }
 
 .input-field input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #1191CC !important;
-    box-shadow: 0 1px 0 0 #1191CC !important;
+    border-bottom: 1px solid #039be5 !important;
+    box-shadow: 0 1px 0 0 #039be5 !important;
 }
-
 
 
 
