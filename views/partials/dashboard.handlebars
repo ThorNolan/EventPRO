@@ -1,85 +1,109 @@
 <nav>
-    <div class="nav-wrapper light-blue darken-3">
-        <div id="mySidenav" class="eventSidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="nav-wrapper  teal darken-4">
+      <div id="mySidenav" class="eventSidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-            <img id="koala"
-                src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
-            <p class="center">You have been logged in!</p>
-            <a href="#">About</a>
-            <a href="#">Mission</a>
-            <a href="#">Team</a>
-        </div>
+        <img id="koala"
+          src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
+        <p class="center">You have been logged in!</p>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Mission</a>
+        <a href="#">Team</a>
+      </div>
 
-        <span id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-        <a href="#" class="brand-logo center">Event Pro</a>
-        <a href="#" id="logout" class="right">Log out</a>
+      <span class="shadow" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+      <a href="#" class="brand-logo center shadow">Event Pro</a>
+      <a href="#" id="logout" class="right shadow">Log out</a>
     </div>
-</nav>
+  </nav>
 
-<div class="row">
-    <div class="col s12 m6 l3">
-
-    </div>
-
-
-</div>
-<div class="row">
+  <div class="row">
     <div class="col s12 m6 offset-m6 l4 offset-l2">
-        <img id="concertGoers"
-            src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 offset-m6 l4 offset-l2">
     </div>
     <div class="col s12 m6 offset-m6 l6 ">
-
-        <section class="objective">
-            <h2>Event Objective</h2>
-        </section>
-
+      <section class="objective">
+        <h4 class="white-text shadow text-darken-4">Your Events!</h4>
+        <button id="viewEvents" data-target="" class="btn ">View Ongoing Events</button>
+        <button id="viewPastEvents" data-target="" class="btn ">View Past Events</button>
+        <button id="createEvent" data-target="modal1" class="btn modal-trigger">Create Event</button>
+      </section>
     </div>
+  </div>
+  <div class="row">
     <div class="col s12 m6 offset-m6 l6 offset-l6">
-
-        <section class="tasks">
-            <h2>Event Tasks <i class="fas fa-tasks"></i></h2>
-
-        </section>
+      <section class="tasks">
+        <h4 class="white-text shadow text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
+        <p>Organize the big day by listing out your tasks. </p>
+        <button id="openTask" data-target="task" class="btn ">View Open Tasks</button>
+          <div>
+              <ul>
+                  {{#each tasks}}
+                    {{#unless complete}}
+                      {{tasktName}}
+                    {{/unless}}
+                    <button id="completedTask" class="btn ">Completed </button>
+                  {{/each}}
+                </ul>
+          </div>
+        <button id="completedTask" data-target="task" class="btn ">View Completed Tasks</button>
+        <div class="entry">
+            <ul>
+                {{#each tasks}}
+                  {{#if complete}}
+                    {{tasktName}}
+                  {{/if}}
+                {{/each}}
+              </ul>
+          </div>
+        <button id="createTask" data-target="modal1" class="btn modal-trigger">Create Task</button>
+      </section>
     </div>
-    <div class="col s12 m6 offset-m6 l6 offset-l6">
-
+  </div>
+  <div class="row">
+      <div class="col s12 m6 offset-m6 l4 offset-l2">
+      </div>
     </div>
-    <div class="col s12 m6 offset-m6 l6 offset-l6">
 
-    </div>
-</div>
+  <container>
 
 
-<container>
+    
+    <i class="fas fa-birthday-cake"></i>
+  </container>
 
-
-    <button data-target="modal1" class="btn modal-trigger">Create Event</button>
-
-</container>
+  
 
 
 
 
-
-<script>
+  <script>
     function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("mySidenav").style.width = "250px";
     }
 
     function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("mySidenav").style.width = "0";
     }
     /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
     function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     }
     function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-        document.body.style.backgroundColor = "white";
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+      document.body.style.backgroundColor = "white";
     }
-</script>
+
+  </script>
+
+
+
+</body>
