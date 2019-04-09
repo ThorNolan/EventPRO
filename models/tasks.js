@@ -9,26 +9,23 @@ var Tasks = sequelize.define("Tasks", {
         allowNull: false,
         // len is a validation that checks that our todo is between 1 and 140 characters
         validate: {
-            len: [1, 300]
+            len: [1, 250]
         }
     },
 
     taskType: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
         // AllowNull is a flag that restricts a todo from being entered if it doesn't
         // have a text value
-        allowNull: false,
-        // len is a validation that checks that our todo is between 1 and 140 characters
-        validate: {
-            len: [1, 300]
+        defaultValue: true,
         }
-    },
+    ,
     importance: {
         type: Sequelize.STRING,
         // AllowNull is a flag that restricts a todo from being entered if it doesn't
         // have a text value
         validate: {
-            len: [1, 300]
+            len: [1, 250]
         }
     },
     taskDate: {
@@ -38,7 +35,7 @@ var Tasks = sequelize.define("Tasks", {
         allowNull: false,
     },
 
-    eventStatus: {
+    taskStatus: {
         type: Sequelize.BOOLEAN,
         // defaultValue is a flag that defaults a new todos complete value to false if
         // it isn't supplied one
