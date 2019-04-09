@@ -25,7 +25,7 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
 
 + **Handlebars** for templating and generating HTML content.
 
-+ **Materialize.css** as a CSS framework styling.
++ **Materialize.css** as a CSS framework for applying styles and using components based on Google's Material UI.
 
 + **JavaScript** for the app's logic.
   
@@ -41,7 +41,7 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
 
 
     
-## Authors 
+## 🔗 Authors 
 
 + Melanie Marsollier—https://github.com/Mel-Marsollier=
 + Nick Tom—https://github.com/nicky2quicky
