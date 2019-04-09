@@ -4,24 +4,26 @@
             
 
 <div class="row">
-<form class="col s12">
-        
-        
-                
+<form class="col s12">  
             <div class="input-field col s12">
                 <input disabled-value="Text" id="event-name" type="text" class="validate">
                 <label for="disabled">Name of Event</label>
-            </div>
-            
-        </form>
-        
+            </div>     
+        </form>       
         </div>
 
+
+<div class="row">
+<form class="col s12">  
+        <label for="disabled">Date of Event</label>   
+    <input type="text" class="datepicker">
+        </form>       
+        </div>
 
 
             <div class="row">
                     
-            <div class="input-field col s12">
+            <div class="input-field col s12" id="q1">
                 <select>
                     <option value="" disabled selected>Select the Event</option>
                     <option value="1">Birthday</option>
@@ -40,14 +42,14 @@
             <div class="row">
                     <form class="col s12">
                 <div class="input-field col s12">
-                    <input disabled-value="Number" id="number-attendees" type="text" class="validate">
+                    <input disabled-value="Number" id="q2" type="text" class="validate">
                     <label for="disabled">Number of Attendees</label>
                 </div>
             </form>
                 </div>
 
                 <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12" id="q3">
                     <select>
                         <option value="" disabled selected>Time of Day</option>
                         <option value="1">Brunch/Breakfast</option>
@@ -60,7 +62,7 @@
             </div>
 
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12" id="q4">
                     <select>
                         <option value="" disabled selected>Attire Type</option>
                         <option value="1">Casual</option>
@@ -73,7 +75,7 @@
             </div>
 
 
-            <div class="row">
+            <div class="row" id="q5">
                     <form action="#">
                         <p>Is this a themed party?</p>
                             <p>
@@ -92,7 +94,7 @@
     
                 </div>
 
-                <div class="row">
+                <div class="row" id="q6">
                         <form action="#">
                             <p>Do you require food?</p>
                                 <p>
@@ -111,7 +113,7 @@
         
                     </div>
 
-                    <div class="row">
+                    <div class="row" id="q7">
                             <form action="#">
                                 <p>Do you require decorations?</p>
                                     <p>
@@ -130,7 +132,7 @@
             
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="q8">
                                 <form action="#">
                                     <p>Do you require cake/dessert?</p>
                                         <p>
@@ -151,57 +153,57 @@
 
          
 
-            <div class="row">
+            <div class="row" id="q9">
                 <form action="#">
                     <label>Alcohol/Beverages (Select All That Apply)</label>
                     <p>
                         <label>
-                            <input type="checkbox" />
-                            <span>Beer</span>
+                            <input type="checkboxBeer" />
+                            <span value="1">Beer</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" />
-                            <span>Wine</span>
+                            <input type="checkboxWine" />
+                            <span value="2">Wine</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" />
-                            <span>Tequila</span>
+                            <input type="checkboxTequila" />
+                            <span value="3">Tequila</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" />
-                            <span>Rum</span>
+                            <input type="checkboxRum" />
+                            <span value="4">Rum</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input type="checkbox" />
-                            <span>Vodka</span>
+                            <input type="checkboxVodka" />
+                            <span value="5">Vodka</span>
                         </label>
                     </p>
                     <div class="input-field col s12">
-                        <input disabled-value="beverage1" id="number-attendees" type="text" class="validate">
+                        <input disabled-value="beverage1" id="additional-beverage1" type="text" class="validate">
                         <label for="disabled">Other #1</label>
                     </div>
                     <div class="input-field col s12">
-                        <input disabled-value="beverage2" id="number-attendees" type="text" class="validate">
+                        <input disabled-value="beverage2" id="additional-beverage2" type="text" class="validate">
                         <label for="disabled">Other #2</label>
                     </div>
                     <div class="input-field col s12">
-                        <input disabled-value="beverage3" id="number-attendees" type="text" class="validate">
+                        <input disabled-value="beverage3" id="additional-beverage3" type="text" class="validate">
                         <label for="disabled">Other #3</label>
                     </div>
                     <div class="input-field col s12">
-                        <input disabled-value="beverage4" id="number-attendees" type="text" class="validate">
+                        <input disabled-value="beverage4" id="additional-beverage4" type="text" class="validate">
                         <label for="disabled">Other #5</label>
                     </div>
                     <div class="input-field col s12">
-                        <input disabled-value="beverage5" id="number-attendees" type="text" class="validate">
+                        <input disabled-value="beverage5" id="additional-beverage5" type="text" class="validate">
                         <label for="disabled">Other #5</label>
                     </div>
                 </form>
@@ -213,3 +215,5 @@
         
             </div>
         </div>
+            
+

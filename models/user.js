@@ -10,7 +10,7 @@ var Users = sequelize.define("Users", {
         allowNull: false,
         // len is a validation that checks that our todo is between 1 and 140 characters
         validate: {
-            len: [1, 300]
+            len: [1, 250]
         }
     },
 
@@ -21,7 +21,7 @@ var Users = sequelize.define("Users", {
         allowNull: false,
         // len is a validation that checks that our todo is between 1 and 140 characters
         validate: {
-            len: [1, 300]
+            len: [1, 250]
         }
     },
 
