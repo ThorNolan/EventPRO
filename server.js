@@ -39,11 +39,13 @@ app.set('view engine', 'handlebars');
 //=================================== ROUTING ===========================================
 
 // Import routes from controllers and give the server access to them.
-var routes = require('./controllers');
+var routes = require('./controllers/authcontroller.js');
+var routes2 = require('./controllers/authenticate.js');
 // MORE ROUTES HERE
 
 // Tell our app to use the imported routes.
 app.use(routes);
+app.use(routes2);
 
 //================================ PASSPORT CONFIG =======================================
 
