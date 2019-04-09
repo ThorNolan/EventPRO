@@ -54,7 +54,7 @@ app.use(routes3);
 // Import authentication.js file.
 var authRoute = require('./controllers/authenticate.js')(app,passport);
 
-// Require config file for configuring passport methods from the server.
+// Import passport strategies to the server.
 require('./config/passport.js')(passport, db.Users);
 
 // Enable CORS to prevent access issues in different browsers.
