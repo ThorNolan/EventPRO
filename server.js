@@ -39,20 +39,16 @@ app.set('view engine', 'handlebars');
 //=================================== ROUTING ===========================================
 
 // Import routes from controllers and give the server access to them.
-var routes = require('./controllers/authcontroller.js');
-var routes2 = require('./controllers/authenticate.js');
+var routes2 = require('./routes/auth.js');
 var routes3 = require('./routes/routes.js');
 // MORE ROUTES HERE
 
 // Tell our app to use the imported routes.
-app.use(routes);
+// app.use(routes);
 app.use(routes2);
 app.use(routes3);
 
 //================================ PASSPORT CONFIG =======================================
-
-// Import authentication.js file.
-var authRoute = require('./controllers/authenticate.js')(app,passport);
 
 // Import passport strategies to the server.
 require('./config/passport.js')(passport, db.Users);
