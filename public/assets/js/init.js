@@ -155,8 +155,66 @@ $(".delEvent").on("click", function(){
 //------------ Nick ------------------------//
 
 
+$(document).ready(function(){
+    $('.modal').modal();
+    $('input#input_text, textarea#textarea2').characterCounter();
+    $('select').formSelect();
+    $('.datepicker').datepicker();
+    $('#textarea1').val('New Text');
+  M.textareaAutoResize($('#textarea1'));
+});
+
+$("#submit").on("click", function(event) {
+    event.preventDefault();
+
+    // Conditional for form validation checks for any empty input areas, which will set my formCompleted variable to false
+    var formCompleted = true;
+
+    if ($("#event-name").val() === "" || $("#date").val() === "") {
+        formCompleted = false;
+    }
+
+    if (formCompleted) {
+
+        // Grab all survey responses and store them in an object
+        var newEvent = {
+            name: $("#event-name").val().trim(),
+            responses: [
+                $("date").val(),
+                $("#q1").val(),
+                $("#q2").val().trim(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+            ]
+        };
+    
+        console.log(newEvent);
+
+        // Post request for the newEvent object that also returns data from about their best match calculated on the apiRoutes.js
+        $.post("/api/tasks/create", newEvent, function(data) {
+                // Trigger my modal popup with info about the match found for the user
+                $("#createdEvent").html(data.name);
+                $("#createdDate").text(data.response[0]);
+                $("#createdType").text(data.response[1]);
+                $("#createdAttendees").text(data.response[2]);
+                $("#createdTimeOfDay").text(data.response[3]);
+                $("#createdAttire").text(data.response[4]);
+                $("#createdThemed").text(data.response[5]);
+                $("#createdFood").text(data.response[6]);
+                $("#createdDecorations").text(data.response[7]);
+                $("#createdAlcohol").text(data.response[8]);
 
 
+            });
+    } else {
+        // Alert user if they failed to respond to all form elements
+        alert("⚠️ Please complete the Event Name and Date before submitting! ⚠️");
+    }
+    });
 
 
 
