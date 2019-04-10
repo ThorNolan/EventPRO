@@ -64,8 +64,8 @@ app.use((req, res, next) => {
 
 // Enable session to allow for persistent logins.
 app.use(session({
-  key: '',
-  secret: '',
+  key: 'user_sid',
+  secret: process.env.PASSPORT_SECRET,
   resave: true,
   saveUninitialized: false,
   cookie: {
@@ -74,7 +74,7 @@ app.use(session({
   }
 }));
 
-// Initialize passport and tell our app to use sessions.
+// Initialize passport and tell our app to use session.
 app.use(passport.initialize());
 app.use(passport.session());
 

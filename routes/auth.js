@@ -1,36 +1,35 @@
 // Import our authentication controller
 var authController = require("../controllers/authcontroller");
 
+// These routes all correspond to actions taken when signing up/registering or signing in to the app.
 module.exports = function(app, passport) {
-    app.get('/register', authController.register);
+    app.get('/api/register', authController.register);
 
-    app.get('/signin', authController.signin);
+    app.get('/api/signin', authController.signin);
 
-    app.post('/register', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
+    app.post('/api/register', passport.authenticate('local-signup', {
+        successRedirect: '/api/dashboard',
 
-        failureRedirect: '/register'
+        failureRedirect: '/api/register'
     }));
 
-    app.get('/dashboard', isLoggedIn, authController.dashboard);
+    app.get('/api/dashboard', isLoggedIn, authController.dashboard);
 
-    app.get('/logout', authController.logout);
+    app.get('/api/logout', authController.logout);
 
-    app.post('/register', passport.authenticate('local-signin', {
-        successRedirect: '/dashboard',
+    app.post('/api/register', passport.authenticate('local-signin', {
+        successRedirect: '/api/dashboard',
 
-        failureRedirect: '/signin'
+        failureRedirect: '/api/signin'
     }));
 
 
     function isLoggedIn(req, res, next) {
-
         if (req.isAuthenticated())
 
             return next();
 
-        res.redirect('/signin');
-
+        res.redirect('/api/signin');
     }
 
 }
