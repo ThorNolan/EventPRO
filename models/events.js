@@ -26,61 +26,55 @@ module.exports = function (sequelize, Sequelize) {
 
         eventDate: {
             type: Sequelize.DATE,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+          
             allowNull: false,
         },
 
         eventStatus: {
             type: Sequelize.BOOLEAN,
-            // defaultValue is a flag that defaults a new todos complete value to false if
-            // it isn't supplied one
+           
             defaultValue: true,
         },
         dress: {
             type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+        
         },
 
 
         attendees: {
-            type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+            type: Sequelize.INTEGER,
+            
         },
 
         themed: {
-            type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+            type: Sequelize.BOOLEAN,
+         
         },
 
         food: {
-            type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+            type: Sequelize.BOOLEAN,
+        
         },
 
 
         decorations: {
-            type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+            type: Sequelize.BOOLEAN,
+            
         },
 
         cake: {
-            type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+            type: Sequelize.BOOLEAN,
+            
         },
 
         alcohol: {
             type: Sequelize.STRING,
-            // AllowNull is a flag that restricts a todo from being entered if it doesn't
-            // have a text value
+            
         },
 
+        timeOfDay: {
+            type: Sequelize.TIME
+          }
 
     });
 
