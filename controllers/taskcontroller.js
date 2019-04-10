@@ -11,31 +11,17 @@ module.exports = {
             console.log(err)
         })
     },
-    viewComplete: function(req, res){
+    viewAll: function(req, res){
         db.Tasks
-        .findAll({
-            where: {
-                taskStatus: 1
-            }
-        })
+        .findAll()
         .then(function(result){
-            res.json(result)
+            var taskobj = {
+                tasks: result
+            }
+            return res.render("dashboard", taskobj)
+            // res.json(result)
         })
         .catch(function(err) {
-            console.log(err)
-        })
-    },
-    viewOpen: function(req, res){
-        db.Tasks
-        .findAll({
-            where: {
-                taskStatus: 0
-            }
-        })
-        .then(function(result){
-            res.json(result)
-        })
-        .catch(function(req, res) {
             console.log(err)
         })
     },
