@@ -1,5 +1,5 @@
 # EventPRO
-Our second project for our full-stack bootcamp. An event planning app!
+Our second project for our full-stack bootcamp, EventPRO is an event planning application that provides users with a centralized location to create and manage to-do’s around their upcoming events. Users can log-in to the app, and their login data will be stored (and their password encrypted with bcrypt!) so that they can log back in when revisiting the app and have immediate access to all of their events and to-do's. From their dashboard, they can manage tasks and add and modify items, select past events, and order and mark tasks based on priority. Whether it’s a birthday party or an after work social function, EventPRO’s got you covered.
 
 ![demo gif]( "demo gif of EventPRO in action")
 
@@ -23,7 +23,7 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
 
 + **HTML5** and **CSS3** for page content and styling.
 
-+ **Handlebars** for templating and generating HTML content.
++ **Handlebars** for templating and generating HTML content, served up through our routes from our server.
 
 + **Materialize.css** as a CSS framework for applying styles and using components based on Google's Material UI.
 
@@ -31,9 +31,18 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
   
 + **Node.JS** for the app's server environment.
 
-+ **NPM** for installation of the **express**, **mysql**, and **express-handlebars** packages required by the app.
++ **NPM** for installation of the packages required by the app:
+  + **express**
+  + **express-session**
+  + **express-handlebars**
+  + **mysql2**
+  + **sequelize**
+  + **passport**
+  + **passport-local**
+  + **dotenv**
+  + **bcrypt**
   
-+ **MySQL** for database creation and data persistence.
++ **MySQL** for database creation and storing persistent data.
   
 + **Heroku** for live deployment and hosting.
 
