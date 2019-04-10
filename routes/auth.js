@@ -1,5 +1,5 @@
 // Import our authentication controller
-var authController = require("./authcontroller.js");
+var authController = require("../controllers/authcontroller");
 
 module.exports = function(app, passport) {
     app.get('/register', authController.register);

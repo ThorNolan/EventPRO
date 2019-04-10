@@ -18,7 +18,7 @@ module.exports = function(passport, user) {
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
 
-        function(req, email, password, done) {
+        function(req, username, password, done) {
  
             var generateHash = function(password) {
  
@@ -28,13 +28,13 @@ module.exports = function(passport, user) {
  
             User.findOne({
                 where: {
-                    email: email
+                    username: username
                 }
             }).then(function(user) {
                 if (user) {
 
                     return done(null, false, {
-                        message: 'That email is already taken!'
+                        message: 'That username is already taken!'
                     });
 
                 } else {
@@ -44,14 +44,12 @@ module.exports = function(passport, user) {
                     var data =
  
                         {
+                            username: req.body.username,
+
                             email: email,
  
                             password: userPassword,
- 
-                            firstname: req.body.firstname,
- 
-                            lastname: req.body.lastname
- 
+  
                         };
  
                     User.create(data).then(function(newUser, created) {
@@ -67,15 +65,12 @@ module.exports = function(passport, user) {
                             return done(null, newUser);
  
                         }
- 
                     });
- 
                 }
  
             });
  
         }
-     
     ));
 
     // Local sign-in strategy
@@ -83,9 +78,7 @@ module.exports = function(passport, user) {
     
         {
     
-            // by default, local strategy uses username and password, we will override with email
-    
-            usernameField: 'email',
+            usernameField: 'username',
     
             passwordField: 'password',
     
@@ -94,10 +87,11 @@ module.exports = function(passport, user) {
         },
     
     
-        function(req, email, password, done) {
+        function(req, username, password, done) {
     
             var User = user;
     
+            // Checks if input password matches stored, hashed password using bCrypt
             var isValidPassword = function(userpass, password) {
     
                 return bCrypt.compareSync(password, userpass);
@@ -106,14 +100,14 @@ module.exports = function(passport, user) {
     
             User.findOne({
                 where: {
-                    email: email
+                    username: username
                 }
             }).then(function(user) {
     
                 if (!user) {
     
                     return done(null, false, {
-                        message: 'Email does not exist'
+                        message: 'Username does not exist'
                     });
     
                 }
@@ -121,7 +115,7 @@ module.exports = function(passport, user) {
                 if (!isValidPassword(user.password, password)) {
     
                     return done(null, false, {
-                        message: 'Incorrect password.'
+                        message: 'Incorrect password!'
                     });
     
                 }
@@ -136,7 +130,7 @@ module.exports = function(passport, user) {
                 console.log("Error:", err);
     
                 return done(null, false, {
-                    message: 'Something went wrong with your Signin'
+                    message: 'Sorry, something went wrong with your sign-in'
                 });
     
             });
