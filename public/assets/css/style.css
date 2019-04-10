@@ -1,6 +1,6 @@
 /* ================================== THOR ==================================================== */
 
-/* label focus color for contact form and icons*/
+/* label focus color for forms and icons*/
 .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
     color: #039be5 !important;
    }
@@ -21,7 +21,7 @@
     color: #039be5 !important;  
 }
 
-/* label underline focus color for contact form */
+/* label underline focus color for forms */
 .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #039be5 !important;
     box-shadow: 0 1px 0 0 #039be5 !important;
@@ -38,8 +38,15 @@
 }
 
 
+.signin-card, .register-card {
+    border-radius: 1.75%;
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+}
 
-
+.signin-card input, select, textarea, .register-card input, select, textarea{
+    color: white;
+}
 
 
 /* ================================== THOR ==================================================== */

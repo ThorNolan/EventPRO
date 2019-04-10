@@ -39,13 +39,13 @@ app.set('view engine', 'handlebars');
 //=================================== ROUTING ===========================================
 
 // Import routes from controllers and give the server access to them.
-var routes2 = require('./routes/auth.js');
+require('./routes/auth.js')(app, passport);
 var routes3 = require('./routes/routes.js');
 // MORE ROUTES HERE
 
 // Tell our app to use the imported routes.
 // app.use(routes);
-app.use(routes2);
+// app.use(routes2);
 app.use(routes3);
 
 //================================ PASSPORT CONFIG =======================================
@@ -65,7 +65,7 @@ app.use((req, res, next) => {
 // Enable session to allow for persistent logins.
 app.use(session({
   key: 'user_sid',
-  secret: process.env.PASSPORT_SECRET,
+  secret: 'keyboard cat',//process.env.PASSPORT_SECRET,
   resave: true,
   saveUninitialized: false,
   cookie: {
