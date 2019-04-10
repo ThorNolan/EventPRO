@@ -178,17 +178,18 @@ $("#submit").on("click", function(event) {
 
         // Grab all survey responses and store them in an object
         var newEvent = {
-            name: $("#event-name").val().trim(),
+            name: $("#eventName").val().trim(),
             responses: [
-                $("date").val(),
-                $("#q1").val(),
-                $("#q2").val().trim(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
+                $("#eventDate").val(),
+                $("#eventType").val(),
+                $("#attendees").val().trim(),
+                $("#timeOfDay").val(),
+                $("#dress").val(),
+                $("#themed").val(),
+                $("#food").val(),
+                $("#decorations").val(),
+                $("#cake").val(),
+                $("alcohol").val(),
             ]
         };
     
