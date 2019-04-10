@@ -30,7 +30,7 @@ module.exports = function(passport, user) {
  
         {
             usernameField: 'username',
-            passwordField: 'password',
+            passwordField: 'userpassword',
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
 
@@ -60,11 +60,11 @@ module.exports = function(passport, user) {
  
                     var data =
                         {
-                            username: req.body.username,
+                            userName: username,
 
-                            email: email,
+                            //email: email,
  
-                            password: userPassword,
+                            userPassword: userPassword,
   
                         };
  

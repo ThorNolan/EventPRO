@@ -1,6 +1,6 @@
 <div class="valign-wrapper row signin-box">
     <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 signin-card">
-        <form id="signin" name="signin" method="post" action="/api/signin">
+        <form id="signin" name="signin" method="post" action="/signin">
             <div class="card-content">
                 <span class="card-title center">Log In</span>
 
@@ -14,7 +14,7 @@
                     
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
-                        <input id="userpassword" name="password" type="password" required/>
+                        <input id="userpassword" name="userpassword" type="password" required/>
                         <label for="password">Password</label>         
                     </div>
 
@@ -23,11 +23,11 @@
 
             <div class="card-action center-align">
                 <div class="input-field col s12 center-align">
-                    <a href="/api/dashboard" class="btn waves-effect waves-light light-blue darken-1 col s12 center">Start Planning</a>
+                    <button type="submit" class="btn waves-effect waves-light light-blue darken-1 col s12 center">Start Planning</button>
                 </div>
                      
                 <div class="input-field col s12 center-align">
-                    <p class="margin center medium-small sign-up">First time here? <a href="/api/register">Sign Up!</a></p>
+                    <p class="margin center medium-small sign-up">First time here? <a href="/register">Sign Up!</a></p>
                 </div>               
             </div>
         </form>
