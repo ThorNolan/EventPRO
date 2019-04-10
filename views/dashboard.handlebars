@@ -1,112 +1,133 @@
 <nav>
-    <div class="nav-wrapper  teal darken-4">
-      <div id="mySidenav" class="eventSidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="nav-wrapper  teal darken-4">
+    <div id="mySidenav" class="eventSidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-        <img id="koala"
-          src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
-        <p class="center">You have been logged in!</p>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Mission</a>
-        <a href="#">Team</a>
-      </div>
-
-      <span class="shadow" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-      <a href="#" class="brand-logo center shadow">Event Pro</a>
-      <a href="#" id="logout" class="right shadow">Log out</a>
+      <img id="koala"
+        src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
+      <p class="center">You have been logged in!</p>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Mission</a>
+      <a href="#">Team</a>
     </div>
-  </nav>
 
-  <div class="row">
-    <div class="col s12 m6 offset-m6 l4 offset-l2">
+    <span class="shadow" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <a href="#" class="brand-logo center shadow">Event Pro</a>
+    <a href="#" id="logout" class="right shadow">Log out</a>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col s12 m6 offset-m6 l4 offset-l2">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s12 m6 offset-m6 l4 offset-l2">
+  </div>
+  <div class="col s12 m6 offset-m6 l6 ">
+    <section class="objective">
+      <h4 class="white-text shadow text-darken-4">Your Events!</h4>
+      <button id="viewEvents" data-target="" class="btn ">View Ongoing Events</button>
+      <button id="viewPastEvents" data-target="" class="btn ">View Past Events</button>
+      <button id="createEvent" data-target="modal1" class="btn modal-trigger">Create Event</button>
+    </section>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m6 offset-m6 l6 offset-l6">
+    <section class="tasks">
+      <h4 class="white-text shadow text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
+      <p>Organize the big day by listing out your tasks. </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col s10 m2 l6 "> </div>
+  <div class="col s10 m5 l3 ">
+    <button id="openTask" data-target="task" class="btn ">View Open Tasks</button>
+    <h4>Open Tasks</h4>
+    <div>
+      <ul>
+        {{#each tasks}}
+        {{#unless complete}}
+        {{taskName}}
+        {{/unless}}
+        <button id="completedTask" class="completed">Completed </button>
+        <button class=".delTask ">Delete </button>
+        {{/each}}
+      </ul>
+    </div>
+    </section>
+  </div>
+  <div class="col s10 m5 l3 ">
+    <button id="completedTask" data-target="task" class="btn ">View Completed Tasks</button>
+    <div class="entry">
+      <h4>Closed Tasks</h4>
+      <ul>
+        {{#each tasks}}
+        {{#if complete}}
+        {{taskName}}
+        {{/if}}
+        <button class=".reopen">Reopen</button>
+        <button class=".delTask">Delete </button>
+        {{/each}}
+      </ul>
     </div>
   </div>
-
-  <div class="row">
-    <div class="col s12 m6 offset-m6 l4 offset-l2">
-    </div>
-    <div class="col s12 m6 offset-m6 l6 ">
-      <section class="objective">
-        <h4 class="white-text shadow text-darken-4">Your Events!</h4>
-        <button id="viewEvents" data-target="" class="btn ">View Ongoing Events</button>
-        <button id="viewPastEvents" data-target="" class="btn ">View Past Events</button>
-        <button id="createEvent" data-target="modal1" class="btn modal-trigger">Create Event</button>
-      </section>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12 m6 offset-m6 l6 offset-l6">
-      <section class="tasks">
-        <h4 class="white-text shadow text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
-        <p>Organize the big day by listing out your tasks. </p>
-        <button id="openTask" data-target="task" class="btn ">View Open Tasks</button>
-        <div>
-            <ul>
-                {{#each tasks}}
-                  {{#unless complete}}
-                    {{tasktName}}
-                  {{/unless}}
-                  <button id="completedTask" class="btn ">Completed </button>
-                {{/each}}
-              </ul>
-        </div>
-      <button id="completedTask" data-target="task" class="btn ">View Completed Tasks</button>
-      <div class="entry">
-          <ul>
-              {{#each tasks}}
-                {{#if complete}}
-                  {{tasktName}}
-                {{/if}}
-              {{/each}}
-            </ul>
-        </div>
-        <button id="createTask" data-target="modal1" class="btn modal-trigger">Create Task</button>
+</div>
+<div class="row">
+  <div class="col s12 l6 "></div>
+  <div class="col s12 m6 offset-m3 l6 ">
+    <button id="createTask" data-target="modal1" class="btn modal-trigger">Create Task</button>
+    <div id="taskForm">
+      <form class="col s12">
         <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Task" id="newTask" type="text" class="validate">
-                  <label for="task_name">Task Name</label>
-                </div>
-              </div>
-            </form>
+
+          <p>Add a new Task</p>
+          <div class="input-field col s6">
+            <input placeholder="Task Name" id="newTask" type="text" class="validate">
+            <label for="task_name">Task Name</label>
           </div>
-      </section>
+          <button id="submitNewTask" data-target="modal1" class="btn modal-trigger">Submit Task</button>
+
+      </form>
     </div>
+    </section>
   </div>
-  <div class="row">
-      <div class="col s12 m6 offset-m6 l4 offset-l2">
-      </div>
-    </div>
+</div>
+<div class="row">
+  <div class="col s12 m6 offset-m6 l4 offset-l2">
+  </div>
+</div>
 
-  <container>
+<container>
 
 
-    
-    <i class="fas fa-birthday-cake"></i>
-  </container>
 
-  
+  <i class="fas fa-birthday-cake"></i>
+</container>
 
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-    }
 
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-    }
-    /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft = "0";
-      document.body.style.backgroundColor = "white";
-    }
 
-  </script>
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
+  }
+
+</script>
