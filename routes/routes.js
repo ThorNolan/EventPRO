@@ -8,10 +8,13 @@ router.get('/', function(req, res){
 //-------------- View Dashboard ----------------------------//
 router.get("/api/dashboard", function(req, res) {
     eventControllers.viewCurrentEvent(req, res);
+})
+
+router.get("/dashboard", function(req, res) {
     var dashboard = {
         dashboard: true
     }
-    res.render("index", dashboard)
+    res.render("dashboard")
 })
 
 //------------------- Task Routes --------------------------//
