@@ -6,9 +6,9 @@
       <img id="koala"
         src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
       <p class="center">You have been logged in!</p>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Mission</a>
+      <a href="#">Current Event</a>
+      <a href="#">Past Events</a>
+      <a class="modal-trigger" href="#modal1">Create Event</a>
       <a href="#">Team</a>
     </div>
 
@@ -32,6 +32,7 @@
       <button id="viewEvents" data-target="" class="btn ">View Ongoing Events</button>
       <button id="viewPastEvents" data-target="" class="btn ">View Past Events</button>
       <button id="createEvent" data-target="modal1" class="btn modal-trigger">Create Event</button>
+      <a class="waves-effect waves-light btn-large">Testing</a>
     </section>
   </div>
 </div>
@@ -42,11 +43,13 @@
       <p>Organize the big day by listing out your tasks. </p>
   </div>
 </div>
+
 <div class="row">
   <div class="col s10 m2 l6 "> </div>
   <div class="col s10 m5 l3 ">
     <button id="openTask" data-target="task" class="btn ">View Open Tasks</button>
-    <h4>Open Tasks</h4>
+    <h4 class="center">Open Tasks</h4>
+    <hr>
     <div>
       <ul>
         {{#each tasks}}
@@ -63,7 +66,8 @@
   <div class="col s10 m5 l3 ">
     <button id="completedTask" data-target="task" class="btn ">View Completed Tasks</button>
     <div class="entry">
-      <h4>Closed Tasks</h4>
+      <h4 class="center">Closed Tasks</h4>
+      <hr>
       <ul>
         {{#each tasks}}
         {{#if complete}}
@@ -76,10 +80,11 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <div class="col s12 l6 "></div>
   <div class="col s12 m6 offset-m3 l6 ">
-    <button id="createTask" data-target="modal1" class="btn modal-trigger">Create Task</button>
+    <button id="createTask" class="btn ">Create Task</button>
     <div id="taskForm">
       <form class="col s12">
         <div class="row">
@@ -89,7 +94,7 @@
             <input placeholder="Task Name" id="newTask" type="text" class="validate">
             <label for="task_name">Task Name</label>
           </div>
-          <button id="submitNewTask" data-target="modal1" class="btn modal-trigger">Submit Task</button>
+          <button id="submitNewTask" class="btn ">Submit Task</button>
 
       </form>
     </div>
@@ -108,6 +113,145 @@
   <i class="fas fa-birthday-cake"></i>
 </container>
 
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+
+
+
+    <div class="row">
+      <form class="col s12">
+        <div class="input-field col s12">
+          <input disabled-value="Text" id="eventName" type="text" class="validate">
+          <label for="disabled">Name of Event</label>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="row">
+      <form class="col s12">
+        <label for="disabled">Date of Event</label>
+        <input type="text" class="datepicker" id="eventDate">
+      </form>
+    </div>
+
+
+    <div class="row">
+
+      <div class="input-field col s12" id="eventType">
+        <select>
+          <option value="" disabled selected>Select the Event</option>
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
+          <option value="Work Party">Work Party</option>
+        </select>
+        <label>Event Type</label>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <form class="col s12">
+        <div class="input-field col s12">
+          <input disabled-value="Number" id="attendees" type="text" class="validate">
+          <label for="disabled">Number of Attendees</label>
+        </div>
+      </form>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12" id="timeOfDay">
+        <select>
+          <option value="" disabled selected>Time of Day</option>
+          <option value="Brunch/Breakfast">Brunch/Breakfast</option>
+          <option value="Day Time">Day Time</option>
+          <option value="Night Time">Night Time</option>
+          <option value="After Hours">After Hours</option>
+        </select>
+        <label>When time does the party begin?</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12" id="dress">
+        <select>
+          <option value="" disabled selected>Attire Type</option>
+          <option value="Casual">Casual</option>
+          <option value="Semi-Formal">Semi-Formal</option>
+          <option value="Formal">Formal</option>
+          <option value="Costume/Themed">Costume/Themed</option>
+        </select>
+        <label>Dress/Clothing Type</label>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="input-field col s12" id="themed">
+        <select>
+          <option value="" disabled selected>Is this a themed party?</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <label>Themed - Yes/No</label>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12" id="food">
+        <select>
+          <option value="" disabled selected>Do you require food?</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <label>Food Required? - Yes/No</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12" id="decorations">
+        <select>
+          <option value="" disabled selected>Do you require decorations?</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <label>Decorations? - Yes/No</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12" id="cake">
+        <select>
+          <option value="" disabled selected>Do you need cake/dessert?</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <label>Cake/Dessert? - Yes/No</label>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+       <div class="input-field col s12" id="alochol">
+        <select>
+          <option value="" disabled selected>Do you need alcohol?</option>
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <label>Alochol? - Yes/No</label>
+      </div>
+
+    </div>
+
+    <a class="waves-effect waves-light btn-large">Submit</a>
+
+
+  </div>
+</div>
 
 
 <script>
@@ -129,5 +273,6 @@
     document.getElementById("main").style.marginLeft = "0";
     document.body.style.backgroundColor = "white";
   }
+
 
 </script>
