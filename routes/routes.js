@@ -1,7 +1,9 @@
 var express = require("express")
 var router = express.Router();
 
-
+router.get('/', function(req, res){
+    res.render('sign-in')
+})
 
 //-------------- View Dashboard ----------------------------//
 router.get("/api/dashboard", function(req, res) {

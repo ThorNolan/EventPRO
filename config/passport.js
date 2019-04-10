@@ -5,6 +5,22 @@ var bcrypt = require('bcrypt');
 
 // The only strategy we will currently be exporting is local sign in and local register, though we may integrate more options later
 module.exports = function(passport, user) {
+
+    // Serialize user id for session.
+    passport.serializeUser(function(user, done) {
+        done(null, user.id);
+    });
+
+    // Deserialize for session.
+    passport.deserializeUser(function(id, done) {
+        User.findById(id).then(function(user) {
+            if (user) {
+                done(null, user.get());
+            } else {
+                done(user.errors, null);
+            }
+        });
+    });
     
     var User = user;
     var LocalStrategy = require('passport-local').Strategy;
@@ -84,7 +100,7 @@ module.exports = function(passport, user) {
     
             var User = user;
     
-            // Checks if input password matches stored, hashed password 
+            // Checks if input password matches stored, hashed password. 
             var isValidPassword = function(userpass, password) {
     
                 return bCrypt.compareSync(password, userpass);
@@ -97,6 +113,7 @@ module.exports = function(passport, user) {
                 }
             }).then(function(user) {
     
+                // Check to make sure username exists.
                 if (!user) {
     
                     return done(null, false, {
@@ -105,6 +122,7 @@ module.exports = function(passport, user) {
     
                 }
     
+                // Make sure input password is valid, and alert user if it isn't.
                 if (!isValidPassword(user.password, password)) {
     
                     return done(null, false, {
@@ -113,11 +131,11 @@ module.exports = function(passport, user) {
     
                 }
     
-    
+                // If inputs are valid, return success.
                 var userinfo = user.get();
                 return done(null, userinfo);
     
-    
+            // Account for potential errors. 
             }).catch(function(err) {
     
                 console.log("Error:", err);
@@ -128,6 +146,36 @@ module.exports = function(passport, user) {
     
             });
         }
-    
     ));
+
+    passportAuthenticate = (localStrategy, req, res, next) => {
+        passport.authenticate(localStrategy, function(err, user, info) {
+          if (err) {
+            return next(err); // will generate a 500 error
+          }
+          // Generate a JSON response reflecting authentication status
+          if (! user) {
+            return res.send({ success : false, message : 'authentication failed' });
+          } else {
+            req.login(user, loginErr => {
+              if (loginErr) {
+                console.log("loginerr", loginErr)
+                return next(loginErr);
+              }
+              console.log("\n====================");
+              console.log(req.isAuthenticated());
+              console.log('sucess');
+              console.log(req.session.passport.user);
+              console.log("===================");
+              console.log("\n")
+      
+              res.cookie('username', user.username );
+              res.cookie('authenticated', "true" );
+      
+              return res.json(true);
+            });
+          }
+        })(req, res, next);
+      }
+      
 }
