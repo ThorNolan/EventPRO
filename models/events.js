@@ -39,26 +39,39 @@ var Events = sequelize.define("Events", {
     },
 
 
-    taskId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: 'Tasks', // Can be both a string representing the table name or a Sequelize model
-            key: 'id'
-        }
-    }
-    ,
+    // taskId: {
+    //     type: Sequelize.INTEGER,
+    //     allowNull: false,
+    //     references: {
+    //         model: 'Tasks', // Can be both a string representing the table name or a Sequelize model
+    //         key: 'id'
+    //     }
+    // }
+    // ,
 
-    userId: {
-        type: Sequelize.INTEGER,
-        references: {
-            model: 'Users', // Can be both a string representing the table name or a Sequelize model
-            key: 'id'
-        }
-    }
-
-
+    // userId: {
+    //     type: Sequelize.INTEGER,
+    //     references: {
+    //         model: 'Users', // Can be both a string representing the table name or a Sequelize model
+    //         key: 'id'
+    //     }}
+    
 });
+
+Events.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    Events.hasMany(models.Tasks, {
+      onDelete: "cascade"
+    });
+    Events.belongsTo(models.Users, {
+        onDelete: "cascade",
+        foreignKey: {
+          allowNull: false}
+  
+      });
+  };
+
 
 return Events;
 };
