@@ -39,7 +39,7 @@ app.set('view engine', 'handlebars');
 //=================================== ROUTING ===========================================
 
 // Import routes from controllers and give the server access to them.
-require('./routes/auth.js')(app, passport);
+// require('./routes/auth.js')(app, passport);
 var routes3 = require('./routes/routes.js');
 // MORE ROUTES HERE
 
