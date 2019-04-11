@@ -223,9 +223,8 @@ $(document).ready(function () {
 //------------ Thor ------------------------//
 
 $(document).ready(function () {
-
     // Function for checking input passwords on register form to make sure they match
-    var password = document.getElementById("userpassword");
+    var password = document.getElementById("userpass");
     var confirm_password = document.getElementById("confirmpassword");
 
     function validatePassword() {
