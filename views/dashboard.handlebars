@@ -7,7 +7,7 @@
         src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
       <p class="center">You have been logged in!</p>
       <a href="#">Current Events</a>
-      <a href="#">Past Events</a>
+      <a id="viewPastEvents" href="#">Past Events</a>
       <a class="modal-trigger" href="#modal1">Create Event</a>
       <a href="#">Team</a>
     </div>
@@ -257,6 +257,8 @@ new Sortable(el2, {
    group: 'shared',
    animation: 150
 });
+
+
 
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";

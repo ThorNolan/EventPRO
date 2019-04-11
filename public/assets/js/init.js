@@ -6,6 +6,7 @@ $(document).ready(function () {
     // Hide Task Form
     $("#taskForm").hide()
 
+    // View current Events on Dashboard
     $.ajax({
         method: "GET",
         url: "/api/dashboard",
@@ -43,7 +44,7 @@ $(document).ready(function () {
                     <p>You want to have food.</p>
                     `)
                 }
-                if (data[i].themed=== true) {
+                if (data[i].themed === true) {
                     eventInfo.append(`
                     <p>You want to have a themed party.</p>
                     `)
@@ -60,7 +61,52 @@ $(document).ready(function () {
             console.log(data)
 
         });
+    // Create New Event
+    $("#submitSurvey").on("click", function (e) {
+        e.preventDefault();
+        var formIsValid = $("#createEventForm")[0].checkValidity();
+        console.log(formIsValid)
+        if (formIsValid) {
+            var eventData = {}
+            $('.eventInput').each(function () {
+                var value = $(this).val().trim();
+                var id = $(this).attr('id');
+                if (value !== null || value !== undefined) {
+                    value = value.trim()
+                    if (value.length > 0) {
+                        eventData[id] = value;
+                    }
+                }
+            });
 
+            $('.eventSelect').each(function () {
+
+                var value = $(this).val();
+                var id = $(this).attr('id');
+
+                if (value === null || value === undefined || value === "empty") {
+                    // not sure how to fix this issue with the selects !== not working
+                } else {
+                    value = value.trim()
+                    if (value.length > 0 && value !== undefined) {
+                        eventData[id] = value;
+                    }
+                }
+            })
+
+            console.log(eventData)
+
+            $.post("/api/event/new", eventData, function (res) {
+                console.log(res)
+                location.reload()
+            })
+        }
+        else {
+            return console.log("Form is not completed")
+        }
+
+
+    });
 
     //------------ Task CRUD------------------//
 
@@ -121,61 +167,7 @@ $(document).ready(function () {
     //------------ Event CRUD------------------//
 
 
-    // Create New Event
-    $("#submitSurvey").on("click", function (e) {
-        e.preventDefault();
-        var formIsValid = $("#createEventForm")[0].checkValidity();
-        console.log(formIsValid)
-        if (formIsValid) {
-            var eventData = {}
-            $('.eventInput').each(function () {
-                var value = $(this).val().trim();
-                var id = $(this).attr('id');
-                if (value !== null || value !== undefined) {
-                    value = value.trim()
-                    if (value.length > 0) {
-                        eventData[id] = value;
-                    }
-                }
-            });
 
-            $('.eventSelect').each(function () {
-
-                var value = $(this).val();
-                var id = $(this).attr('id');
-
-                if (value === null || value === undefined || value === "empty") {
-                    // not sure how to fix this issue with the selects !== not working
-                } else {
-                    value = value.trim()
-                    if (value.length > 0 && value !== undefined) {
-                        eventData[id] = value;
-                    }
-                }
-            })
-
-            console.log(eventData)
-
-            $.post("/api/event/new", eventData, function (res) {
-                console.log(res)
-                location.reload()
-            })
-        }
-        else {
-            return console.log("Form is not completed")
-        }
-        // var newEvent = {
-        //     eventName: $("#eventName").val().trim(),
-        //     eventType: "Birthday",
-        //     eventDate: "Urgent",
-        //     eventStatus: true,
-        //     taskID: 1,
-        //     userID: 1,
-        // }
-
-
-
-    });
 
 
     // View Current Event
@@ -183,8 +175,9 @@ $(document).ready(function () {
 
 
 
-    // View Past Event
+    // View Past Events
     $("#viewPastEvents").on("click", function () {
+        
         $.ajax({
             method: "GET",
             url: "/api/event/past",
@@ -264,6 +257,31 @@ $(document).ready(function () {
 
 
 //------------ Mel ------------------------//
+
+$(document).ready(function () {
+    // This WILL work because we are listening on the 'document', 
+    // for a click on an element with an ID of #test-element
+    $(document).on("getElementById", "#items", function () {
+
+        console.log('changing task');
+        var changeTask = {
+            taskName: $("#taskName").val().trim(),
+            taskStatus: false,
+        }
+        console.log('submit new task going to send');
+        $.ajax({
+            method: "PUT",
+            url: "/api/tasks/???",
+            body: changeTask
+        })
+            .then(function (data) {
+                console.log(data)
+            });
+        console.log('task has been modified');
+
+    });
+
+});
 
 
 //------------ Nick ------------------------//
