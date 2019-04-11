@@ -51,7 +51,7 @@
     <h4 class="center">Open Tasks</h4>
     <hr>
     <div>
-      <ul class="items">
+      <ul id="items">
         {{#each tasks}}
         {{#unless complete}}
         {{taskName}}
@@ -67,7 +67,7 @@
     <div class="entry">
       <h4 class="center">Closed Tasks</h4>
       <hr>
-      <ul class="items2">
+      <ul id="items2">
         {{#each tasks}}
         {{#if complete}}
         {{taskName}}
