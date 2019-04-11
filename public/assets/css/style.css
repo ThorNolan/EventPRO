@@ -2,39 +2,39 @@
 
 /* label focus color for forms and icons*/
 .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #039be5 !important;
+    color: #00B8A4 !important;
    }
 
 .input-field input[type=email]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #039be5 !important;
+    color: #00B8A4 !important;
 }
 
 .input-field input[type=password]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
-    color: #039be5 !important;
+    color: #00B8A4 !important;
 }
 
 .input-field > i:hover {
-    color: #039be5 !important;
+    color: #00B8A4 !important;
 }
 
 .input-field .prefix.active {
-    color: #039be5 !important;  
+    color: #00B8A4 !important;  
 }
 
 /* label underline focus color for forms */
 .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #039be5 !important;
-    box-shadow: 0 1px 0 0 #039be5 !important;
+    border-bottom: 1px solid #00B8A4 !important;
+    box-shadow: 0 1px 0 0 #00B8A4 !important;
 }
 
 .input-field input[type=password]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #039be5 !important;
-    box-shadow: 0 1px 0 0 #039be5 !important;
+    border-bottom: 1px solid #00B8A4 !important;
+    box-shadow: 0 1px 0 0 #00B8A4 !important;
 }
 
 .input-field input[type=email]:focus, .materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #039be5 !important;
-    box-shadow: 0 1px 0 0 #039be5 !important;
+    border-bottom: 1px solid #00B8A4 !important;
+    box-shadow: 0 1px 0 0 #00B8A4 !important;
 }
 
 
@@ -47,6 +47,34 @@
 .signin-card input, select, textarea, .register-card input, select, textarea{
     color: white;
 }
+
+.logo-div {
+    margin-top: 2.75%;
+    margin-bottom: 2.75%;
+}
+
+.logo-image {
+    z-index: 300;
+}
+
+/* background image for sign-in/register pages */
+img.signin-bg {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+  }
+  
+  @media screen and (max-width: 1024px) {
+    img.signin-bg {
+      left: 50%;
+      margin-left: -512px;  
+    }
+  }
 
 
 /* ================================== THOR ==================================================== */
