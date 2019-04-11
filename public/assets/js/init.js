@@ -169,7 +169,7 @@ $("#submitSurvey").on("click", function (event) {
     // Conditional for form validation checks for any empty input areas, which will set my formCompleted variable to false
     var formCompleted = true;
 
-    if ($("#event-name").val() === "" || $("#date").val() === "") {
+    if ($("#eventName").val() === "" || $("#eventDate").val() === "") {
         formCompleted = false;
     }
 
