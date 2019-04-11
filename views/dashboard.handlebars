@@ -24,20 +24,19 @@
 </div>
 
 <div class="row">
-  <div class="col s12 m6 offset-m6 l4 offset-l2">
-  </div>
-  <div class="col s12 m6 offset-m6 l6 ">
+  <div class="col s12  l3"></div>
+  <div class="col s12 l6 ">
     <section class="objective">
       <h4 class="white-text shadow text-darken-4">Your Events!</h4>
       <button id="viewEvents" data-target="" class="btn ">View Ongoing Events</button>
       <button id="viewPastEvents" data-target="" class="btn ">View Past Events</button>
       <button id="createEvent" data-target="modal1" class="btn modal-trigger">Create Event</button>
-      <a class="waves-effect waves-light btn-large">Testing</a>
     </section>
   </div>
 </div>
 <div class="row">
-  <div class="col s12 m6 offset-m6 l6 offset-l6">
+   <div class="col s12  l3"></div>
+  <div class="col s12 l6 offset-3">
     <section class="tasks">
       <h4 class="white-text shadow text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
       <p>Organize the big day by listing out your tasks. </p>
@@ -45,9 +44,8 @@
 </div>
 
 <div class="row">
-  <div class="col s10 m2 l6 "> </div>
-  <div class="col s10 m5 l3 ">
-    <button id="openTask" data-target="task" class="btn ">View Open Tasks</button>
+  <div class="col s10 m2 l3 "> </div>
+  <div class="col s10 m5 l3 offset">
     <h4 class="center">Open Tasks</h4>
     <hr>
     <div>
@@ -64,7 +62,6 @@
     </section>
   </div>
   <div class="col s10 m5 l3 ">
-    <button id="completedTask" data-target="task" class="btn ">View Completed Tasks</button>
     <div class="entry">
       <h4 class="center">Closed Tasks</h4>
       <hr>
@@ -82,8 +79,8 @@
 </div>
 
 <div class="row">
-  <div class="col s12 l6 "></div>
-  <div class="col s12 m6 offset-m3 l6 ">
+  <div class="col s12 l3 "></div>
+  <div class="col s12 l6 ">
     <button id="createTask" class="btn ">Create Task</button>
     <div id="taskForm">
       <form class="col s12">
@@ -139,8 +136,8 @@
 
     <div class="row">
 
-      <div class="input-field col s12" id="eventType">
-        <select>
+      <div class="input-field col s12">
+        <select id="eventType">
           <option value="" disabled selected>Select the Event</option>
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>
@@ -162,8 +159,8 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s12" id="timeOfDay">
-        <select>
+      <div class="input-field col s12">
+        <select id="timeOfDay">
           <option value="" disabled selected>Time of Day</option>
           <option value="Brunch/Breakfast">Brunch/Breakfast</option>
           <option value="Day Time">Day Time</option>
@@ -175,8 +172,8 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s12" id="dress">
-        <select>
+      <div class="input-field col s12">
+        <select id="dress">
           <option value="" disabled selected>Attire Type</option>
           <option value="Casual">Casual</option>
           <option value="Semi-Formal">Semi-Formal</option>
@@ -189,8 +186,8 @@
 
 
     <div class="row">
-      <div class="input-field col s12" id="themed">
-        <select>
+      <div class="input-field col s12">
+        <select id="themed">
           <option value="" disabled selected>Is this a themed party?</option>
           <option value="No">No</option>
           <option value="Yes">Yes</option>
@@ -201,8 +198,8 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s12" id="food">
-        <select>
+      <div class="input-field col s12">
+        <select id="food">
           <option value="" disabled selected>Do you require food?</option>
           <option value="No">No</option>
           <option value="Yes">Yes</option>
@@ -212,8 +209,8 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s12" id="decorations">
-        <select>
+      <div class="input-field col s12">
+        <select id="decorations">
           <option value="" disabled selected>Do you require decorations?</option>
           <option value="No">No</option>
           <option value="Yes">Yes</option>
@@ -223,8 +220,8 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s12" id="cake">
-        <select>
+      <div class="input-field col s12">
+        <select id="cake">
           <option value="" disabled selected>Do you need cake/dessert?</option>
           <option value="No">No</option>
           <option value="Yes">Yes</option>
@@ -236,8 +233,8 @@
 
 
     <div class="row">
-       <div class="input-field col s12" id="alochol">
-        <select>
+       <div class="input-field col s12">
+        <select id="alochol">
           <option value="" disabled selected>Do you need alcohol?</option>
           <option value="No">No</option>
           <option value="Yes">Yes</option>
@@ -247,7 +244,7 @@
 
     </div>
 
-    <a class="waves-effect waves-light btn-large">Submit</a>
+    <a id ="submitSurvey" class="waves-effect waves-light btn-large">Submit</a>
 
 
   </div>

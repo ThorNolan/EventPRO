@@ -65,7 +65,7 @@ $(document).ready(function () {
     // Create New Event
     $("#submitSurvey").on("click", function () {
         var newEvent = {
-            eventName: "Call People",
+            eventName: $("#eventName").val().trim(),
             eventType: "Birthday",
             eventDate: "Urgent",
             eventStatus: true,
@@ -163,13 +163,13 @@ $(document).ready(function () {
     M.textareaAutoResize($('#textarea1'));
 });
 
-$("#submit").on("click", function (event) {
+$("#submitSurvey").on("click", function (event) {
     event.preventDefault();
 
     // Conditional for form validation checks for any empty input areas, which will set my formCompleted variable to false
     var formCompleted = true;
 
-    if ($("#event-name").val() === "" || $("#date").val() === "") {
+    if ($("#eventName").val() === "" || $("#eventDate").val() === "") {
         formCompleted = false;
     }
 
