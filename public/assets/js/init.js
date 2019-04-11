@@ -227,16 +227,14 @@ $(document).ready(function() {
         console.log('submit new task going to send');
         $.ajax({
             method: "PUT",
-            url: "/api/tasks/",
+            url: "/api/tasks/???",
             body: changeTask
         })
             .then(function (data) {
                 console.log(data)
             });
-        console.log('submit new task should have sent');
-        $("#taskForm").hide()
-
-        $("#newTaskName").val("")
+        console.log('task has been modified');
+      
     });
 
     });
