@@ -27,53 +27,50 @@ module.exports = function (sequelize, Sequelize) {
         eventDate: {
             type: Sequelize.DATE,
           
-            allowNull: false,
+            allowNull: false
         },
 
         eventStatus: {
             type: Sequelize.BOOLEAN,
            
-            defaultValue: true,
+            defaultValue: true
         },
         dress: {
-            type: Sequelize.STRING,
+            type: Sequelize.STRING
         
         },
 
 
-        attendees: {
-            type: Sequelize.INTEGER,
-            
-        },
+        attendees: Sequelize.INTEGER,
 
         themed: {
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.BOOLEAN
          
         },
 
         food: {
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.BOOLEAN
         
         },
 
 
         decorations: {
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.BOOLEAN
             
         },
 
         cake: {
-            type: Sequelize.BOOLEAN,
+            type: Sequelize.BOOLEAN
             
         },
 
         alcohol: {
-            type: Sequelize.STRING,
+            type: Sequelize.BOOLEAN
             
         },
 
         timeOfDay: {
-            type: Sequelize.TIME
+            type: Sequelize.STRING
           }
 
     });
@@ -86,9 +83,7 @@ module.exports = function (sequelize, Sequelize) {
         });
         Events.belongsTo(models.Users, {
             onDelete: "cascade",
-            foreignKey: {
-                allowNull: false
-            }
+            foreignKey: "UserId"
 
         });
     };

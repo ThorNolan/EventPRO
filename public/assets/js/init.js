@@ -12,19 +12,19 @@ $(document).ready(function () {
     // Display Form to Create new Task
     $("#createTask").on("click", function () {
         $("#taskForm").show()
-
     })
 
     // Add new Task
     $("#submitNewTask").on("click", function () {
+        console.log('submit new task enter');
         var newTask = {
-            taskName: $("#taskName").val().trim(),
-            taskType: "Birthday",
+            taskName: $("#newTaskName").val().trim(),
+            taskType: true,
             importance: "Urgent",
-            eventStatus: true,
-            eventID: 1,
+            taskStatus: true,
             userID: 1,
         }
+        console.log('submit new task going to send');
         $.ajax({
             method: "POST",
             url: "/api/tasks/create",
@@ -33,9 +33,10 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
+        console.log('submit new task should have sent');
         $("#taskForm").hide()
-        $("#taskName").val("")
-    })
+        $("#newTaskName").val("")
+    });
 
     // View All Tasks
     $("#openTask").on("click", function () {
@@ -63,23 +64,65 @@ $(document).ready(function () {
 
 
     // Create New Event
-    $("#submitSurvey").on("click", function () {
-        var newEvent = {
-            eventName: $("#eventName").val().trim(),
-            eventType: "Birthday",
-            eventDate: "Urgent",
-            eventStatus: true,
-            taskID: 1,
-            userID: 1,
-        }
-        $.ajax({
-            method: "POST",
-            url: "/api/event/new",
-            body: newEvent
-        })
-            .then(function (data) {
-                console.log(data)
+    $("#submitSurvey").on("click", function (e) {
+        e.preventDefault();
+        var formIsValid = $("#createEventForm")[0].checkValidity();
+        console.log(formIsValid)
+        if(formIsValid){
+            var eventData = {}
+            $('.eventInput').each(function(){
+                var value = $(this).val().trim();
+                var id = $(this).attr('id');
+                if(value !== null || value !== undefined){
+                    value = value.trim()
+                    if(value.length > 0) {
+                        eventData[id] = value;
+                    }
+                }
             });
+
+            $('.eventSelect').each(function(){
+               
+                var value = $(this).val();
+                var id = $(this).attr('id');
+               
+                if(value === null || value === undefined || value === "empty"){
+                   // not sure how to fix this issue with the selects !== not working
+                } else {
+                    value = value.trim()
+                    if(value.length > 0 && value !== undefined) {
+                        eventData[id] = value;
+                    }
+                }
+            })
+
+            console.log(eventData)
+
+            $.post("/api/event/new", eventData, function(res){
+                console.log(res)
+            })
+            // $.ajax({
+            //     method: "POST",
+            //     url: "/api/event/new",
+            //     body: eventData
+            // })
+            // .then(function (data) {
+            //     console.log(data)
+            // });
+        }
+        else {
+            return console.log("Form is not completed")
+        }
+        // var newEvent = {
+        //     eventName: $("#eventName").val().trim(),
+        //     eventType: "Birthday",
+        //     eventDate: "Urgent",
+        //     eventStatus: true,
+        //     taskID: 1,
+        //     userID: 1,
+        // }
+
+      
     })
 
     // View Current Event
@@ -163,58 +206,58 @@ $(document).ready(function () {
     M.textareaAutoResize($('#textarea1'));
 });
 
-$("#submitSurvey").on("click", function (event) {
-    event.preventDefault();
+// $("#submitSurvey").on("click", function (event) {
+//     event.preventDefault();
 
-    // Conditional for form validation checks for any empty input areas, which will set my formCompleted variable to false
-    var formCompleted = true;
+//     // Conditional for form validation checks for any empty input areas, which will set my formCompleted variable to false
+//     var formCompleted = true;
 
-    if ($("#eventName").val() === "" || $("#eventDate").val() === "") {
-        formCompleted = false;
-    }
+//     if ($("#eventName").val() === "" || $("#eventDate").val() === "") {
+//         formCompleted = false;
+//     }
 
-    if (formCompleted) {
+//     if (formCompleted) {
 
-        // Grab all survey responses and store them in an object
-        var newEvent = {
-            name: $("#eventName").val().trim(),
-            responses: [
-                $("#eventDate").val(),
-                $("#eventType").val(),
-                $("#attendees").val().trim(),
-                $("#timeOfDay").val(),
-                $("#dress").val(),
-                $("#themed").val(),
-                $("#food").val(),
-                $("#decorations").val(),
-                $("#cake").val(),
-                $("alcohol").val(),
-            ]
-        };
+//         // Grab all survey responses and store them in an object
+//         var newEvent = {
+//             name: $("#eventName").val().trim(),
+//             responses: [
+//                 $("#eventDate").val(),
+//                 $("#eventType").val(),
+//                 $("#attendees").val().trim(),
+//                 $("#timeOfDay").val(),
+//                 $("#dress").val(),
+//                 $("#themed").val(),
+//                 $("#food").val(),
+//                 $("#decorations").val(),
+//                 $("#cake").val(),
+//                 $("alcohol").val(),
+//             ]
+//         };
 
-        console.log(newEvent);
+//         console.log(newEvent);
 
-        // Post request for the newEvent object that also returns data from about their best match calculated on the apiRoutes.js
-        $.post("/api/tasks/create", newEvent, function (data) {
-            // Trigger my modal popup with info about the match found for the user
-            $("#createdEvent").html(data.name);
-            $("#createdDate").text(data.response[0]);
-            $("#createdType").text(data.response[1]);
-            $("#createdAttendees").text(data.response[2]);
-            $("#createdTimeOfDay").text(data.response[3]);
-            $("#createdAttire").text(data.response[4]);
-            $("#createdThemed").text(data.response[5]);
-            $("#createdFood").text(data.response[6]);
-            $("#createdDecorations").text(data.response[7]);
-            $("#createdAlcohol").text(data.response[8]);
+//         // Post request for the newEvent object that also returns data from about their best match calculated on the apiRoutes.js
+//         $.post("/api/tasks/create", newEvent, function (data) {
+//             // Trigger my modal popup with info about the match found for the user
+//             $("#createdEvent").html(data.name);
+//             $("#createdDate").text(data.response[0]);
+//             $("#createdType").text(data.response[1]);
+//             $("#createdAttendees").text(data.response[2]);
+//             $("#createdTimeOfDay").text(data.response[3]);
+//             $("#createdAttire").text(data.response[4]);
+//             $("#createdThemed").text(data.response[5]);
+//             $("#createdFood").text(data.response[6]);
+//             $("#createdDecorations").text(data.response[7]);
+//             $("#createdAlcohol").text(data.response[8]);
 
 
-        });
-    } else {
-        // Alert user if they failed to respond to all form elements
-        alert("⚠️ Please complete the Event Name and Date before submitting! ⚠️");
-    }
-});
+//         });
+//     } else {
+//         // Alert user if they failed to respond to all form elements
+//         alert("⚠️ Please complete the Event Name and Date before submitting! ⚠️");
+//     }
+// });
 
 
 
