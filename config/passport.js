@@ -164,7 +164,7 @@ module.exports = function(passport, user) {
               }
               console.log("\n====================");
               console.log(req.isAuthenticated());
-              console.log('sucess');
+              console.log('success');
               console.log(req.session.passport.user);
               console.log("===================");
               console.log("\n")
