@@ -40,8 +40,8 @@ router.get("/api/event/past", function(req, res) {
     eventControllers.viewPastEvents(req, res);
 })
 
-router.get("/api/events/delete/:id", function(req, res) {
-    taskControllers.deleteEvent(req, res);
+router.delete("/api/events/delete/:id", function(req, res) {
+    eventControllers.deleteEvent(req, res);
 })
 
 //------------------- Survey Routes --------------------------//
