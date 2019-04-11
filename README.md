@@ -55,7 +55,7 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
     
 ## 🔗 Authors 
 
-+ Melanie Marsollier—https://github.com/Mel-Marsollier=
++ Melanie Marsollier—https://github.com/Mel-Marsollier
 + Nick Tom—https://github.com/nicky2quicky
 + Jennifer Powell—https://github.com/jerpowel321
 + Thor Nolan—https://github.com/ThorNolan
