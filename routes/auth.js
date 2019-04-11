@@ -3,24 +3,24 @@ var authController = require("../controllers/authcontroller");
 
 // These routes all correspond to actions taken when signing up/registering or signing in to the app.
 module.exports = function(app, passport) {
-    app.get('/api/register', authController.register);
+    app.get('/register', authController.register);
 
-    app.get('/api/signin', authController.signin);
+    app.get('/signin', authController.signin);
 
-    app.post('/api/register', passport.authenticate('local-signup', {
-        successRedirect: '/api/dashboard',
+    app.post('/register', passport.authenticate('local-signup', {
+        successRedirect: '/dashboard',
 
-        failureRedirect: '/api/register'
+        failureRedirect: '/register'
     }));
 
-    app.get('/api/dashboard', isLoggedIn, authController.dashboard);
+    app.get('/dashboard', isLoggedIn, authController.dashboard);
 
-    app.get('/api/logout', authController.logout);
+    app.get('/logout', authController.logout);
 
-    app.post('/api/register', passport.authenticate('local-signin', {
-        successRedirect: '/api/dashboard',
+    app.post('/signin', passport.authenticate('local-signin', {
+        successRedirect: '/dashboard',
 
-        failureRedirect: '/api/signin'
+        failureRedirect: '/signin'
     }));
 
 
@@ -29,7 +29,7 @@ module.exports = function(app, passport) {
 
             return next();
 
-        res.redirect('/api/signin');
+        res.redirect('/signin');
     }
 
 

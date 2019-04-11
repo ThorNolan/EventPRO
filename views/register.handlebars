@@ -1,6 +1,6 @@
 <div class="valign-wrapper row signup-box">
     <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 register-card">
-        <form id="register" name="register" method="post" action="/api/register">
+        <form id="register" name="register" method="post" action="/register">
             <div class="card-content">
                 <span class="card-title center">Sign Up</span>
 
@@ -8,7 +8,7 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="username" type="text" class="validate" required/>
+                    <input id="username" name="username" type="text" class="validate" required/>
                     <label for="username" class="center-align">Username</label>
                 </div>  
                 
@@ -20,7 +20,7 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
-                    <input id="userpassword" type="password" class="validate" minlength="7" required/>
+                    <input id="userpassword" name="userpassword" type="password" class="validate" minlength="7" required/>
                     <label for="userpassword">Password</label>
                 </div>
 
@@ -35,11 +35,11 @@
 
             <div class="card-action center-align">
                 <div class="input-field col s12 center-align">
-                    <a href="/api/dashboard" class="btn waves-effect waves-light light-blue darken-1 col s12 center">Start Planning</a>
+                    <button type="submit" class="btn waves-effect waves-light light-blue darken-1 col s12 center">Start Planning</button>
                 </div>
                 
                 <div class="input-field col s12 center-align">
-                    <p class="margin center medium-small sign-up">Already have an account? <a href="/api/signin">Log in</a></p>
+                    <p class="margin center medium-small sign-up">Already have an account? <a href="/signin">Log in</a></p>
                 </div>               
             </div>
         </form>

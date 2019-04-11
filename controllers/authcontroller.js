@@ -2,7 +2,7 @@ var exports = module.exports = {};
 
 // Sign in route for export to auth.js.
 exports.signin = function(req, res) {
-    res.render('signin'); 
+    res.render('sign-in'); 
 }
 
 // Register route for signing up for the app.
@@ -11,7 +11,7 @@ exports.register = function(req, res) {
 }
 
 exports.dashboard = function(req, res) {
-    res.render('/');
+    res.render('dashboard');
 }
 
 // Log out route, hit when logout button on dahboard navbar is pressed.
