@@ -197,6 +197,10 @@ img.signin-bg {
     #taskForm {
       box-shadow: 2px 2px black;
     }
+
+  .modal {
+    min-height: 80% !important;
+  }
     
 
 /* ================================== JENNIFER ==================================================== */
