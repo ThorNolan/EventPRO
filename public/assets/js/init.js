@@ -246,6 +246,31 @@ $(document).ready(function () {
 
 //------------ Mel ------------------------//
 
+$(document).ready(function() {
+    // This WILL work because we are listening on the 'document', 
+    // for a click on an element with an ID of #test-element
+    $(document).on("getElementById","#items",function() {
+       
+        console.log('changing task');
+        var changeTask = {
+            taskName: $("#taskName").val().trim(),
+            taskStatus: false,
+        }
+        console.log('submit new task going to send');
+        $.ajax({
+            method: "PUT",
+            url: "/api/tasks/???",
+            body: changeTask
+        })
+            .then(function (data) {
+                console.log(data)
+            });
+        console.log('task has been modified');
+      
+    });
+
+    });
+
 
 //------------ Nick ------------------------//
 
