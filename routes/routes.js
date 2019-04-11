@@ -39,9 +39,9 @@ router.get("/api/tasks/delete/:id", function(req, res) {
 //------------------- Event Routes --------------------------//
 var eventControllers = require("../controllers/eventscontroller");
 
-router.post("/api/event/new", function(req, res) {
-    eventControllers.create(req, res);
-})
+router.route("/api/event/new")
+    // .get(eventControllers.viewPastEvents)
+    .post(eventControllers.create);
 
 router.get("/api/event/past", function(req, res) {
     eventControllers.viewPastEvents(req, res);
