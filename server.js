@@ -66,15 +66,11 @@ app.use(passport.session());
 
 //=================================== ROUTING ===========================================
 
-// Import routes from controllers and give the server access to them.
-require('./routes/auth.js')(app, passport);
+// Import routes and give the server access to them.
 var routes3 = require('./routes/routes.js');
-// MORE ROUTES HERE
-
-// Tell our app to use the imported routes.
-// app.use(routes);
-// app.use(routes2);
 app.use(routes3);
+
+require('./routes/auth.js')(app, passport);
 
 //=================================== INITIATION =========================================
 
@@ -82,7 +78,7 @@ app.use(routes3);
 require('./config/passport.js')(passport, db.Users);
 
 // Sync with sequelize then start server so that it can begin listening for client requests.
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({}).then(function() {
   app.listen(PORT, HOST, function() {
     console.log('Server listening on: http://localhost:' + PORT);
   });

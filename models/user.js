@@ -1,4 +1,4 @@
-
+var Sequelize = require("sequelize");
 
 module.exports = function(sequelize, Sequelize) {
 // Creates a "Users" model that matches up with DB

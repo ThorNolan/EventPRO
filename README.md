@@ -1,6 +1,7 @@
 ![EventPro logo](/public/assets/images/event-pro-3-logo.png "EventPro Logo Image")
 ====================================
-Our second project for our full-stack bootcamp, EventPRO is an event planning application that provides users with a centralized location to create and manage to-do’s around their upcoming events. Users can log-in to the app, and their login data will be stored (and their password encrypted with bcrypt!) so that they can log back in when revisiting the app and have immediate access to all of their events and to-do's. From their dashboard, they can manage tasks and add and modify items, select past events, and order and mark tasks based on priority. Whether it’s a birthday party or an after work social function, EventPRO’s got you covered.
+Our second project for our full-stack bootcamp, EventPRO is an event planning application that provides users with a centralized location to create and manage to-do’s around their upcoming events. Users can log-in to the app, and their login data will be stored (and their password encrypted with bcrypt) so that they can log back in when revisiting the app and have immediate access to their personalized dashboard. 
+From their dashboard, they can manage tasks and add and modify items, select past events, and order and mark tasks based on priority. Whether it’s a birthday party, mother's day, or an after work social function, EventPRO’s got you covered.
 
 ![demo gif]( "demo gif of EventPRO in action")
 
@@ -35,6 +36,7 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
 + **NPM** for installation of the packages required by the app:
   + **express**
   + **express-session**
+  + **cookie-parser**
   + **express-handlebars**
   + **mysql2**
   + **sequelize**

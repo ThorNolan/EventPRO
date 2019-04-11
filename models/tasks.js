@@ -1,4 +1,4 @@
-
+var Sequelize = require("sequelize");
 
 module.exports = function(sequelize, Sequelize) {
 var Tasks = sequelize.define("Tasks", {

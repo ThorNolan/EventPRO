@@ -1,5 +1,5 @@
 {
-  "name": "Amazing-App",
+  "name": "EventPRO",
   "version": "1.0.0",
   "description": "An event planning app for organizing events and keeping track of to-do's.",
   "main": "server.js",
