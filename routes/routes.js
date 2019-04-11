@@ -10,13 +10,6 @@ router.get("/api/dashboard", function(req, res) {
     eventControllers.viewCurrentEvent(req, res);
 })
 
-router.get("/dashboard", function(req, res) {
-    var dashboard = {
-        dashboard: true
-    }
-    res.render("dashboard")
-})
-
 //------------------- Task Routes --------------------------//
 var taskControllers = require("../controllers/taskcontroller");
 
