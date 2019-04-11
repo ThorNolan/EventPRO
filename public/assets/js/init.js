@@ -6,6 +6,7 @@ $(document).ready(function () {
     // Hide Task Form
     $("#taskForm").hide()
 
+    // View current Events on Dashboard
     $.ajax({
         method: "GET",
         url: "/api/dashboard",
@@ -15,33 +16,97 @@ $(document).ready(function () {
             for (i = 0; i < data.length; i++) {
                 eventInfo.append(
                     `<h4>${data[i].eventName}</h4>
-                    <p>Your event will be on ${data[i].eventDate.slice(0,10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party.</p>`
+                    <p>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party. The time of day of your pary is during ${data[i].timeOfDay}.</p>`
                 )
-                
-                if(data[i].dress){
+
+                if (data[i].dress) {
                     eventInfo.append(`
                     <p>The dress code is ${data[i].dress} </p>
                     `)
                 }
+                if (data[i].alcohol === true) {
+                    eventInfo.append(`
+                    <p>You want alcohol at your event.</p>
+                    `)
+                }
+                if (data[i].cake === true) {
+                    eventInfo.append(`
+                    <p>You want to have cake.</p>
+                    `)
+                }
+                if (data[i].decorations === true) {
+                    eventInfo.append(`
+                    <p>You want to have decorations.</p>
+                    `)
+                }
+                if (data[i].food === true) {
+                    eventInfo.append(`
+                    <p>You want to have food.</p>
+                    `)
+                }
+                if (data[i].themed === true) {
+                    eventInfo.append(`
+                    <p>You want to have a themed party.</p>
+                    `)
+                }
 
-                // eventInfo += "'" +data[i].id + "><h4 class='center'>Event Name: " + data[i].eventName + "</h4>"
-                // eventInfo += "<p>Your event will be on " + data[i].eventDate.slice(0,10) + " and you are expecting " + data[i].attendees + " guests at your " + data[i].eventType + " party.</p>"
-                // if (data[i].dress) {
-                //     eventInfo += "<p>The dress code is " + data[i].dress +".</p>"
-                // }
-                // if (data[i].alcohol === true) {
-                //     eventInfo += "<p>You want alcohol at your event.</p>"
-                // }
-                // if (data[i].cake === true) {
-                //     eventInfo += "<p>You want want to have cake.</p>"
-                // }
-
+                eventInfo.append(`
+                <button class="addTaskToEvent" class="btn ">Add Tasks</button>
+                `)
+                eventInfo.append(`
+                <button class="delEvent" class="btn ">Delete Event</button>
+                `)
             }
             $(".eventArea").append(eventInfo)
             console.log(data)
 
         });
+    // Create New Event
+    $("#submitSurvey").on("click", function (e) {
+        e.preventDefault();
+        var formIsValid = $("#createEventForm")[0].checkValidity();
+        console.log(formIsValid)
+        if (formIsValid) {
+            var eventData = {}
+            $('.eventInput').each(function () {
+                var value = $(this).val().trim();
+                var id = $(this).attr('id');
+                if (value !== null || value !== undefined) {
+                    value = value.trim()
+                    if (value.length > 0) {
+                        eventData[id] = value;
+                    }
+                }
+            });
 
+            $('.eventSelect').each(function () {
+
+                var value = $(this).val();
+                var id = $(this).attr('id');
+
+                if (value === null || value === undefined || value === "empty") {
+                    // not sure how to fix this issue with the selects !== not working
+                } else {
+                    value = value.trim()
+                    if (value.length > 0 && value !== undefined) {
+                        eventData[id] = value;
+                    }
+                }
+            })
+
+            console.log(eventData)
+
+            $.post("/api/event/new", eventData, function (res) {
+                console.log(res)
+                location.reload()
+            })
+        }
+        else {
+            return console.log("Form is not completed")
+        }
+
+
+    });
 
     //------------ Task CRUD------------------//
 
@@ -102,61 +167,7 @@ $(document).ready(function () {
     //------------ Event CRUD------------------//
 
 
-    // Create New Event
-    $("#submitSurvey").on("click", function (e) {
-        e.preventDefault();
-        var formIsValid = $("#createEventForm")[0].checkValidity();
-        console.log(formIsValid)
-        if (formIsValid) {
-            var eventData = {}
-            $('.eventInput').each(function () {
-                var value = $(this).val().trim();
-                var id = $(this).attr('id');
-                if (value !== null || value !== undefined) {
-                    value = value.trim()
-                    if (value.length > 0) {
-                        eventData[id] = value;
-                    }
-                }
-            });
 
-            $('.eventSelect').each(function () {
-
-                var value = $(this).val();
-                var id = $(this).attr('id');
-
-                if (value === null || value === undefined || value === "empty") {
-                    // not sure how to fix this issue with the selects !== not working
-                } else {
-                    value = value.trim()
-                    if (value.length > 0 && value !== undefined) {
-                        eventData[id] = value;
-                    }
-                }
-            })
-
-            console.log(eventData)
-
-            $.post("/api/event/new", eventData, function (res) {
-                console.log(res)
-                location.reload()
-            })
-        }
-        else {
-            return console.log("Form is not completed")
-        }
-        // var newEvent = {
-        //     eventName: $("#eventName").val().trim(),
-        //     eventType: "Birthday",
-        //     eventDate: "Urgent",
-        //     eventStatus: true,
-        //     taskID: 1,
-        //     userID: 1,
-        // }
-
-
-
-    });
 
 
     // View Current Event
@@ -164,8 +175,9 @@ $(document).ready(function () {
 
 
 
-    // View Past Event
+    // View Past Events
     $("#viewPastEvents").on("click", function () {
+        
         $.ajax({
             method: "GET",
             url: "/api/event/past",
@@ -245,11 +257,11 @@ $(document).ready(function () {
 
 //------------ Mel ------------------------//
 
-$(document).ready(function() {
+$(document).ready(function () {
     // This WILL work because we are listening on the 'document', 
     // for a click on an element with an ID of #test-element
-    $(document).on("getElementById","#items",function() {
-       
+    $(document).on("getElementById", "#items", function () {
+
         console.log('changing task');
         var changeTask = {
             taskName: $("#taskName").val().trim(),
@@ -265,10 +277,10 @@ $(document).ready(function() {
                 console.log(data)
             });
         console.log('task has been modified');
-      
-    });
 
     });
+
+});
 
 
 //------------ Nick ------------------------//
