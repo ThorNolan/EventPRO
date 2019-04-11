@@ -78,7 +78,7 @@ require('./routes/auth.js')(app, passport);
 require('./config/passport.js')(passport, db.Users);
 
 // Sync with sequelize then start server so that it can begin listening for client requests.
-db.sequelize.sync().then(function() {
+db.sequelize.sync( ).then(function() {
   app.listen(PORT, HOST, function() {
     console.log('Server listening on: http://localhost:' + PORT);
   });

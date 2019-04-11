@@ -126,6 +126,7 @@ $(document).ready(function () {
             importance: "Urgent",
             taskStatus: true,
             userID: 1,
+            // eventID: 
         }
         console.log('submit new task going to send');
         $.ajax({

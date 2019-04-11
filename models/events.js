@@ -81,11 +81,7 @@ module.exports = function (sequelize, Sequelize) {
         Events.hasMany(models.Tasks, {
             onDelete: "cascade"
         });
-        Events.belongsTo(models.Users, {
-            onDelete: "cascade",
-            foreignKey: "UserId"
-
-        });
+        Events.belongsTo(models.Users);
     };
 
 
