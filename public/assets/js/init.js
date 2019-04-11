@@ -15,27 +15,46 @@ $(document).ready(function () {
             for (i = 0; i < data.length; i++) {
                 eventInfo.append(
                     `<h4>${data[i].eventName}</h4>
-                    <p>Your event will be on ${data[i].eventDate.slice(0,10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party.</p>`
+                    <p>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party. The time of day of your pary is during ${data[i].timeOfDay}.</p>`
                 )
-                
-                if(data[i].dress){
+
+                if (data[i].dress) {
                     eventInfo.append(`
                     <p>The dress code is ${data[i].dress} </p>
                     `)
                 }
+                if (data[i].alcohol === true) {
+                    eventInfo.append(`
+                    <p>You want alcohol at your event.</p>
+                    `)
+                }
+                if (data[i].cake === true) {
+                    eventInfo.append(`
+                    <p>You want to have cake.</p>
+                    `)
+                }
+                if (data[i].decorations === true) {
+                    eventInfo.append(`
+                    <p>You want to have decorations.</p>
+                    `)
+                }
+                if (data[i].food === true) {
+                    eventInfo.append(`
+                    <p>You want to have food.</p>
+                    `)
+                }
+                if (data[i].themed=== true) {
+                    eventInfo.append(`
+                    <p>You want to have a themed party.</p>
+                    `)
+                }
 
-                // eventInfo += "'" +data[i].id + "><h4 class='center'>Event Name: " + data[i].eventName + "</h4>"
-                // eventInfo += "<p>Your event will be on " + data[i].eventDate.slice(0,10) + " and you are expecting " + data[i].attendees + " guests at your " + data[i].eventType + " party.</p>"
-                // if (data[i].dress) {
-                //     eventInfo += "<p>The dress code is " + data[i].dress +".</p>"
-                // }
-                // if (data[i].alcohol === true) {
-                //     eventInfo += "<p>You want alcohol at your event.</p>"
-                // }
-                // if (data[i].cake === true) {
-                //     eventInfo += "<p>You want want to have cake.</p>"
-                // }
-
+                eventInfo.append(`
+                <button class="addTaskToEvent" class="btn ">Add Tasks</button>
+                `)
+                eventInfo.append(`
+                <button class="delEvent" class="btn ">Delete Event</button>
+                `)
             }
             $(".eventArea").append(eventInfo)
             console.log(data)
