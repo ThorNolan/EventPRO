@@ -6,7 +6,6 @@ module.exports = {
             var id = req.session.passport.user
             // user maybe ebtire user obj in that case 
             // req.session.passport.user.id
-            console.log("\n %%%%%%%%")
             db.Events
                 .create(req.body)
                     .then(function (result) {
@@ -23,17 +22,6 @@ module.exports = {
         }else {
             res.redirect("/");
         }
-
-       
-
-        // db.Events
-        //     .create(req.body, {UserId: 1})
-        //         .then(function (result) {
-        //             res.json(result)
-        //         })
-        //         .catch(function (err) {
-        //             console.log(err)
-        //         })
        
     },
     viewCurrentEvent: function (req, res) {
