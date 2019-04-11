@@ -6,6 +6,42 @@ $(document).ready(function () {
     // Hide Task Form
     $("#taskForm").hide()
 
+    $.ajax({
+        method: "GET",
+        url: "/api/dashboard",
+    })
+        .then(function (data) {
+            var eventInfo = $("<div>")
+            for (i = 0; i < data.length; i++) {
+                eventInfo.append(
+                    `<h4>${data[i].eventName}</h4>
+                    <p>Your event will be on ${data[i].eventDate.slice(0,10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party.</p>`
+                )
+                
+                if(data[i].dress){
+                    eventInfo.append(`
+                    <p>The dress code is ${data[i].dress} </p>
+                    `)
+                }
+
+                // eventInfo += "'" +data[i].id + "><h4 class='center'>Event Name: " + data[i].eventName + "</h4>"
+                // eventInfo += "<p>Your event will be on " + data[i].eventDate.slice(0,10) + " and you are expecting " + data[i].attendees + " guests at your " + data[i].eventType + " party.</p>"
+                // if (data[i].dress) {
+                //     eventInfo += "<p>The dress code is " + data[i].dress +".</p>"
+                // }
+                // if (data[i].alcohol === true) {
+                //     eventInfo += "<p>You want alcohol at your event.</p>"
+                // }
+                // if (data[i].cake === true) {
+                //     eventInfo += "<p>You want want to have cake.</p>"
+                // }
+
+            }
+            $(".eventArea").append(eventInfo)
+            console.log(data)
+
+        });
+
 
     //------------ Task CRUD------------------//
 
@@ -71,29 +107,29 @@ $(document).ready(function () {
         e.preventDefault();
         var formIsValid = $("#createEventForm")[0].checkValidity();
         console.log(formIsValid)
-        if(formIsValid){
+        if (formIsValid) {
             var eventData = {}
-            $('.eventInput').each(function(){
+            $('.eventInput').each(function () {
                 var value = $(this).val().trim();
                 var id = $(this).attr('id');
-                if(value !== null || value !== undefined){
+                if (value !== null || value !== undefined) {
                     value = value.trim()
-                    if(value.length > 0) {
+                    if (value.length > 0) {
                         eventData[id] = value;
                     }
                 }
             });
 
-            $('.eventSelect').each(function(){
-               
+            $('.eventSelect').each(function () {
+
                 var value = $(this).val();
                 var id = $(this).attr('id');
-               
-                if(value === null || value === undefined || value === "empty"){
-                   // not sure how to fix this issue with the selects !== not working
+
+                if (value === null || value === undefined || value === "empty") {
+                    // not sure how to fix this issue with the selects !== not working
                 } else {
                     value = value.trim()
-                    if(value.length > 0 && value !== undefined) {
+                    if (value.length > 0 && value !== undefined) {
                         eventData[id] = value;
                     }
                 }
@@ -101,17 +137,10 @@ $(document).ready(function () {
 
             console.log(eventData)
 
-            $.post("/api/event/new", eventData, function(res){
+            $.post("/api/event/new", eventData, function (res) {
                 console.log(res)
+                location.reload()
             })
-            // $.ajax({
-            //     method: "POST",
-            //     url: "/api/event/new",
-            //     body: eventData
-            // })
-            // .then(function (data) {
-            //     console.log(data)
-            // });
         }
         else {
             return console.log("Form is not completed")
@@ -125,21 +154,15 @@ $(document).ready(function () {
         //     userID: 1,
         // }
 
-      
- 
+
+
     });
 
 
     // View Current Event
-    $(document).ready(function () {
-        $.ajax({
-            method: "GET",
-            url: "/api/dashboard",
-        })
-            .then(function (data) {
-                console.log(data)
-            });
-    });
+
+
+
 
     // View Past Event
     $("#viewPastEvents").on("click", function () {
@@ -164,6 +187,15 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('.modal').modal();
+    $('input#input_text, textarea#textarea2').characterCounter();
+    $('select').formSelect();
+    $('.datepicker').datepicker();
+    $('#textarea1').val('New Text');
+    M.textareaAutoResize($('#textarea1'));
+});
+
 
 //------------ Event CRUD------------------//
 
@@ -184,12 +216,12 @@ $(document).ready(function () {
     var password = document.getElementById("userpassword");
     var confirm_password = document.getElementById("confirmpassword");
 
-    function validatePassword(){
-    if(password.value != confirm_password.value) {
-        confirm_password.setCustomValidity("Passwords don't match!");
-    } else {
-        confirm_password.setCustomValidity('');
-    }
+    function validatePassword() {
+        if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords don't match!");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
     }
 
     password.onchange = validatePassword;
@@ -218,14 +250,14 @@ $(document).ready(function () {
 //------------ Nick ------------------------//
 
 
-$(document).ready(function () {
-    $('.modal').modal();
-    $('input#input_text, textarea#textarea2').characterCounter();
-    $('select').formSelect();
-    $('.datepicker').datepicker();
-    $('#textarea1').val('New Text');
-    M.textareaAutoResize($('#textarea1'));
-});
+// $(document).ready(function () {
+//     $('.modal').modal();
+//     $('input#input_text, textarea#textarea2').characterCounter();
+//     $('select').formSelect();
+//     $('.datepicker').datepicker();
+//     $('#textarea1').val('New Text');
+//     M.textareaAutoResize($('#textarea1'));
+// });
 
 // $("#submitSurvey").on("click", function (event) {
 //     event.preventDefault();

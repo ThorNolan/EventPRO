@@ -30,7 +30,6 @@ module.exports = {
     },
     viewCurrentEvent: function (req, res) {
         console.log(req.body)
-        res.json(true)
         db.Events
             .findAll({
                 where: {
