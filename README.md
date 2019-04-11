@@ -7,7 +7,17 @@ From their dashboard, they can manage tasks and add and modify items, select pas
 
 ## 🔑 How to Use the App:
 
-+ INSERT DIRECTIONS HERE
+The appliation is intuitive and requires little to no prior knowledge before being ready to use it.
+
+Follow the below steps to have your event up and running:
+
+1. Create an individual user profile and log in
+   
+2. Create an event
+   
+3. Create tasks for the created event and assign users to each individual task
+   
+4. As tasks are completed users can drag them to a completed state
 
 ## 📁 Deployment Instructions
 
