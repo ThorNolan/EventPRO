@@ -13,7 +13,7 @@ $(document).ready(function () {
     $("#createTask").on("click", function () {
         $("#taskForm").show()
 
-    })
+    });
 
     // Add new Task
     $("#submitNewTask").on("click", function () {
@@ -35,7 +35,7 @@ $(document).ready(function () {
             });
         $("#taskForm").hide()
         $("#taskName").val("")
-    })
+    });
 
     // View All Tasks
     $("#openTask").on("click", function () {
@@ -46,7 +46,7 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
-    })
+    });
 
     // Delete Tasks
     $(".delTask").on("click", function () {
@@ -57,7 +57,7 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
-    })
+    });
     //------------ Task CRUD------------------//
     //------------ Event CRUD------------------//
 
@@ -80,7 +80,7 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
-    })
+    });
 
     // View Current Event
     $(document).ready(function () {
@@ -102,7 +102,7 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
-    })
+    });
 
     // Delete Event
     $(".delEvent").on("click", function () {
@@ -113,8 +113,8 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
-    })
-})
+    });
+});
 
 
 //------------ Event CRUD------------------//
@@ -130,8 +130,24 @@ $(document).ready(function () {
 
 //------------ Thor ------------------------//
 
+$(document).ready(function () {
 
+    // Function for checking input passwords on register form to make sure they match
+    var password = document.getElementById("userpassword");
+    var confirm_password = document.getElementById("confirmpassword");
 
+    function validatePassword(){
+    if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords don't match!");
+    } else {
+        confirm_password.setCustomValidity('');
+    }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+});
 
 
 
