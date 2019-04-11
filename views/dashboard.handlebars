@@ -49,7 +49,7 @@
     <h4 class="center">Open Tasks</h4>
     <hr>
     <div>
-      <ul>
+      <ul class="items">
         {{#each tasks}}
         {{#unless complete}}
         {{taskName}}
@@ -65,7 +65,7 @@
     <div class="entry">
       <h4 class="center">Closed Tasks</h4>
       <hr>
-      <ul>
+      <ul class="items2">
         {{#each tasks}}
         {{#if complete}}
         {{taskName}}
@@ -246,6 +246,20 @@
 
 
 <script>
+  
+var el = document.getElementById('items');
+var el2 = document.getElementById('items2');
+
+new Sortable(el, {
+   group: 'shared', // set both lists to same group
+   animation: 150
+});
+
+new Sortable(el2, {
+   group: 'shared',
+   animation: 150
+});
+
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
   }

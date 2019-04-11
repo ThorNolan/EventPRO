@@ -12,10 +12,25 @@ module.exports = function(passport, user) {
     });
 
     // Deserialize for session.
-    passport.deserializeUser(function(id, done) {
-        User.findById(id).then(function(user) {
+    // passport.deserializeUser(function(id, done) {
+    //     User.findById(id).then(function(user) {
+    //         if (user) {
+    //             done(null, user.get());
+    //         } else {
+    //             done(user.errors, null);
+    //         }
+    //     });
+    // });
+
+    passport.deserializeUser(function(id, done){
+        User.findAll({
+            where: {
+                id: id
+            }
+        }).then(function(user) {
+            console.log(user);
             if (user) {
-                done(null, user.get());
+                done(null, user);
             } else {
                 done(user.errors, null);
             }
@@ -97,9 +112,6 @@ module.exports = function(passport, user) {
         },
     
         function(req, username, password, done) {
-
-            console.log(username);
-            console.log(password);
     
             var User = user;
     
@@ -179,6 +191,6 @@ module.exports = function(passport, user) {
             });
           }
         })(req, res, next);
-      }
+      };
       
-}
+};
