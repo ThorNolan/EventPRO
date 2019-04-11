@@ -51,10 +51,10 @@ $(document).ready(function () {
                 }
 
                 eventInfo.append(`
-                <button class="addTaskToEvent" class="btn ">Add Tasks</button>
+                <button class="addTaskToEvent" data-id=${data[i].id} class="btn ">Add Tasks</button>
                 `)
                 eventInfo.append(`
-                <button class="delEvent" class="btn ">Delete Event</button>
+                <button class="delEvent" data-id=${data[i].id} class="btn ">Delete Event</button>
                 `)
             }
             $(".eventArea").append(eventInfo)
@@ -126,6 +126,7 @@ $(document).ready(function () {
             importance: "Urgent",
             taskStatus: true,
             userID: 1,
+            // eventID: 
         }
         console.log('submit new task going to send');
         $.ajax({
@@ -177,7 +178,7 @@ $(document).ready(function () {
 
     // View Past Events
     $("#viewPastEvents").on("click", function () {
-        
+
         $.ajax({
             method: "GET",
             url: "/api/event/past",
@@ -188,13 +189,16 @@ $(document).ready(function () {
     });
 
     // Delete Event
-    $(".delEvent").on("click", function () {
+    $(".eventArea").on("click", ".delEvent", function () {
+        var id = $(this).data("id");
         $.ajax({
             method: "DELETE",
-            url: "/api/events/delete/:id",
+            url: "/api/events/delete/" + id,
         })
             .then(function (data) {
+                console.log("This will be deleted")
                 console.log(data)
+                location.reload()
             });
     });
 });

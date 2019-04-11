@@ -57,7 +57,7 @@ Users.associate = function(models) {
     // When an Author is deleted, also delete any associated Posts
     Users.hasMany(models.Events, {
       onDelete: "cascade"
-    });
+    })
   };
 
 
