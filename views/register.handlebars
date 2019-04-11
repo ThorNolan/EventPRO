@@ -3,7 +3,9 @@
 <div class="center-align logo-div">
     <img class="logo-image" src="/assets/images/event-pro-3-logo.png" alt="EventPRO logo image">
 </div>    
-
+<div>
+    <h2>{{#if message}}{{message}}{{/if}}</h2>
+</div>
 <div class="valign-wrapper row signup-box">
     <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 register-card">
         <form id="register" name="register" method="post" action="/register">
@@ -26,7 +28,7 @@
 
                 <div class="input-field col s12">
                     <i class="material-icons prefix">lock</i>
-                    <input id="userpassword" name="userpassword" type="password" class="validate" minlength="7" required/>
+                    <input id="userpass" name="userpassword" type="password" class="validate" minlength="7" required/>
                     <label for="userpassword">Password</label>
                 </div>
 
@@ -41,7 +43,7 @@
 
             <div class="card-action center-align">
                 <div class="input-field col s12 center-align">
-                    <button type="submit" class="btn waves-effect waves-light teal lighten-2 col s12 center">Start Planning</button>
+                    <button id="register-submit" type="submit" class="btn waves-effect waves-light teal lighten-2 col s12 center">Start Planning</button>
                 </div>
                 
                 <div class="input-field col s12 center-align">
