@@ -56,6 +56,4 @@ router.get("/api/survey", function(req, res) {
     res.render("events")
 })
 
-
-
-module.exports = router
+module.exports = router;

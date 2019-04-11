@@ -23,7 +23,7 @@ module.exports = {
             .then(function (result) {
                 res.json(result)
             })
-            .catch(function (req, res) {
+            .catch(function (err) {
                 console.log(err)
             })
     },

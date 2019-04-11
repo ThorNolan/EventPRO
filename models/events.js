@@ -1,4 +1,4 @@
-
+var Sequelize = require("sequelize");
 
 module.exports = function (sequelize, Sequelize) {
     var Events = sequelize.define("Events", {

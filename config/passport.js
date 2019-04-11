@@ -91,19 +91,22 @@ module.exports = function(passport, user) {
         {
             usernameField: 'username',
     
-            passwordField: 'password',
+            passwordField: 'userpassword',
     
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
     
         function(req, username, password, done) {
+
+            console.log(username);
+            console.log(password);
     
             var User = user;
     
             // Checks if input password matches stored, hashed password. 
             var isValidPassword = function(userpass, password) {
     
-                return bCrypt.compareSync(password, userpass);
+                return bcrypt.compareSync(password, userpass);
     
             }
     
@@ -112,7 +115,7 @@ module.exports = function(passport, user) {
                     username: username
                 }
             }).then(function(user) {
-    
+                
                 // Check to make sure username exists.
                 if (!user) {
     
@@ -123,7 +126,7 @@ module.exports = function(passport, user) {
                 }
     
                 // Make sure input password is valid, and alert user if it isn't.
-                if (!isValidPassword(user.password, password)) {
+                if (!isValidPassword(user.userPassword, password)) {
     
                     return done(null, false, {
                         message: 'Incorrect password!'
