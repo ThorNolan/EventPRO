@@ -11,17 +11,6 @@ module.exports = function(passport, user) {
         done(null, user.id);
     });
 
-    // Deserialize for session.
-    // passport.deserializeUser(function(id, done) {
-    //     User.findById(id).then(function(user) {
-    //         if (user) {
-    //             done(null, user.get());
-    //         } else {
-    //             done(user.errors, null);
-    //         }
-    //     });
-    // });
-
     passport.deserializeUser(function(id, done){
         User.findAll({
             where: {
@@ -54,7 +43,7 @@ module.exports = function(passport, user) {
             var generateHash = function(password) {
                 return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
             };
- 
+            
             // Check to make sure username is not already taken, and alert user if it is.
             User.findOne({
                 where: {
@@ -63,7 +52,7 @@ module.exports = function(passport, user) {
             }).then(function(user) {
 
                 if (user) {
-
+                    // return done(null, false, req.flash("That username is already taken!"))
                     return done(null, false, {
                         message: 'That username is already taken!'
                     });
@@ -83,7 +72,7 @@ module.exports = function(passport, user) {
   
                         };
  
-                    User.create(data).then(function(newUser, created) {
+                    User.create(data).then(function(newUser) {
  
                         if (!newUser) {
                             return done(null, false);
@@ -163,34 +152,4 @@ module.exports = function(passport, user) {
         }
     ));
 
-    passportAuthenticate = (localStrategy, req, res, next) => {
-        passport.authenticate(localStrategy, function(err, user, info) {
-          if (err) {
-            return next(err); // will generate a 500 error
-          }
-          // Generate a JSON response reflecting authentication status
-          if (! user) {
-            return res.send({ success : false, message : 'authentication failed' });
-          } else {
-            req.login(user, loginErr => {
-              if (loginErr) {
-                console.log("loginerr", loginErr)
-                return next(loginErr);
-              }
-              console.log("\n====================");
-              console.log(req.isAuthenticated());
-              console.log('success');
-              console.log(req.session.passport.user);
-              console.log("===================");
-              console.log("\n")
-      
-              res.cookie('username', user.username );
-              res.cookie('authenticated', "true" );
-      
-              return res.json(true);
-            });
-          }
-        })(req, res, next);
-      };
-      
 };
