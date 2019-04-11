@@ -14,7 +14,7 @@ exports.dashboard = function(req, res) {
     res.render('dashboard');
 }
 
-// Log out route, hit when logout button on dahboard navbar is pressed.
+// Log out route, hit when logout button on dashboard navbar is pressed.
 exports.logout = function(req, res) {
     // End session and redirect to root route.
     req.session.destroy(function(err) {

@@ -12,6 +12,7 @@ var exphbs = require('express-handlebars');
 // Require passport and express session for tracking cookies for users revisiting the app.
 var passport = require('passport');
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 // Require database models.
 var db = require("./models");
@@ -36,22 +37,7 @@ app.use(express.json());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-//=================================== ROUTING ===========================================
-
-// Import routes from controllers and give the server access to them.
-require('./routes/auth.js')(app, passport);
-var routes3 = require('./routes/routes.js');
-// MORE ROUTES HERE
-
-// Tell our app to use the imported routes.
-// app.use(routes);
-// app.use(routes2);
-app.use(routes3);
-
 //================================ PASSPORT CONFIG =======================================
-
-// Import passport strategies to the server.
-require('./config/passport.js')(passport, db.Users);
 
 // Enable CORS to prevent access issues in different browsers.
 app.use((req, res, next) => {
@@ -65,7 +51,7 @@ app.use((req, res, next) => {
 // Enable session to allow for persistent logins.
 app.use(session({
   key: 'user_sid',
-  secret: 'keyboard cat',//process.env.PASSPORT_SECRET,
+  secret: process.env.PASSPORT_SECRET,
   resave: true,
   saveUninitialized: false,
   cookie: {
@@ -78,11 +64,25 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//=================================== ROUTING ===========================================
+
+// Import routes from controllers and give the server access to them.
+require('./routes/auth.js')(app, passport);
+var routes3 = require('./routes/routes.js');
+// MORE ROUTES HERE
+
+// Tell our app to use the imported routes.
+// app.use(routes);
+// app.use(routes2);
+app.use(routes3);
 
 //=================================== INITIATION =========================================
 
+// Import passport strategies to the server.
+require('./config/passport.js')(passport, db.Users);
+
 // Sync with sequelize then start server so that it can begin listening for client requests.
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, HOST, function() {
     console.log('Server listening on: http://localhost:' + PORT);
   });

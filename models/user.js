@@ -27,7 +27,7 @@ var Users = sequelize.define("Users", {
 
     userPassword: {
         type: Sequelize.STRING,
-        
+
         allownull: false
     }
 
