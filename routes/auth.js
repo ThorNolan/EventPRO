@@ -11,7 +11,14 @@ module.exports = function(app, passport) {
         successRedirect: '/dashboard',
 
         failureRedirect: '/register'
+
     }));
+
+    // app.get('/failed-register', function(req, res) {
+    //     res.json({
+
+    //     })
+    // });  
 
     app.get('/dashboard', isLoggedIn, authController.dashboard);
 
