@@ -71,7 +71,7 @@ $(document).ready(function () {
         eventInfo.append(eventOptions)
       }
       $(".eventArea").append(eventInfo)
-      // console.log(data)
+
 
     });
 
@@ -189,14 +189,14 @@ $(document).ready(function () {
 
   // Change Event from Current to Past
   $(".eventArea").on("click", ".pastEvent", function () {
+    console.log("clicked")
     var id = $(this).data("id");
     $.ajax({
       method: "PUT",
       url: "/api/event/past/" + id,
-    })
-      .then(function (data) {
+    }).then(function (data) {
         console.log("This will be updated")
-        // location.reload()
+        location.reload(true)
       })
   })
 });
