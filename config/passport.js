@@ -57,7 +57,6 @@ module.exports = function(passport, user) {
                     return done(null, false, {
                         message: 'Uh-oh, looks like that username is already taken!'
                     });
-
                 } else {
  
                     // Encrypt password data with bCrypt.
@@ -66,11 +65,8 @@ module.exports = function(passport, user) {
                     var data =
                         {
                             userName: username,
-
                             //email: email,
- 
                             userPassword: userPassword,
-  
                         };
  
                     User.create(data).then(function(newUser) {
@@ -84,9 +80,7 @@ module.exports = function(passport, user) {
                         }
                     });
                 }
- 
             });
- 
         }
     ));
 
