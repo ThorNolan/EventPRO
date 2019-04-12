@@ -40,6 +40,7 @@ module.exports = {
             })
     },
     viewPastEvents: function (req, res) {
+        console.log(req.body)
         db.Events
             .findAll({
                 where: {
@@ -48,6 +49,8 @@ module.exports = {
             })
             .then(function (result) {
                 res.json(result)
+                console.log(" THIS IS WHAT WE GET BACK WHEN wE CALL FOR THE PAST EVENTS")
+                // console.log(result)
             })
             .catch(function (req, res) {
                 console.log(err)
@@ -59,7 +62,7 @@ module.exports = {
                 eventStatus: 0
             }, {
                     where: {
-                        id: req.body.id
+                        id: req.params.id
                     }
                 }
             )
