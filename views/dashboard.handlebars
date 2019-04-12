@@ -41,67 +41,69 @@
     </section>
   </div>
 </div>
-<div class="row">
-  <div class="col s12  l3"></div>
-  <div class="col s12 l6 offset-3">
-    <section class="tasks">
-      <h4 class="black-text text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
-      <p>Organize the big day by listing out your tasks. </p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s10 m2 l3 "> </div>
-  <div class="col s10 m5 l3 offset">
-    <h4 class="center">Open Tasks</h4>
-    <hr>
-    <div class="openTasks">
-      <ul id="items">
-      </ul>
+<section id="eventTaskDisplayArea">
+  <div class="row">
+    <div class="col s12  l3"></div>
+    <div class="col s12 l6 offset-3">
+      <section class="tasks">
+        <h4 class="black-text text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
+        <p>Organize the big day by listing out your tasks. </p>
     </div>
-    </section>
   </div>
-  <div class="col s10 m5 l3 ">
-    <div class="entry closedTasks">
-      <h4 class="center">Closed Tasks</h4>
+
+  <div class="row">
+    <div class="col s10 m2 l3 "> </div>
+    <div class="col s10 m5 l3 offset">
+      <h4 class="center">Open Tasks</h4>
       <hr>
-      <ul id="items2">
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col s12 l3 "></div>
-  <div class="col s12 l7">
-    <div id="taskForm">
-      <div class="col s12 m10 offset-m1">
-        <div class="row">
-          <h4>Add a new Task</h4>
-          <div class="input-field col s10">
-            <input placeholder="Task Name" id="newTaskName" type="text" class="validate">
-            <label for="newTaskName">Description of Task</label>
-          </div>
-          <div class="input-field col s10">
-            <input placeholder="Not Important, Important, Urgent" id="newTaskImportance" type="text" class="validate">
-            <label for="newTaskImportance">Task Importance: </label> <br>
-          </div>
-          <div class="input-field col s10">
-            <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
-            <label for="eventNameTask">Which Event? </label> <br>
-          </div>
-
-
-
-
-          
-          <button id="submitNewTask" class="btn ">Submit Task</button>
-        </div>
+      <div class="openTasks">
+        <ul id="items">
+        </ul>
       </div>
-      </section>
+
+    </div>
+    <div class="col s10 m5 l3 ">
+      <div class="entry closedTasks">
+        <h4 class="center">Closed Tasks</h4>
+        <hr>
+        <ul id="items2">
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col s12 l3 "></div>
+    <div class="col s12 l7">
+      <div id="taskForm">
+        <div class="col s12 m10 offset-m1">
+          <div class="row">
+            <h4>Add a new Task</h4>
+            <div class="input-field col s10">
+              <input placeholder="Task Name" id="newTaskName" type="text" class="validate">
+              <label for="newTaskName">Description of Task</label>
+            </div>
+            <div class="input-field col s10">
+              <input placeholder="Not Important, Important, Urgent" id="newTaskImportance" type="text" class="validate">
+              <label for="newTaskImportance">Task Importance: </label> <br>
+            </div>
+            <div class="input-field col s10">
+              <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
+              <label for="eventNameTask">Which Event? </label> <br>
+            </div>
+
+
+
+
+
+            <button id="submitNewTask" class="btn ">Submit Task</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 <div class="row">
   <div class="col s12 m6 offset-m6 l4 offset-l2">
   </div>
@@ -248,23 +250,23 @@
 
 <script>
 
-function drag () {
- 
-  var el = document.getElementById('items');
-  var el2 = document.getElementById('items2');
+  function drag() {
 
-  new Sortable(el, {
-    group: 'shared', // set both lists to same group
-    animation: 150
-  });
+    var el = document.getElementById('items');
+    var el2 = document.getElementById('items2');
 
-  new Sortable(el2, {
-    group: 'shared',
-    animation: 150
-  });
+    new Sortable(el, {
+      group: 'shared', // set both lists to same group
+      animation: 150
+    });
 
- }
- 
+    new Sortable(el2, {
+      group: 'shared',
+      animation: 150
+    });
+
+  }
+
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
   };

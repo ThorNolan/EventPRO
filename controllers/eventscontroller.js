@@ -9,7 +9,6 @@ module.exports = {
             db.Events
                 .create(req.body)
                 .then(function (result) {
-                    console.log(result)
                     db.Events
                         .update({ UserId: id }, { where: { id: result.dataValues.id } })
                         .then(function (updatedEvent) {
@@ -25,7 +24,6 @@ module.exports = {
 
     },
     viewCurrentEvent: function (req, res) {
-        console.log(req.body)
         db.Events
             .findAll({
                 where: {
@@ -59,11 +57,10 @@ module.exports = {
                 eventStatus: 0
             }, {
                     where: {
-                        id: req.body.id
+                        id: req.params.id
                     }
                 }
             )
-    console.log("blahhhhhh" + req.body.id)
         .then(function (result) {
             res.json(result)
         })

@@ -226,10 +226,6 @@ img.signin-bg {
     #taskForm {
       margin:100px;
     }
-    #createTask{
-      margin-left: 35%;
-  
-    }
 
     #taskForm {
       box-shadow: 2px 2px black;
@@ -238,6 +234,8 @@ img.signin-bg {
   .modal {
     min-height: 80% !important;
   }
-    
+  .surveyAnswerDisplay {
+    display: inline-block
+  }
 
 /* ================================== JENNIFER ==================================================== */
