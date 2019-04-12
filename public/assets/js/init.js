@@ -51,6 +51,9 @@ $(document).ready(function () {
                 <button class="viewEventTasks" data-id=${data[i].id} class="btn ">View Tasks</button>
                 `)
                 eventInfo.append(`
+                <button id="createTask" data-id=${data[i].id} class="btn ">Create Task</button>
+                `)
+                eventInfo.append(`
                 <button class="delEvent" data-id=${data[i].id} class="btn ">Delete Event</button>
                 `)
                 eventInfo.append(`
@@ -106,47 +109,58 @@ $(document).ready(function () {
     //------------ Task CRUD------------------//
 
     // Display Form to Create new Task
-    $("#createTask").on("click", function () {
+    $(".eventArea").on("click", "#createTask", function () {
         $("#taskForm").show()
 
     });
-   
+
     $(".eventArea").on("click", ".viewEventTasks", function () {
         console.log('view event tasks');
         var id = $(this).data("id");
+        console.log("THIS IS THE ID" + id)
         $.ajax({
             method: "GET",
             url: "/api/tasks/all",
         })
             .then(function (data) {
                 console.log("This will show all tasks")
-                console.log(data)
                 console.log("********")
-                console.log(data[0])
-                console.log("********")
-                console.log(data.tasks[0])
-                console.log("********")
-                console.log(data.tasks[0].dataValues)
                 // location.reload()
+                console.log(data)
+             
+                    for (i = 0; i < data.length; i++) {
+
+                        if (data[i].taskStatus) {
+                            $("#items").append("<div class='center task'>" + data[i].taskName + "<div> <button class='taskCompleted' >Completed</button>")
+                        }
+
+                        else {
+                            $("#items").append("<div class='center task'>" + data[i].taskName + "<div>")
+                        }
+                    }
+                
+                // else {
+                //     $("#items").append("<div class='center' You have no tasks for this event.>")
+                // }
             });
 
 
     })
 
-    $(".viewEventTasks", function (){
+    $(".viewEventTasks", function () {
         console.log("What isnt this working?")
     })
 
     // Add new Task
     $("#submitNewTask").on("click", function () {
+
         console.log('submit new task enter');
         var newTask = {
             taskName: $("#newTaskName").val().trim(),
             taskType: false,
             importance: $("#newTaskImportance").val().trim(),
-            taskStatus: true,
-            UserId: 1, 
-            
+            taskStatus: true
+
             // eventID: 
         }
         console.log('submit new task going to send', newTask);
@@ -155,7 +169,7 @@ $(document).ready(function () {
         //     url: "/api/tasks/create",
         //     body: newTask
         // })
-        $.post("/api/tasks/create" , newTask)
+        $.post("/api/tasks/create", newTask)
             .then(function (data) {
                 console.log(data)
                 location.reload();
@@ -199,7 +213,7 @@ $(document).ready(function () {
         console.log("This is being clicked")
         $(".eventArea").empty()
         location.reload()
- 
+
     });
 
     // Delete Event
@@ -217,13 +231,13 @@ $(document).ready(function () {
     });
 
     // Change Event from Current to Past
-    $(".eventArea").on("click", ".pastEvent", function(){
-        var id=$(this).data("id");
+    $(".eventArea").on("click", ".pastEvent", function () {
+        var id = $(this).data("id");
         $.ajax({
             method: "PUT",
             url: "/api/event/past/" + id,
-        })  
-            .then( function (data){
+        })
+            .then(function (data) {
                 console.log("This will be updated")
                 // location.reload()
             })
