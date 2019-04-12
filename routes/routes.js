@@ -30,9 +30,9 @@ router.get("/api/tasks/delete/:id", function(req, res) {
 })
 
 // Mel stub don't delete without permission//
-router.update("/api/tasks/modift/:id", function(req, res) {
-    taskControllers.deleteTask(req, res);
-})
+// router.update("/api/tasks/modift/:id", function(req, res) {
+//     taskControllers.deleteTask(req, res);
+// })
 
 // Mel stub don't delete without permission//
 

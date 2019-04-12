@@ -32,6 +32,7 @@ module.exports = {
 
         .findAll()
         .then(function(result){
+            
             // console.log(taskobj.tasks)
             // console.log("*********")
             
@@ -44,23 +45,7 @@ module.exports = {
         .catch(function(err) {
             console.log(err)
         })
-            .findAll()
-            .then(function (result) {
-                var taskobj = {
-                    tasks: result
-                }
-                console.log("Task Obj", taskobj);
-                console.log(taskobj.tasks)
-                console.log("*********")
-
-                console.log(taskobj.tasks[0].taskName)
-                console.log(taskobj.tasks[0].importance)
-                return res.render("dashboard", taskobj);
-                // res.json(result)
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
+ 
     },
     deleteTask: function (req, res) {
         db.Task
