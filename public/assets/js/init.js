@@ -125,21 +125,25 @@ $(document).ready(function () {
         console.log('submit new task enter');
         var newTask = {
             taskName: $("#newTaskName").val().trim(),
-            taskType: true,
+            taskType: false,
             importance: "Urgent",
             taskStatus: true,
-            userID: 1,
+            UserId: 1, 
+            
             // eventID: 
         }
-        console.log('submit new task going to send');
-        $.ajax({
-            method: "POST",
-            url: "/api/tasks/create",
-            body: newTask
-        })
+        console.log('submit new task going to send', newTask);
+        // $.ajax({
+        //     method: "POST",
+        //     url: "/api/tasks/create",
+        //     body: newTask
+        // })
+        $.post("/api/tasks/create" , newTask)
             .then(function (data) {
                 console.log(data)
-            });
+                location.reload();
+            })
+
         console.log('submit new task should have sent');
         $("#taskForm").hide()
 
@@ -147,15 +151,15 @@ $(document).ready(function () {
     });
 
     // View All Tasks
-    $("#openTask").on("click", function () {
+    // $(document).ready(function () {
         $.ajax({
             method: "GET",
-            url: "/api/tasks/all",
+            url: "/api/tasks/open",
         })
             .then(function (data) {
-                console.log(data)
+                // console.log(data);
             });
-    });
+    // });
 
     // Delete Tasks
     $(".delTask").on("click", function () {

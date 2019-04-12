@@ -49,11 +49,11 @@
     <div>
       <ul id="items">
         {{#each tasks}}
-        {{#unless complete}}
+        {{#unless taskStatus}}
         {{taskName}}
-        {{/unless}}
         <button id="completedTask" class="completed">Completed </button>
         <button class=".delTask ">Delete </button>
+        {{/unless}}
         {{/each}}
       </ul>
     </div>
@@ -65,7 +65,7 @@
       <hr>
       <ul id="items2">
         {{#each tasks}}
-        {{#if complete}}
+        {{#if taskStatus}}
         {{taskName}}
         {{/if}}
         <button class=".reopen">Reopen</button>

@@ -28,12 +28,12 @@ var Tasks = sequelize.define("Tasks", {
             len: [1, 250]
         }
     },
-    taskDate: {
-        type: Sequelize.DATE,
-        // AllowNull is a flag that restricts a todo from being entered if it doesn't
-        // have a text value
-        allowNull: false,
-    },
+    // taskDate: {
+    //     type: Sequelize.DATE,
+    //     // AllowNull is a flag that restricts a todo from being entered if it doesn't
+    //     // have a text value
+    //     // allowNull: false,
+    // },
 
     taskStatus: {
         type: Sequelize.BOOLEAN,
