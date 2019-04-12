@@ -17,7 +17,7 @@ var Tasks = sequelize.define("Tasks", {
         type: Sequelize.BOOLEAN,
         // AllowNull is a flag that restricts a todo from being entered if it doesn't
         // have a text value
-        defaultValue: true,
+        defaultValue: false,
         }
     ,
     importance: {
