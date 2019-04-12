@@ -26,19 +26,6 @@ module.exports = {
         } else {
             res.redirect("/");
         }
-
-
-    create: function (req, res) {
-        console.log("Denis is the best TA", req.body)
-        db.Tasks
-            .create(req.body)
-            .then(function (result) {
-                res.json(result)
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
-
     },
     viewAll: function (req, res) {
         db.Tasks
@@ -100,7 +87,7 @@ module.exports = {
                 }).then(function (dbTask) {
                     res.json(dbTask);
                 });
-    },
+    }
 
     // Mel stub don't delete without permission//
 
