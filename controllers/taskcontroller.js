@@ -2,6 +2,7 @@ var db = require("../models");
 
 module.exports = {
     create: function(req, res){
+        console.log("Denis is the best TA", req.body)
         db.Tasks
         .create(req.body)
         .then(function(result){
@@ -18,7 +19,8 @@ module.exports = {
             var taskobj = {
                 tasks: result
             }
-            return res.render("dashboard", taskobj)
+            console.log("Task Obj", taskobj);
+            return res.render("dashboard", taskobj);
             // res.json(result)
         })
         .catch(function(err) {

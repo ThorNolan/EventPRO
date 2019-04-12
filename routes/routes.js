@@ -22,7 +22,7 @@ router.get("/api/tasks/completed", function(req, res) {
 })
 
 router.get("/api/tasks/open", function(req, res) {
-    taskControllers.viewOpen(req, res);
+    taskControllers.viewAll(req, res);
 })
 
 router.get("/api/tasks/delete/:id", function(req, res) {
