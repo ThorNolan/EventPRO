@@ -312,6 +312,8 @@ $(document).ready(function () {
     // for a click on an element with an ID of #test-element
     $(document).on("getElementById", "#items", function () {
 
+        drag ();
+
         console.log('changing task');
         var changeTask = {
             taskName: $("#taskName").val().trim(),
