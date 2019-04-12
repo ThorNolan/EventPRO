@@ -14,12 +14,11 @@ module.exports = function(app, passport) {
             if(!user) {
                 // If username is already taken, message from imported from passport strategies (info) will be displayed. 
                 return res.render("register", info)
-            }   
-            else{
-                req.login(function(user, loginErr){
+            } else {
+                req.logIn(user, function(loginErr){
                     if(loginErr){
                         return next(loginErr)
-                    }else {
+                    } else {
                         console.log("Registration successful")
                         res.redirect("/dashboard")
                     }
