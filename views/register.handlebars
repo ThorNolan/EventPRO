@@ -3,11 +3,11 @@
 <div class="center-align logo-div">
     <img class="logo-image" src="/assets/images/event-pro-3-logo.png" alt="EventPRO logo image">
 </div>    
-<div>
-    <h2>{{#if message}}{{message}}{{/if}}</h2>
+<div id="toastDiv">
+    <div class="center-align">{{#if message}}{{message}}{{/if}}</div>
 </div>
 <div class="valign-wrapper row signup-box">
-    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 register-card">
+    <div class="col card hoverable s10 offset-s1 m8 offset-m2 l4 offset-l3 register-card">
         <form id="register" name="register" method="post" action="/register">
             <div class="card-content">
                 <span class="card-title center">Sign Up</span>

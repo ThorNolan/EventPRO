@@ -20,7 +20,7 @@ module.exports = function(app, passport) {
                     if(loginErr){
                         return next(loginErr)
                     }else {
-                        console.log("signup sucessful")
+                        console.log("signup successful")
                         res.redirect("/dashboard")
                     }
                 })

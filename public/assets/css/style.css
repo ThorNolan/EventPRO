@@ -42,6 +42,7 @@
     border-radius: 1.75%;
     background-color: rgba(0,0,0,0.9);
     color: white;
+    min-width: 50%;
 }
 
 .signin-card input, select, textarea, .register-card input, select, textarea{
@@ -75,6 +76,24 @@ img.signin-bg {
       margin-left: -512px;  
     }
   }
+
+#toastDiv{
+  width: 100vw;
+  position: absolute;
+  top: 16%;
+} 
+
+@media only screen and (max-width:640px) {
+  #toastDiv{
+    top: 8%;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  #toastDiv{
+    top: 6%;
+  }
+}
 
 
 /* ================================== THOR ==================================================== */
