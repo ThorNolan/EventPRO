@@ -56,6 +56,9 @@ $(document).ready(function () {
                 eventInfo.append(`
                 <button class="delEvent" data-id=${data[i].id} class="btn ">Delete Event</button>
                 `)
+                eventInfo.append(`
+                <button class="pastEvent" data-id=${data[i].id} class="btn ">Past Event</button>
+                `)
             }
             $(".eventArea").append(eventInfo)
             console.log(data)
@@ -167,18 +170,11 @@ $(document).ready(function () {
     //------------ Task CRUD------------------//
     //------------ Event CRUD------------------//
 
-
-
-
-
-    // View Current Event
-
-
-
-
     // View Past Events
     $("#viewPastEvents").on("click", function () {
-
+        console.log("This is being clicked")
+        $(".eventArea").empty()
+        $(".eventArea").append("<h4 class='white-text shadow text-darken-4'> Past Events!</h4>")
         $.ajax({
             method: "GET",
             url: "/api/event/past",
@@ -186,6 +182,14 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
+    });
+
+    // View Current Events
+    $("#viewCurrentEvents").on("click", function () {
+        console.log("This is being clicked")
+        $(".eventArea").empty()
+        location.reload()
+ 
     });
 
     // Delete Event
@@ -201,6 +205,19 @@ $(document).ready(function () {
                 location.reload()
             });
     });
+
+    // Change Event from Current to Past
+    $(".eventArea").on("click", ".pastEvent", function(){
+        var id=$(this).data("id");
+        $.ajax({
+            method: "PUT",
+            url: "/api/event/past/" + id,
+        })  
+            .then( function (data){
+                console.log("This will be updated")
+                // location.reload()
+            })
+    })
 });
 
 $(document).ready(function () {
