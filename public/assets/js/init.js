@@ -115,6 +115,9 @@ $(document).ready(function () {
     });
 
     $(".eventArea").on("click", ".viewEventTasks", function () {
+        $("#items").empty()
+        $("#items2").empty()
+
         console.log('view event tasks');
         var id = $(this).data("id");
         console.log("THIS IS THE ID" + id)
@@ -127,18 +130,18 @@ $(document).ready(function () {
                 console.log("********")
                 // location.reload()
                 console.log(data)
-             
-                    for (i = 0; i < data.length; i++) {
 
+                for (i = 0; i < data.length; i++) {
+                    // if (data[i].eventNameTask === 1) {
                         if (data[i].taskStatus) {
                             $("#items").append("<div class='center task'>" + data[i].taskName + "<div> <button class='taskCompleted' >Completed</button>")
                         }
-
                         else {
                             $("#items").append("<div class='center task'>" + data[i].taskName + "<div>")
                         }
-                    }
-                
+                    // }
+                }
+
                 // else {
                 //     $("#items").append("<div class='center' You have no tasks for this event.>")
                 // }
@@ -153,13 +156,15 @@ $(document).ready(function () {
 
     // Add new Task
     $("#submitNewTask").on("click", function () {
-
+        var eventId = $("#")
         console.log('submit new task enter');
         var newTask = {
             taskName: $("#newTaskName").val().trim(),
             taskType: false,
             importance: $("#newTaskImportance").val().trim(),
-            taskStatus: true
+            taskStatus: true,
+            eventNameTask: $("#eventNameTask").val().trim()
+
 
             // eventID: 
         }

@@ -11,6 +11,7 @@ module.exports = {
                 taskType: req.body.taskType,
                 importance: req.body.importance,
                 taskStatus: req.body.taskStatus,
+                eventNameTask: req.body.eventNameTask,
                 UserId: id
             }
             console.log("Denis is the best TA", newTask)
@@ -25,6 +26,7 @@ module.exports = {
         } else {
             res.redirect("/");
         }
+
 
     create: function (req, res) {
         console.log("Denis is the best TA", req.body)

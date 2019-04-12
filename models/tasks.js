@@ -42,7 +42,13 @@ var Tasks = sequelize.define("Tasks", {
         defaultValue: true,
     },
 
+    eventNameTask: {
+        type: Sequelize.STRING,
+        validate: {
+            len: [1, 250]
+        }
 
+    }
 
 });
 
