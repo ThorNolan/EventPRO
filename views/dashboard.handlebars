@@ -7,18 +7,22 @@
 
       <div id="userPhoto">
         {{!-- <img id="koala" class="circle" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==" alt="cute koala"> --}}
-      </div>  
+      </div>
       <p class="center">You're logged in ✔️</p>
       <div id="sideNavBtns" class="col s12 center">
-        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewCurrentEvents"><i class="material-icons left">cloud</i>Current Events</a>
-        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewPastEvents"><i class="material-icons left">cloud</i>Past Events</a>
-        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal1"><i class="material-icons left">cloud</i>Create Event</a>
-      </div>  
+        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewCurrentEvents"><i
+            class="material-icons left">cloud</i>Current Events</a>
+        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewPastEvents"><i
+            class="material-icons left">cloud</i>Past Events</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal1"><i
+            class="material-icons left">cloud</i>Create Event</a>
+      </div>
     </div>
 
     <span class="" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
     {{!-- <a href="#" class="brand-logo center shadow">Event Pro</a> --}}
-    <img class="logo-image brand-logo center shadow" src="/assets/images/event-pro-3-logo.png" alt="EventPRO logo image">
+    <img class="logo-image brand-logo center shadow" src="/assets/images/event-pro-3-logo.png"
+      alt="EventPRO logo image">
     <a href="/logout" id="logout" class="right">Log out</a>
   </div>
 </nav>
@@ -96,6 +100,15 @@
             <input placeholder="Not Important, Important, Urgent" id="newTaskImportance" type="text" class="validate">
             <label for="newTaskImportance">Task Importance: </label> <br>
           </div>
+          <div class="input-field col s10">
+            <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
+            <label for="eventNameTask">Which Event? </label> <br>
+          </div>
+
+
+
+
+          
           <button id="submitNewTask" class="btn ">Submit Task</button>
         </div>
       </div>
@@ -248,7 +261,7 @@
 
 
 <script>
-  
+
   var el = document.getElementById('items');
   var el2 = document.getElementById('items2');
 

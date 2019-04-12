@@ -10,6 +10,7 @@ module.exports = {
                 taskType: req.body.taskType,
                 importance: req.body.importance,
                 taskStatus: req.body.taskStatus,
+                eventNameTask: req.body.eventNameTask,
                 UserId: id
             }
             console.log("Denis is the best TA", newTask)
@@ -24,8 +25,6 @@ module.exports = {
         } else {
             res.redirect("/");
         }
-        
-       
         
     },
     viewAll: function(req, res){
