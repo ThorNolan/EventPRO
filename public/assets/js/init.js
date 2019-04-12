@@ -1,7 +1,4 @@
 $(document).ready(function () {
-
-
-
     //------------Jennifer ------------------------//
     // Hide Task Form
     $("#taskForm").hide()
@@ -16,7 +13,7 @@ $(document).ready(function () {
             for (i = 0; i < data.length; i++) {
                 eventInfo.append(
                     `<h4>${data[i].eventName}</h4>
-                    <p>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party. The time of day of your pary is during ${data[i].timeOfDay}.</p>`
+                    <p>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party. The time of day of your party is during ${data[i].timeOfDay}.</p>`
                 )
 
                 if (data[i].dress) {
@@ -46,12 +43,12 @@ $(document).ready(function () {
                 }
                 if (data[i].themed === true) {
                     eventInfo.append(`
-                    <p>You want to have a themed party.</p>
+                    <p class='themeOptions'>You want to have a themed party.</p>
                     `)
                 }
 
                 eventInfo.append(`
-                <button class="addTaskToEvent" data-id=${data[i].id} class="btn ">Add Tasks</button>
+                <button class="viewEventTasks" data-id=${data[i].id} class="btn ">View Tasks</button>
                 `)
                 eventInfo.append(`
                 <button class="delEvent" data-id=${data[i].id} class="btn ">Delete Event</button>
@@ -64,6 +61,7 @@ $(document).ready(function () {
             console.log(data)
 
         });
+
     // Create New Event
     $("#submitSurvey").on("click", function (e) {
         e.preventDefault();
@@ -96,19 +94,13 @@ $(document).ready(function () {
                     }
                 }
             })
-
-            console.log(eventData)
-
             $.post("/api/event/new", eventData, function (res) {
-                console.log(res)
                 location.reload()
             })
         }
         else {
-            return console.log("Form is not completed")
+            return alert("⚠️ Please complete the required details before submitting! ⚠️")
         }
-
-
     });
 
     //------------ Task CRUD------------------//
@@ -118,7 +110,32 @@ $(document).ready(function () {
         $("#taskForm").show()
 
     });
+   
+    $(".eventArea").on("click", ".viewEventTasks", function () {
+        console.log('view event tasks');
+        var id = $(this).data("id");
+        $.ajax({
+            method: "GET",
+            url: "/api/tasks/all",
+        })
+            .then(function (data) {
+                console.log("This will show all tasks")
+                console.log(data)
+                console.log("********")
+                console.log(data[0])
+                console.log("********")
+                console.log(data.tasks[0])
+                console.log("********")
+                console.log(data.tasks[0].dataValues)
+                // location.reload()
+            });
 
+
+    })
+
+    $(".viewEventTasks", function (){
+        console.log("What isnt this working?")
+    })
 
     // Add new Task
     $("#submitNewTask").on("click", function () {
@@ -126,7 +143,7 @@ $(document).ready(function () {
         var newTask = {
             taskName: $("#newTaskName").val().trim(),
             taskType: false,
-            importance: "Urgent",
+            importance: $("#newTaskImportance").val().trim(),
             taskStatus: true,
             UserId: 1, 
             
@@ -149,17 +166,6 @@ $(document).ready(function () {
 
         $("#newTaskName").val("")
     });
-
-    // View All Tasks
-    // $(document).ready(function () {
-        $.ajax({
-            method: "GET",
-            url: "/api/tasks/open",
-        })
-            .then(function (data) {
-                // console.log(data);
-            });
-    // });
 
     // Delete Tasks
     $(".delTask").on("click", function () {
@@ -311,67 +317,6 @@ $(document).ready(function () {
 //------------ Nick ------------------------//
 
 
-// $(document).ready(function () {
-//     $('.modal').modal();
-//     $('input#input_text, textarea#textarea2').characterCounter();
-//     $('select').formSelect();
-//     $('.datepicker').datepicker();
-//     $('#textarea1').val('New Text');
-//     M.textareaAutoResize($('#textarea1'));
-// });
-
-// $("#submitSurvey").on("click", function (event) {
-//     event.preventDefault();
-
-//     // Conditional for form validation checks for any empty input areas, which will set my formCompleted variable to false
-//     var formCompleted = true;
-
-//     if ($("#eventName").val() === "" || $("#eventDate").val() === "") {
-//         formCompleted = false;
-//     }
-
-//     if (formCompleted) {
-
-//         // Grab all survey responses and store them in an object
-//         var newEvent = {
-//             name: $("#eventName").val().trim(),
-//             responses: [
-//                 $("#eventDate").val(),
-//                 $("#eventType").val(),
-//                 $("#attendees").val().trim(),
-//                 $("#timeOfDay").val(),
-//                 $("#dress").val(),
-//                 $("#themed").val(),
-//                 $("#food").val(),
-//                 $("#decorations").val(),
-//                 $("#cake").val(),
-//                 $("alcohol").val(),
-//             ]
-//         };
-
-//         console.log(newEvent);
-
-//         // Post request for the newEvent object that also returns data from about their best match calculated on the apiRoutes.js
-//         $.post("/api/tasks/create", newEvent, function (data) {
-//             // Trigger my modal popup with info about the match found for the user
-//             $("#createdEvent").html(data.name);
-//             $("#createdDate").text(data.response[0]);
-//             $("#createdType").text(data.response[1]);
-//             $("#createdAttendees").text(data.response[2]);
-//             $("#createdTimeOfDay").text(data.response[3]);
-//             $("#createdAttire").text(data.response[4]);
-//             $("#createdThemed").text(data.response[5]);
-//             $("#createdFood").text(data.response[6]);
-//             $("#createdDecorations").text(data.response[7]);
-//             $("#createdAlcohol").text(data.response[8]);
-
-
-//         });
-//     } else {
-//         // Alert user if they failed to respond to all form elements
-//         alert("⚠️ Please complete the Event Name and Date before submitting! ⚠️");
-//     }
-// });
 
 
 

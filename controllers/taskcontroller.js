@@ -20,6 +20,11 @@ module.exports = {
                 tasks: result
             }
             console.log("Task Obj", taskobj);
+            console.log(taskobj.tasks)
+            console.log("*********")
+            
+            console.log(taskobj.tasks[0].taskName)
+            console.log(taskobj.tasks[0].importance)
             return res.render("dashboard", taskobj);
             // res.json(result)
         })

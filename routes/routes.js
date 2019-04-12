@@ -21,7 +21,7 @@ router.get("/api/tasks/completed", function(req, res) {
     taskControllers.viewComplete(req, res);
 })
 
-router.get("/api/tasks/open", function(req, res) {
+router.get("/api/tasks/all", function(req, res) {
     taskControllers.viewAll(req, res);
 })
 
