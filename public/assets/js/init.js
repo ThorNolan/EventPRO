@@ -56,6 +56,9 @@ $(document).ready(function () {
                 eventInfo.append(`
                 <button class="delEvent" data-id=${data[i].id} class="btn ">Delete Event</button>
                 `)
+                eventInfo.append(`
+                <button class="pastEvent" data-id=${data[i].id} class="btn ">Past Event</button>
+                `)
             }
             $(".eventArea").append(eventInfo)
             console.log(data)
@@ -122,21 +125,25 @@ $(document).ready(function () {
         console.log('submit new task enter');
         var newTask = {
             taskName: $("#newTaskName").val().trim(),
-            taskType: true,
+            taskType: false,
             importance: "Urgent",
             taskStatus: true,
-            userID: 1,
+            UserId: 1, 
+            
             // eventID: 
         }
-        console.log('submit new task going to send');
-        $.ajax({
-            method: "POST",
-            url: "/api/tasks/create",
-            body: newTask
-        })
+        console.log('submit new task going to send', newTask);
+        // $.ajax({
+        //     method: "POST",
+        //     url: "/api/tasks/create",
+        //     body: newTask
+        // })
+        $.post("/api/tasks/create" , newTask)
             .then(function (data) {
                 console.log(data)
-            });
+                location.reload();
+            })
+
         console.log('submit new task should have sent');
         $("#taskForm").hide()
 
@@ -144,15 +151,15 @@ $(document).ready(function () {
     });
 
     // View All Tasks
-    $("#openTask").on("click", function () {
+    // $(document).ready(function () {
         $.ajax({
             method: "GET",
-            url: "/api/tasks/all",
+            url: "/api/tasks/open",
         })
             .then(function (data) {
-                console.log(data)
+                // console.log(data);
             });
-    });
+    // });
 
     // Delete Tasks
     $(".delTask").on("click", function () {
@@ -167,18 +174,11 @@ $(document).ready(function () {
     //------------ Task CRUD------------------//
     //------------ Event CRUD------------------//
 
-
-
-
-
-    // View Current Event
-
-
-
-
     // View Past Events
     $("#viewPastEvents").on("click", function () {
-
+        console.log("This is being clicked")
+        $(".eventArea").empty()
+        $(".eventArea").append("<h4 class='white-text shadow text-darken-4'> Past Events!</h4>")
         $.ajax({
             method: "GET",
             url: "/api/event/past",
@@ -186,6 +186,14 @@ $(document).ready(function () {
             .then(function (data) {
                 console.log(data)
             });
+    });
+
+    // View Current Events
+    $("#viewCurrentEvents").on("click", function () {
+        console.log("This is being clicked")
+        $(".eventArea").empty()
+        location.reload()
+ 
     });
 
     // Delete Event
@@ -201,6 +209,19 @@ $(document).ready(function () {
                 location.reload()
             });
     });
+
+    // Change Event from Current to Past
+    $(".eventArea").on("click", ".pastEvent", function(){
+        var id=$(this).data("id");
+        $.ajax({
+            method: "PUT",
+            url: "/api/event/past/" + id,
+        })  
+            .then( function (data){
+                console.log("This will be updated")
+                // location.reload()
+            })
+    })
 });
 
 $(document).ready(function () {

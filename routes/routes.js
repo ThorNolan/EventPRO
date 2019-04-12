@@ -22,7 +22,7 @@ router.get("/api/tasks/completed", function(req, res) {
 })
 
 router.get("/api/tasks/open", function(req, res) {
-    taskControllers.viewOpen(req, res);
+    taskControllers.viewAll(req, res);
 })
 
 router.get("/api/tasks/delete/:id", function(req, res) {
@@ -39,6 +39,10 @@ router.route("/api/event/new")
 router.get("/api/event/past", function(req, res) {
     eventControllers.viewPastEvents(req, res);
 })
+
+router.put("/api/event/past/:id", function(req, res) {
+    eventControllers.makeEventPast(req, res);
+})                  
 
 router.delete("/api/events/delete/:id", function(req, res) {
     eventControllers.deleteEvent(req, res);

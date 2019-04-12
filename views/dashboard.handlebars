@@ -6,8 +6,8 @@
       <img id="koala"
         src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==">
       <p class="center">You have been logged in!</p>
-      <a href="#">Current Events</a>
-      <a id="viewPastEvents" href="#">Past Events</a>
+      <a href="#" id="viewCurrentEvents">Current Events</a>
+      <a href="#" id="viewPastEvents" >Past Events</a>
       <a class="modal-trigger" href="#modal1">Create Event</a>
       <a href="#">Team</a>
     </div>
@@ -49,11 +49,11 @@
     <div>
       <ul id="items">
         {{#each tasks}}
-        {{#unless complete}}
+        {{#unless taskStatus}}
         {{taskName}}
-        {{/unless}}
         <button id="completedTask" class="completed">Completed </button>
         <button class=".delTask ">Delete </button>
+        {{/unless}}
         {{/each}}
       </ul>
     </div>
@@ -65,7 +65,7 @@
       <hr>
       <ul id="items2">
         {{#each tasks}}
-        {{#if complete}}
+        {{#if taskStatus}}
         {{taskName}}
         {{/if}}
         <button class=".reopen">Reopen</button>
