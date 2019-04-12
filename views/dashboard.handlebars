@@ -46,7 +46,7 @@
   <div class="col s10 m5 l3 offset">
     <h4 class="center">Open Tasks</h4>
     <hr>
-    <div>
+    <div class="openTasks">
       <ul id="items">
         {{#each tasks}}
         {{#unless taskStatus}}
@@ -60,7 +60,7 @@
     </section>
   </div>
   <div class="col s10 m5 l3 ">
-    <div class="entry">
+    <div class="entry closedTasks">
       <h4 class="center">Closed Tasks</h4>
       <hr>
       <ul id="items2">
@@ -114,7 +114,7 @@
         <h2 class="center">Event Details</h2>
         <div class="input-field col s12">
           <input disabled-value="Text" id="eventName" type="text" class="validate eventInput" required>
-          <label for="disabled">Name of Event</label>
+          <label for="disabled">Name of Event *required</label>
         </div>
 
       </div>
@@ -122,7 +122,7 @@
 
       <div class="row">
 
-        <label for="disabled">Date of Event</label>
+        <label for="disabled">Date of Event *required</label>
         <input type="text" class="datepicker eventInput" id="eventDate" class="validate" required>
 
       </div>
@@ -137,7 +137,7 @@
             <option value="Anniversary">Anniversary</option>
             <option value="Work Party">Work Party</option>
           </select>
-          <label>Event Type</label>
+          <label>Event Type *required</label>
         </div>
 
       </div>
@@ -147,7 +147,7 @@
 
         <div class="input-field col s12">
           <input disabled-value="Number" id="attendees" type="number" class="validate eventInput" required>
-          <label for="disabled">Number of Attendees</label>
+          <label for="disabled">Number of Attendees *required</label>
         </div>
 
       </div>
