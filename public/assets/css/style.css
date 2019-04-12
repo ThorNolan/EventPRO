@@ -42,7 +42,6 @@
     border-radius: 1.75%;
     background-color: rgba(0,0,0,0.9);
     color: white;
-    width: 50%;
 }
 
 .signin-card input, select, textarea, .register-card input, select, textarea{

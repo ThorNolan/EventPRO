@@ -40,6 +40,10 @@ router.get("/api/event/past", function(req, res) {
     eventControllers.viewPastEvents(req, res);
 })
 
+router.put("/api/event/past/:id", function(req, res) {
+    eventControllers.makeEventPast(req, res);
+})                  
+
 router.delete("/api/events/delete/:id", function(req, res) {
     eventControllers.deleteEvent(req, res);
 })
