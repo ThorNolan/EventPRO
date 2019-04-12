@@ -23,27 +23,29 @@ $(document).ready(function () {
                 }
                 if (data[i].alcohol === true) {
                     eventInfo.append(`
-                    <p>You want alcohol at your event.</p>
+                    <p>You want alcohol at your event.<a href='https://www.google.com/maps/search/liquor+store/' target="_blank"><i class="material-icons">local_bar</i></a></p>
+                    
                     `)
                 }
                 if (data[i].cake === true) {
                     eventInfo.append(`
-                    <p>You want to have cake.</p>
+                    <p>You want to have cake.<a href='https://www.google.com/maps/search/cake/' target="_blank"> <i class="fas fa-birthday-cake"></i></a></p>
+                    
                     `)
                 }
                 if (data[i].decorations === true) {
                     eventInfo.append(`
-                    <p>You want to have decorations.</p>
+                    <p>You want to have decorations.<a href='https://www.google.com/maps/search/decorations' target="_blank"> <i class="fas fa-ribbon"></i></p>
                     `)
                 }
                 if (data[i].food === true) {
                     eventInfo.append(`
-                    <p>You want to have food.</p>
+                    <p>You want to have food.<a href='https://www.google.com/maps/search/restaurants' target="_blank"> <i class="fas fa-utensils"></i></p>
                     `)
                 }
                 if (data[i].themed === true) {
                     eventInfo.append(`
-                    <p class='themeOptions'>You want to have a themed party.</p>
+                    <p class='themeOptions'>You want to have a themed party.<a href='https://www.partycity.com/pi-theme-party-ideas' target="_blank"> <i class="fas fa-paw"></i></p>
                     `)
                 }
 
