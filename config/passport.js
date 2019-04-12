@@ -54,12 +54,12 @@ module.exports = function(passport, user) {
                 if (user) {
                     // return done(null, false, req.flash("That username is already taken!"))
                     return done(null, false, {
-                        message: 'That username is already taken!'
+                        message: 'Uh-oh, looks like that username is already taken!'
                     });
 
                 } else {
  
-                    // Encrypt password data with bCrypt
+                    // Encrypt password data with bCrypt.
                     var userPassword = generateHash(password);
  
                     var data =
