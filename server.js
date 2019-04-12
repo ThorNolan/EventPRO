@@ -1,7 +1,7 @@
 //================================= SET UP =============================================
 
-// Set up dotenv.
-require('dotenv').config()
+// Set up dotenv for session secret key.
+require('dotenv').config();
 
 //=============================== DEPENDENCIES ==========================================
 
@@ -78,7 +78,7 @@ require('./routes/auth.js')(app, passport);
 require('./config/passport.js')(passport, db.Users);
 
 // Sync with sequelize then start server so that it can begin listening for client requests.
-db.sequelize.sync( ).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, HOST, function() {
     console.log('Server listening on: http://localhost:' + PORT);
   });
