@@ -6,11 +6,15 @@ var bcrypt = require('bcrypt');
 // The only strategy we will currently be exporting is local sign in and local register, though we may integrate more options later
 module.exports = function(passport, user) {
 
+    var User = user;
+    var LocalStrategy = require('passport-local').Strategy;
+
     // Serialize user id for session.
     passport.serializeUser(function(user, done) {
         done(null, user.id);
     });
 
+    // Deserialize user id for session.
     passport.deserializeUser(function(id, done){
         User.findAll({
             where: {
@@ -25,9 +29,6 @@ module.exports = function(passport, user) {
             }
         });
     });
-    
-    var User = user;
-    var LocalStrategy = require('passport-local').Strategy;
 
     // Local sign-up/register strategy for new users.
     passport.use('local-signup', new LocalStrategy(
@@ -35,7 +36,7 @@ module.exports = function(passport, user) {
         {
             usernameField: 'username',
             passwordField: 'userpassword',
-            passReqToCallback: true // allows us to pass back the entire request to the callback
+            passReqToCallback: true // pass back the entire request to the callback
         },
 
         function(req, username, password, done) {
@@ -52,7 +53,7 @@ module.exports = function(passport, user) {
             }).then(function(user) {
 
                 if (user) {
-                    // return done(null, false, req.flash("That username is already taken!"))
+                    // return done, message will be displayed on register handlebars page.
                     return done(null, false, {
                         message: 'Uh-oh, looks like that username is already taken!'
                     });

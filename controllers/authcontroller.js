@@ -10,6 +10,7 @@ exports.register = function(req, res) {
     res.render('register');
 }
 
+// Route for rendering dashboard display.
 exports.dashboard = function(req, res) {
     res.render('dashboard');
 }

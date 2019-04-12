@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
         passport.authenticate('local-signup', function(err, user, info) {
             if (err) return next(err)
             if(!user) {
-                console.log("^^^^", info)
+                // If username is already taken, message from imported from passport strategies (info) will be displayed. 
                 return res.render("register", info)
             }   
             else{
@@ -20,11 +20,11 @@ module.exports = function(app, passport) {
                     if(loginErr){
                         return next(loginErr)
                     }else {
-                        console.log("signup successful")
+                        console.log("Registration successful")
                         res.redirect("/dashboard")
                     }
-                })
-            }
+                });
+            };
             
         })(req, res, next)
     });
@@ -39,12 +39,13 @@ module.exports = function(app, passport) {
         failureRedirect: '/signin'
     }));
 
-
+    // Function for checking user login status. 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
 
             return next();
 
+        // redirect to sign-in if user isn't logged in.
         res.redirect('/signin');
-    }
+    };
 };

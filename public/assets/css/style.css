@@ -56,6 +56,7 @@
 
 .logo-image {
     z-index: 300;
+    margin-top: 4px;
 }
 
 /* background image for sign-in/register pages */
@@ -142,6 +143,8 @@ img.signin-bg {
       text-shadow: 4px 4px black;
     }
 
+    
+
     .eventSidenav {
       height: 100%;
       width: 0;
@@ -149,29 +152,31 @@ img.signin-bg {
       z-index: 1;
       top: 0;
       left: 0;
-      background-color: rgb(31, 177, 121);
+      background-color: rgba(0,0,0);
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 60px;
     }
 
     .eventSidenav a {
-      padding: 2px 8px 2px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: rgb(0, 255, 0);
-      display: block;
-      transition: 0.3s;
+      /* padding: 2px 8px 2px 32px;
+      text-decoration: none; */
+      /* font-size: 25px; */
+      color: #f1f1f1;
+      /* display: block; */
+      /* transition: 0.3s; */
+      width: 75%;
     }
 
-    .eventSidenav a:hover {
-      color: #f1f1f1;
-    }
+    /* .eventSidenav a:hover {
+      color: #00B8A4;
+    } */
 
     .eventSidenav .closebtn {
       position: absolute;
       top: 0;
-      right: 25px;
+      /* right: 25px; */
+      left: 150px;
       font-size: 36px;
       margin-left: 50px;
     }
@@ -181,9 +186,9 @@ img.signin-bg {
         padding-top: 15px;
       }
 
-      .eventSidenav a {
+      /* .eventSidenav a {
         font-size: 18px;
-      }
+      } */
     }
 
     #logout {
@@ -195,10 +200,23 @@ img.signin-bg {
       padding-left: 50px;
     }
 
-    #koala {
-      width: 100%;
-      border-top: 2px ridge black;
-      border-bottom: 2px ridge black;
+    /* #koala {
+      max-width: 75%;
+      width: 150px;
+      height: auto;
+      margin-left: 9%;
+      margin-top: 25%;
+      /* border-top: 2px ridge black;
+      border-bottom: 2px ridge black; */
+    /* } */ 
+
+    #userPhoto {
+        background: url(https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==) 50% 50% no-repeat;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-left: 18%;
+        margin-top: 16%;
     }
 
     #concertGoers {
