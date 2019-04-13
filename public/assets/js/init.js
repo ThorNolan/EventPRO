@@ -16,7 +16,6 @@ $(document).ready(function () {
   })
     .then(function (data) {
       var eventInfo = $("<div>")
-      var eventOptions = $("<div>")
       for (i = 0; i < data.length; i++) {
         eventInfo.append(
           `<h4>${data[i].eventName}</h4>
@@ -55,24 +54,20 @@ $(document).ready(function () {
                     <p class='themeOptions surveyAnswerDisplay'>You want to have a themed party.<a href='https://www.partycity.com/pi-theme-party-ideas' target="_blank"> <i class="fas fa-paw"></i></p>
                     `)
         }
-
-        eventOptions.append(`
+        eventInfo.append(`
                 <button class="viewEventTasks btn" data-id=${data[i].id} class="btn ">View Tasks</button>
                 `)
-        eventOptions.append(`
+        eventInfo.append(`
                 <button id="createTask" data-id=${data[i].id} class="btn ">Create Task</button>
                 `)
-        eventOptions.append(`
+        eventInfo.append(`
                 <button class="delEvent btn" data-id=${data[i].id}">Delete Event</button>
                 `)
-        eventOptions.append(`
+        eventInfo.append(`
                 <button class="pastEvent btn" data-id=${data[i].id} >Past Event</button>
                 `)
-        eventInfo.append(eventOptions)
+        $(".eventArea").append(eventInfo)
       }
-      $(".eventArea").append(eventInfo)
-
-
     });
 
   // Create New Event
