@@ -16,7 +16,7 @@ $(document).ready(function () {
   })
     .then(function (data) {
       var eventInfo = $("<div>")
-      var eventOptions = $("<div>")
+     
       for (i = 0; i < data.length; i++) {
         eventInfo.append(
           `<h4>${data[i].eventName}</h4>
@@ -56,19 +56,19 @@ $(document).ready(function () {
                     `)
         }
 
-        eventOptions.append(`
+        eventInfo.append(`
                 <button class="viewEventTasks btn" data-id=${data[i].id} class="btn ">View Tasks</button>
                 `)
-        // eventOptions.append(`
+        // eventInfo.append(`
         //         <button id="createTask" data-id=${data[i].id} class="btn ">New Task</button>
         //         `)
-        eventOptions.append(`
+        eventInfo.append(`
                 <button class="delEvent btn" data-id=${data[i].id}">Delete Event</button>
                 `)
-        eventOptions.append(`
+        eventInfo.append(`
                 <button class="pastEvent btn" data-id=${data[i].id}>Past Event</button>
                 `)
-        eventInfo.append(eventOptions)
+      
       }
       $(".eventArea").append(eventInfo)
 
@@ -206,17 +206,7 @@ $(document).ready(function () {
 
 //------------ Task CRUD------------------//
 
-
-// Hide Task Form
-//$("#taskForm").hide()
-
-// Display Form to Create new Task
-// $(".eventArea").on("click", "#createTask", function () {
-//   $("#taskForm").show()
-
-// });
-
-$(".eventArea").on("click", ".viewEventTasks", function () {
+$(document).ready( function () {
   $("#items").empty()
   $("#items2").empty()
 
@@ -228,27 +218,16 @@ $(".eventArea").on("click", ".viewEventTasks", function () {
     url: "/api/tasks/all",
   })
     .then(function (data) {
-      console.log("This will show all tasks")
-      console.log("********")
-      // location.reload()
-      console.log(data)
-
       for (i = 0; i < data.length; i++) {
         // if (data[i].eventNameTask === 1) {
         if (data[i].taskStatus) {
-          $("#items").append("<div class='center task'>" + data[i].taskName + "<div> <button class='taskCompleted' >Completed</button>")
+          $("#items").append("<div class='center task'>" + data[i].taskName + "<div>")
         }
         else {
           $("#items").append("<div class='center task'>" + data[i].taskName + "<div>")
         }
-        // }
       }
-
-      // else {
-      //     $("#items").append("<div class='center' You have no tasks for this event.>")
-      // }
     });
-
 
 })
 
