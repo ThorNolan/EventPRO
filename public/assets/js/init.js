@@ -20,62 +20,62 @@ $(document).ready(function () {
       for (i = 0; i < data.length; i++) {
         eventInfo.append(
           `<h4>${data[i].eventName}</h4>
-                    <p class='surveyAnswerDisplay'>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests at your ${data[i].eventType} party. The time of day of your party is during ${data[i].timeOfDay}.</p>`
+                    <p class='surveyAnswerDisplay'>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests to be attending this ${data[i].eventType}. This event will be happening during ${data[i].timeOfDay}.</p>`
         )
 
         if (data[i].dress) {
           eventInfo.append(`
-                    <p class='surveyAnswerDisplay'>The dress code is ${data[i].dress} </p>
+                    <p class='surveyAnswerDisplay'>Dress code: ${data[i].dress}   </p>
                     `)
         }
         if (data[i].alcohol === true) {
           eventInfo.append(`
-                    <p class='surveyAnswerDisplay'>You want alcohol at your event.<a href='https://www.google.com/maps/search/liquor+store/' target="_blank"><i class="material-icons">local_bar</i></a></p>
+                    <p class='surveyAnswerDisplay'>Beverages will be served <a href='https://www.google.com/maps/search/liquor+store/' target="_blank"><i class="material-icons">local_bar</i></a>  </p>
                     
                     `)
         }
         if (data[i].cake === true) {
           eventInfo.append(`
-                    <p class='surveyAnswerDisplay'>You want to have cake.<a href='https://www.google.com/maps/search/cake/' target="_blank"> <i class="fas fa-birthday-cake"></i></a></p>
+                  <p class='surveyAnswerDisplay'>There will be dessert! <a href='https://www.google.com/maps/search/cake/' target="_blank"> <i class="fas fa-birthday-cake"></i></a>  </p>
                     
                     `)
         }
         if (data[i].decorations === true) {
           eventInfo.append(`
-                    <p class='surveyAnswerDisplay'>You want to have decorations.<a href='https://www.google.com/maps/search/decorations' target="_blank"> <i class="fas fa-ribbon"></i></p>
+                    <p class='surveyAnswerDisplay'>Going to need some decorations <a href='https://www.google.com/maps/search/decorations' target="_blank"> <i class="fas fa-ribbon"></i>  </p>
                     `)
         }
         if (data[i].food === true) {
           eventInfo.append(`
-                    <p class='surveyAnswerDisplay'>You want to have food.<a href='https://www.google.com/maps/search/restaurants' target="_blank"> <i class="fas fa-utensils"></i></p>
+                    <p class='surveyAnswerDisplay'>Food will be served <a href='https://www.google.com/maps/search/restaurants' target="_blank"> <i class="fas fa-utensils"></i>  </p>
                     `)
         }
         if (data[i].themed === true) {
           eventInfo.append(`
-                    <p class='themeOptions surveyAnswerDisplay'>You want to have a themed party.<a href='https://www.partycity.com/pi-theme-party-ideas' target="_blank"> <i class="fas fa-paw"></i></p>
+                    <p class='themeOptions surveyAnswerDisplay'>This event will have a theme <a href='https://www.partycity.com/pi-theme-party-ideas' target="_blank"> <i class="fas fa-paw"></i>  </p>
                     `)
         }
 
         eventOptions.append(`
                 <button class="viewEventTasks btn" data-id=${data[i].id} class="btn ">View Tasks</button>
                 `)
-        eventOptions.append(`
-                <button id="createTask" data-id=${data[i].id} class="btn ">Create Task</button>
-                `)
+        // eventOptions.append(`
+        //         <button id="createTask" data-id=${data[i].id} class="btn ">New Task</button>
+        //         `)
         eventOptions.append(`
                 <button class="delEvent btn" data-id=${data[i].id}">Delete Event</button>
                 `)
         eventOptions.append(`
-                <button class="pastEvent btn" data-id=${data[i].id} >Past Event</button>
+                <button class="pastEvent btn" data-id=${data[i].id}>Past Event</button>
                 `)
         eventInfo.append(eventOptions)
       }
       $(".eventArea").append(eventInfo)
 
-
     });
 
-  // Create New Event
+
+  // Click listener for creating new event on submission of new event form.
   $("#submitSurvey").on("click", function (e) {
     e.preventDefault();
     var formIsValid = $("#createEventForm")[0].checkValidity();
@@ -132,38 +132,37 @@ $(document).ready(function () {
         for (i = 0; i < data.length; i++) {
           eventInfo.append(
             `<h4>${data[i].eventName}</h4>
-                    <p class='surveyAnswerDisplay'>Your event was on ${data[i].eventDate.slice(0, 10)}. You were expecting ${data[i].attendees} guests at your ${data[i].eventType} party. The time of day of your party was during ${data[i].timeOfDay}.</p>`
+                    <p class='surveyAnswerDisplay'>Your event took place on ${data[i].eventDate.slice(0, 10)}. You were expecting ${data[i].attendees} guests at your ${data[i].eventType} event. The event took place during ${data[i].timeOfDay}.</p>`
           )
           if (data[i].dress) {
             eventInfo.append(`
-                        <p class='surveyAnswerDisplay'>The dress code was ${data[i].dress}.</p>
+                        <p class='surveyAnswerDisplay'>The dress code was ${data[i].dress}.  </p>
                         `)
           }
           if (data[i].alcohol === true) {
             eventInfo.append(`
-                        <p class='surveyAnswerDisplay'>You had alcohol at your event.</p>
-                        
+                        <p class='surveyAnswerDisplay'>Alcoholic beverages were served </p>        
                         `)
           }
           if (data[i].cake === true) {
             eventInfo.append(`
-                        <p class='surveyAnswerDisplay'>You had cake.</p>
+                        <p class='surveyAnswerDisplay'>Dessert was served </p>
                         
                         `)
           }
           if (data[i].decorations === true) {
             eventInfo.append(`
-                        <p class='surveyAnswerDisplay'>You also used decorations.</p>
+                        <p class='surveyAnswerDisplay'>The place was decorated </p>
                         `)
           }
           if (data[i].food === true) {
             eventInfo.append(`
-                        <p class='surveyAnswerDisplay'>You included food at your party.</p>
+                        <p class='surveyAnswerDisplay'>Food was served </p>
                         `)
           }
           if (data[i].themed === true) {
             eventInfo.append(`
-                        <p class='themeOptions surveyAnswerDisplay'>You had a themed party.</p>
+                        <p class='themeOptions surveyAnswerDisplay'>There was a theme! </p>
                         `)
           }
 
@@ -209,13 +208,13 @@ $(document).ready(function () {
 
 
 // Hide Task Form
-$("#taskForm").hide()
+//$("#taskForm").hide()
 
 // Display Form to Create new Task
-$(".eventArea").on("click", "#createTask", function () {
-  $("#taskForm").show()
+// $(".eventArea").on("click", "#createTask", function () {
+//   $("#taskForm").show()
 
-});
+// });
 
 $(".eventArea").on("click", ".viewEventTasks", function () {
   $("#items").empty()
@@ -302,10 +301,6 @@ $(".delTask").on("click", function () {
 //------------ Task CRUD------------------//
 
 
-
-
-
-
 $(document).ready(function () {
   $('.modal').modal();
   $('input#input_text, textarea#textarea2').characterCounter();
@@ -317,13 +312,7 @@ $(document).ready(function () {
 
 
 
-
-
-
 //------------Jennifer ------------------------//
-
-
-
 
 
 
@@ -348,17 +337,7 @@ $(document).ready(function () {
 });
 
 
-
-
 //------------ Thor ------------------------//
-
-
-
-//------------ Mel ------------------------//
-
-
-
-
 
 
 
@@ -391,11 +370,6 @@ $(document).ready(function () {
 
 });
 
-
-//------------ Nick ------------------------//
-
+//------------ Mel ------------------------//
 
 
-
-
-//------------ Nick ------------------------//
