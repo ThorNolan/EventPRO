@@ -15,6 +15,7 @@ $(document).ready(function () {
     url: "/api/dashboard",
   })
     .then(function (data) {
+      const eventInfoTemplate = Handlebars.compile();
       var eventInfo = $("<div>")
       for (i = 0; i < data.length; i++) {
         eventInfo.append(
