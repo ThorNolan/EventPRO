@@ -56,7 +56,8 @@
 
 .logo-image {
     z-index: 300;
-    margin-top: 4px;
+    top: -45px;
+    width: 210px;
 }
 
 /* background image for sign-in/register pages */
@@ -96,26 +97,21 @@ img.signin-bg {
   }
 }
 
+#sideNavBtns > a > i{
+  position: relative;
+  top: -13px;
+  left: 5px;
+}
+
+#topNav {
+  height: 70px;
+}
+
+.surveyAnswerDisplay p {
+  padding: 12px;
+}
 
 /* ================================== THOR ==================================================== */
-
-
-/* ================================== NICK ==================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ================================== NICK ==================================================== */
-
 
 /* ================================== MELANIE ==================================================== */
 
@@ -167,10 +163,6 @@ img.signin-bg {
       /* transition: 0.3s; */
       width: 75%;
     }
-
-    /* .eventSidenav a:hover {
-      color: #00B8A4;
-    } */
 
     .eventSidenav .closebtn {
       position: absolute;
@@ -227,15 +219,12 @@ img.signin-bg {
       margin:100px;
     }
 
-    #taskForm {
-      box-shadow: 2px 2px black;
-    }
-
   .modal {
     min-height: 80% !important;
   }
   .surveyAnswerDisplay {
-    display: inline-block
+    display: inline-block;
+    padding: 10px;
   }
 
 /* ================================== JENNIFER ==================================================== */

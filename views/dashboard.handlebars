@@ -1,7 +1,8 @@
 <img class="signin-bg" src="/assets/images/light-veneer.png" alt="Sign in/register pages background image">
 
+{{!-- html for nav and sidenav areas --}}
 <nav id="topNav">
-  <div class="nav-wrapper teal darken-4">
+  <div class="nav-wrapper black">
     <div id="mySidenav" class="eventSidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
@@ -10,19 +11,17 @@
       </div>
       <p class="center">You're logged in ✔️</p>
       <div id="sideNavBtns" class="col s12 center">
-        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewCurrentEvents"><i
-            class="material-icons left">cloud</i>Current Events</a>
-        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewPastEvents"><i
-            class="material-icons left">cloud</i>Past Events</a>
-        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal1"><i
-            class="material-icons left">cloud</i>Create Event</a>
+        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewCurrentEvents"><i class="material-icons left">assignment_late</i>Current Events</a>
+        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewPastEvents"><i class="material-icons left">find_replace</i>Past Events</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal1"><i class="material-icons left">add</i>Create Event</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal2"><i class="material-icons left">add</i>Add Task</a>
       </div>
     </div>
 
     <span class="" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-    {{!-- <a href="#" class="brand-logo center shadow">Event Pro</a> --}}
-    <img class="logo-image brand-logo center shadow" src="/assets/images/event-pro-3-logo.png"
-      alt="EventPRO logo image">
+
+    <img class="logo-image brand-logo center shadow" src="/assets/images/evenpro-logo-pilled.png" alt="EventPRO logo image">
+
     <a href="/logout" id="logout" class="right">Log out</a>
   </div>
 </nav>
@@ -35,26 +34,26 @@
 <div class="row">
   <div class="col s12  l3"></div>
   <div class="col s12 l6 ">
-    <section class="objective eventArea">
-      <h4 class="black-text text-darken-4">Your Events!</h4>
-      <button id="createEvent" data-target="modal1" class="btn modal-trigger">Create Event</button>
+    <section class="objective eventArea center">
+      <h4 class="black-text text-darken-4 center">What are we planning for today?</h4>
+      <button id="createEvent" data-target="modal1" class="btn waves-effect waves-light modal-trigger teal lighten-2"><i class="material-icons left">add</i>Create Event</button>
     </section>
   </div>
 </div>
+
 <section id="eventTaskDisplayArea">
   <div class="row">
     <div class="col s12  l3"></div>
     <div class="col s12 l6 offset-3">
       <section class="tasks">
-        <h4 class="black-text text-darken-4">Event Tasks <i class="fas fa-tasks"></i></h4>
-        <p>Organize the big day by listing out your tasks. </p>
+        <h4 class="black-text text-darken-4 center-align">Organize tasks and start planning for the big day! <i class="fas fa-tasks"></i></h4>
     </div>
   </div>
 
   <div class="row">
     <div class="col s10 m2 l3 "> </div>
     <div class="col s10 m5 l3 offset">
-      <h4 class="center">Open Tasks</h4>
+      <h4 class="center">To-Do:</h4>
       <hr>
       <div class="openTasks">
         <ul id="items">
@@ -64,7 +63,7 @@
     </div>
     <div class="col s10 m5 l3 ">
       <div class="entry closedTasks">
-        <h4 class="center">Closed Tasks</h4>
+        <h4 class="center">Completed:</h4>
         <hr>
         <ul id="items2">
         </ul>
@@ -72,54 +71,50 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col s12 l3 "></div>
-    <div class="col s12 l7">
-      <div id="taskForm">
-        <div class="col s12 m10 offset-m1">
+</section>
+
+{{!-- form for adding a new task for a particular event --}}
+<div id="modal2" class="modal">
+    <div class="modal-content">
+      <form id="taskForm">
           <div class="row">
             <h4>Add a new Task</h4>
-            <div class="input-field col s10">
+
+            <div class="input-field col s12">
               <input placeholder="Task Name" id="newTaskName" type="text" class="validate">
-              <label for="newTaskName">Description of Task</label>
+              <label for="newTaskName">Description: </label>
             </div>
-            <div class="input-field col s10">
+          </div>  
+          
+          <div class="row">
+            <div class="input-field col s12">
               <input placeholder="Not Important, Important, Urgent" id="newTaskImportance" type="text" class="validate">
               <label for="newTaskImportance">Task Importance: </label> <br>
             </div>
-            <div class="input-field col s10">
-              <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
-              <label for="eventNameTask">Which Event? </label> <br>
-            </div>
-
-
-
-
-
-            <button id="submitNewTask" class="btn ">Submit Task</button>
           </div>
-        </div>
 
-      </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
+              <label for="eventNameTask">Which event is this task for? </label> <br>
+            </div>
+          </div>
+        
+        <button id="submitNewTask" class="btn waves-effect waves-light btn teal lighten-2">Submit Task</button>
+      </form>
     </div>
-  </div>
-</section>
-<div class="row">
-  <div class="col s12 m6 offset-m6 l4 offset-l2">
-  </div>
 </div>
 
-
+{{!-- modal form for gathering info about an event before adding to database --}}
 <div id="modal1" class="modal">
   <div class="modal-content">
-
 
     <form id="createEventForm">
       <div class="row">
         <h2 class="center">Event Details</h2>
         <div class="input-field col s12">
           <input disabled-value="Text" id="eventName" type="text" class="validate eventInput" required>
-          <label for="disabled">Name of Event *required</label>
+          <label for="disabled">Name of Event  <i>*required</i></label>
         </div>
 
       </div>
@@ -127,32 +122,33 @@
 
       <div class="row">
 
-        <label for="disabled">Date of Event *required</label>
+        <label for="disabled">Date of Event  <i>*required</i></label>
         <input type="text" class="datepicker eventInput" id="eventDate" class="validate" required>
 
       </div>
-
 
       <div class="row">
 
         <div class="input-field col s12">
           <select value="empty" id="eventType" required class="eventSelect">
-            <option disabled selected>Select the Event</option>
-            <option value="Birthday">Birthday</option>
+            <option disabled selected>Select the Event Type</option>
+            <option value="Birthday">Birthday Party</option>
             <option value="Anniversary">Anniversary</option>
             <option value="Work Party">Work Party</option>
+            <option value="Meetup">Meetup</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Other">Other</option>
           </select>
-          <label>Event Type *required</label>
+          <label>What type of event will it be?  <i>*required</i></label>
         </div>
 
       </div>
-
 
       <div class="row">
 
         <div class="input-field col s12">
           <input disabled-value="Number" id="attendees" type="number" class="validate eventInput" required>
-          <label for="disabled">Number of Attendees *required</label>
+          <label for="disabled">Number of Attendees  <i>*required</i></label>
         </div>
 
       </div>
@@ -173,7 +169,7 @@
       <div class="row">
         <div class="input-field col s12">
           <select value="empty" id="dress" class="eventSelect">
-            <option disabled selected>Attire Type</option>
+            <option disabled selected>Attire:</option>
             <option value="Casual">Casual</option>
             <option value="Semi-Formal">Semi-Formal</option>
             <option value="Formal">Formal</option>
@@ -183,15 +179,14 @@
         </div>
       </div>
 
-
       <div class="row">
         <div class="input-field col s12">
           <select value="empty" id="themed" class="eventSelect">
-            <option disabled selected>Is this a themed party?</option>
+            <option disabled selected>Themed?</option>
             <option value=false>No</option>
             <option value=true>Yes</option>
           </select>
-          <label>Themed - Yes/No</label>
+          <label>Is this a themed party? - Yes/No</label>
         </div>
 
       </div>
@@ -199,49 +194,49 @@
       <div class="row">
         <div class="input-field col s12">
           <select value="empty" id="food" class="eventSelect">
-            <option disabled selected>Do you require food?</option>
+            <option disabled selected>Food?</option>
             <option value=false>No</option>
             <option value=true>Yes</option>
           </select>
-          <label>Food Required? - Yes/No</label>
+          <label>Will food be served at this event? - Yes/No</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <select value="empty" id="decorations" class="eventSelect">
-            <option disabled selected>Do you require decorations?</option>
+            <option disabled selected>Decorations?</option>
             <option value=false>No</option>
             <option value=true>Yes</option>
           </select>
-          <label>Decorations? - Yes/No</label>
+          <label>Will we be decorating? - Yes/No</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <select value="empty" id="cake" class="eventSelect">
-            <option disabled selected>Do you need cake/dessert?</option>
+            <option disabled selected>Cake/Dessert?</option>
             <option value=false>No</option>
             <option value=true>Yes</option>
           </select>
-          <label>Cake/Dessert? - Yes/No</label>
+          <label>Will you need cake/dessert? - Yes/No</label>
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <select value="empty" id="alcohol" class="eventSelect">
-            <option disabled selected>Do you need alcohol?</option>
+            <option disabled selected>Alcohol?</option>
             <option value=false>No</option>
             <option value=true>Yes</option>
           </select>
-          <label>Alochol? - Yes/No</label>
+          <label>Will you be needing alcoholic beverages? - Yes/No</label>
         </div>
 
       </div>
 
-      <a id="submitSurvey" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+      <a id="submitSurvey" class="modal-close waves-effect waves-teal lighten-2 btn-flat"> <i class="material-icons right">send</i>Submit</a>
 
     </form>
   </div>
