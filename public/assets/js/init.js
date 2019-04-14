@@ -288,6 +288,7 @@ $(".delTask").on("click", function () {
 
 
 $(document).ready(function () {
+  $('.tap-target').tapTarget();
   $('.modal').modal();
   $('input#input_text, textarea#textarea2').characterCounter();
   $('select').formSelect();
@@ -320,13 +321,7 @@ $(document).ready(function () {
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
 
-  // Initiate feature discovery tap target and listen for click of info button.
   $('.fixed-action-btn').floatingActionButton();
-  $('.tap-target').tapTarget();
-
-  $('.tap-trigger').on('click', function() {
-    $('.tap-target').tapTarget('open');
-  });
 
 });
 

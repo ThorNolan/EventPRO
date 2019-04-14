@@ -21,7 +21,7 @@
         <a class="modal-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#modal2"><i
             class="material-icons right hvr-icon">check_circle_outline</i>Add Task</a>
 
-        <a class="tap-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow"><i class="material-icons right hvr-icon">info</i>Help</a>
+        <a class="tap-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" onclick="$('.tap-target').tapTarget('open')"><i class="material-icons right hvr-icon">info</i>Help</a>
 
       </div>
     </div>
@@ -87,19 +87,20 @@
 
 </section>
 
-<div class="fixed-action-btn direction-top">
-   <a id="information" class="btn-floating btn waves-effect waves-light teal lighten-2"></a>
+<div class="fixed-action-btn direction-top logoBtn">
+  <img id="logoBtn" src="/assets/images/mstile-150x150.png">
+  <a id="information" class="btn-floating btn waves-effect waves-light cyan accent-2">&times;</a>
 </div>
 
-<!-- Tap Target Structure -->
-<div class="tap-target-wrapper">
-  <div class="tap-target" data-target="information">
-    <div class="tap-target-content">
-      <h5>New here? No problem!</h5>
-      <p>feature here</p>
+<!-- Tap Target for getting started info -->
+  <div class="tap-target black" data-target="information">
+    <div class="tap-target-content white-text">
+      <h5 class="center" style="padding-left:35%; padding-top: 10%">Getting started:</h5>
+      <p style="padding-left:25%">• Click "create event" and enter details to start planning</p>
+      <p style="padding-left:12%; padding-top: 5%">• Add new to-do's with the "add task" button, and drag them around for prioritizing, or drag them to the completed side once they're all finished!</p>
+      <p style="max-width:320px; padding-top: 5%">• Click the blue icons next to your event info to get the location of stores near you that can help you make this event something to remember</p>
     </div>
   </div>
-</div>
 
 {{!-- form for adding a new task for a particular event --}}
 <div id="modal2" class="modal">
