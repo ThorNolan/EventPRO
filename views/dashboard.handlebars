@@ -11,11 +11,15 @@
       </div>
       <p class="center">You're logged in ✔️</p>
       <div id="sideNavBtns" class="col s12 center">
-      
-        <a class="waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#" id="viewCurrentEvents"><i class="material-icons right hvr-icon">assignment_late</i>Current Events</a>
-        <a class="waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#" id="viewPastEvents"><i class="material-icons right hvr-icon">find_replace</i>Past Events</a>
-        <a class="modal-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#modal1"><i class="material-icons right hvr-icon">plus_one</i>Create Event</a>
-        <a class="modal-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#modal2"><i class="material-icons right hvr-icon">check_circle_outline</i>Add Task</a>
+
+        <a class="waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#"
+          id="viewCurrentEvents"><i class="material-icons right hvr-icon">assignment_late</i>Current Events</a>
+        <a class="waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#" id="viewPastEvents"><i
+            class="material-icons right hvr-icon">find_replace</i>Past Events</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#modal1"><i
+            class="material-icons right hvr-icon">plus_one</i>Create Event</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#modal2"><i
+            class="material-icons right hvr-icon">check_circle_outline</i>Add Task</a>
 
       </div>
     </div>
@@ -39,8 +43,10 @@
   <div class="col s12 l6 ">
     <section class="objective eventArea center">
       <h4 class="black-text text-darken-4 center">What are we planning for today?</h4>
-      
-      <button id="createEvent" data-target="modal1" class="btn waves-effect waves-light modal-trigger teal lighten-2 hvr-icon-pulse hvr-grow"><i class="material-icons left hvr-icon">add</i>Create Event</button>
+
+      <button id="createEvent" data-target="modal1"
+        class="btn waves-effect waves-light modal-trigger teal lighten-2 hvr-icon-pulse hvr-grow"><i
+          class="material-icons left hvr-icon">add</i>Create Event</button>
 
     </section>
   </div>
@@ -80,23 +86,25 @@
 </section>
 
 <div class="fixed-action-btn tap-trigger">
-   <a id="information" class="btn-floating btn waves-effect waves-light teal lighten-2"><i class="material-icons">info</i></a>
+  <a id="information" class="btn-floating btn waves-effect waves-light teal lighten-2"><i
+      class="material-icons">info</i></a>
 </div>
 
 <!-- Tap Target Structure -->
-  <div class="tap-target" data-target="information">
-    <div class="tap-target-content">
-      <h5>New here? No problem!</h5>
-      <p>feature here</p>
-    </div>
+<div class="tap-target" data-target="information">
+  <div class="tap-target-content">
+    <h5>New here? No problem!</h5>
+    <p>feature here</p>
   </div>
+</div>
 
 {{!-- form for adding a new task for a particular event --}}
 <div id="modal2" class="modal">
   <div class="modal-content">
     <form id="taskForm">
       <div class="row">
-        <h2 class="center blackUnderline">Add a new <span class="teal-text text-lighten-2 blackUnderline">Task</span> <i id="taskIcon" class="fas fa-tasks fa-sm"></i></h2>
+        <h2 class="center blackUnderline">Add a new <span class="teal-text text-lighten-2 blackUnderline">Task</span> <i
+            id="taskIcon" class="fas fa-tasks fa-sm"></i></h2>
 
         <div class="input-field col s12">
           <input placeholder="Task Name" id="newTaskName" type="text" class="validate">
@@ -113,8 +121,11 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
-          <label for="eventNameTask">Which event is this task for? <i class="red-text text-darken-4">*required</i></label> <br>
+          <select value="empty" id="eventNameTask" required>
+            <option disabled selected>Task for Which Event?</option>
+          </select>
+          <label for="eventNameTask">Which event is this task for? <i
+              class="red-text text-darken-4">*required</i></label> <br>
         </div>
       </div>
 
@@ -129,7 +140,8 @@
     <div id="surveyBorder">
       <form id="createEventForm">
         <div class="row">
-          <h2 class="center blackUnderline">Event <span class="teal-text text-lighten-2 blackUnderline">Details</span><i id="pencilIcon" class="fas fa-pencil-alt fa-xs"></i></h2>
+          <h2 class="center blackUnderline">Event <span class="teal-text text-lighten-2 blackUnderline">Details</span><i
+              id="pencilIcon" class="fas fa-pencil-alt fa-xs"></i></h2>
           <div class="input-field col s12">
             <input placeholder="Tommy's 2nd Birthday" id="eventName" type="text" class="validate eventInput" required>
             <label for="eventName">Name of Event <i class="red-text text-darken-4">*required</i></label>
@@ -154,7 +166,8 @@
               <option value="Wedding">Wedding</option>
               <option value="Other">Other</option>
             </select>
-            <label for="eventType">What type of event will it be? <i class="red-text text-darken-4">*required</i></label>
+            <label for="eventType">What type of event will it be? <i
+                class="red-text text-darken-4">*required</i></label>
           </div>
 
         </div>
@@ -175,7 +188,8 @@
               <option value="Night Time">Night Time</option>
               <option value="After Hours">After Hours</option>
             </select>
-            <label for="timeOfDay">When time does the party begin?<i class="red-text text-darken-4">*required</i></label>
+            <label for="timeOfDay">When time does the party begin?<i
+                class="red-text text-darken-4">*required</i></label>
           </div>
         </div>
 
@@ -256,20 +270,20 @@
 
 <script>
 
-  
 
-    var el = document.getElementById('items');
-    var el2 = document.getElementById('items2');
 
-    new Sortable(el, {
-      group: 'shared', // set both lists to same group
-      animation: 150
-    });
+  var el = document.getElementById('items');
+  var el2 = document.getElementById('items2');
 
-    new Sortable(el2, {
-      group: 'shared',
-      animation: 150
-    });
+  new Sortable(el, {
+    group: 'shared', // set both lists to same group
+    animation: 150
+  });
+
+  new Sortable(el2, {
+    group: 'shared',
+    animation: 150
+  });
 
 
 
