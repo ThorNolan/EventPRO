@@ -11,16 +11,21 @@
       </div>
       <p class="center">You're logged in ✔️</p>
       <div id="sideNavBtns" class="col s12 center">
-        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewCurrentEvents"><i class="material-icons left">assignment_late</i>Current Events</a>
-        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewPastEvents"><i class="material-icons left">find_replace</i>Past Events</a>
-        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal1"><i class="material-icons left">add</i>Create Event</a>
-        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal2"><i class="material-icons left">add</i>Add Task</a>
+        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewCurrentEvents"><i
+            class="material-icons left">assignment_late</i>Current Events</a>
+        <a class="waves-effect waves-light btn teal lighten-2" href="#" id="viewPastEvents"><i
+            class="material-icons left">find_replace</i>Past Events</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal1"><i
+            class="material-icons left">add</i>Create Event</a>
+        <a class="modal-trigger waves-effect waves-light btn teal lighten-2" href="#modal2"><i
+            class="material-icons left">add</i>Add Task</a>
       </div>
     </div>
 
     <span class="" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 
-    <img class="logo-image brand-logo center shadow" src="/assets/images/evenpro-logo-pilled.png" alt="EventPRO logo image">
+    <img class="logo-image brand-logo center shadow" src="/assets/images/evenpro-logo-pilled.png"
+      alt="EventPRO logo image">
 
     <a href="/logout" id="logout" class="right">Log out</a>
   </div>
@@ -36,7 +41,8 @@
   <div class="col s12 l6 ">
     <section class="objective eventArea center">
       <h4 class="black-text text-darken-4 center">What are we planning for today?</h4>
-      <button id="createEvent" data-target="modal1" class="btn waves-effect waves-light modal-trigger teal lighten-2"><i class="material-icons left">add</i>Create Event</button>
+      <button id="createEvent" data-target="modal1" class="btn waves-effect waves-light modal-trigger teal lighten-2"><i
+          class="material-icons left">add</i>Create Event</button>
     </section>
   </div>
 </div>
@@ -46,7 +52,8 @@
     <div class="col s12  l3"></div>
     <div class="col s12 l6 offset-3">
       <section class="tasks">
-        <h4 class="black-text text-darken-4 center-align">Organize tasks and start planning for the big day! <i class="fas fa-tasks"></i></h4>
+        <h4 class="black-text text-darken-4 center-align">Organize tasks and start planning for the big day! <i
+            class="fas fa-tasks"></i></h4>
     </div>
   </div>
 
@@ -75,170 +82,163 @@
 
 {{!-- form for adding a new task for a particular event --}}
 <div id="modal2" class="modal">
-    <div class="modal-content">
-      <form id="taskForm">
-          <div class="row">
-            <h4>Add a new Task</h4>
+  <div class="modal-content">
+    <form id="taskForm">
+      <div class="row">
+        <h2 class="center blackUnderline">Add a new <span class="teal-text text-lighten-2 blackUnderline">Task</span> <i id="taskIcon" class="fas fa-tasks fa-sm"></i></h2>
 
-            <div class="input-field col s12">
-              <input placeholder="Task Name" id="newTaskName" type="text" class="validate">
-              <label for="newTaskName">Description: </label>
-            </div>
-          </div>  
-          
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Not Important, Important, Urgent" id="newTaskImportance" type="text" class="validate">
-              <label for="newTaskImportance">Task Importance: </label> <br>
-            </div>
-          </div>
+        <div class="input-field col s12">
+          <input placeholder="Task Name" id="newTaskName" type="text" class="validate">
+          <label for="newTaskName">Description: <i class="red-text text-darken-4">*required</i></label>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
-              <label for="eventNameTask">Which event is this task for? </label> <br>
-            </div>
-          </div>
-        
-        <button id="submitNewTask" class="btn waves-effect waves-light btn teal lighten-2">Submit Task</button>
-      </form>
-    </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Not Important, Important, Urgent" id="newTaskImportance" type="text" class="validate">
+          <label for="newTaskImportance">Task Importance: <i class="red-text text-darken-4">*required</i></label> <br>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Task for Which Event?" id="eventNameTask" type="text" class="validate">
+          <label for="eventNameTask">Which event is this task for? <i class="red-text text-darken-4">*required</i></label> <br>
+        </div>
+      </div>
+
+      <button id="submitNewTask" class="btn waves-effect waves-light btn teal lighten-2">Submit Task</button>
+    </form>
+  </div>
 </div>
 
 {{!-- modal form for gathering info about an event before adding to database --}}
-<div id="modal1" class="modal">
+<div id="modal1" class="modal surveyForm">
   <div class="modal-content">
-
-    <form id="createEventForm">
-      <div class="row">
-        <h2 class="center">Event Details</h2>
-        <div class="input-field col s12">
-          <input disabled-value="Text" id="eventName" type="text" class="validate eventInput" required>
-          <label for="disabled">Name of Event  <i>*required</i></label>
+    <div id="surveyBorder">
+      <form id="createEventForm">
+        <div class="row">
+          <h2 class="center blackUnderline">Event <span class="teal-text text-lighten-2 blackUnderline">Details</span><i id="pencilIcon" class="fas fa-pencil-alt fa-xs"></i></h2>
+          <div class="input-field col s12">
+            <input placeholder="Tommy's 2nd Birthday" id="eventName" type="text" class="validate eventInput" required>
+            <label for="eventName">Name of Event <i class="red-text text-darken-4">*required</i></label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="May 4, 2019" type="text" class="datepicker eventInput" id="eventDate"
+              class="validate eventInput" required>
+            <label for="eventDate">Date of Event <i class="red-text text-darken-4">*required</i></label>
+          </div>
         </div>
 
-      </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="eventType" required class="eventSelect">
+              <option disabled selected>Select the Event Type</option>
+              <option value="Birthday">Birthday Party</option>
+              <option value="Anniversary">Anniversary</option>
+              <option value="Work Party">Work Party</option>
+              <option value="Meetup">Meetup</option>
+              <option value="Wedding">Wedding</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="eventType">What type of event will it be? <i class="red-text text-darken-4">*required</i></label>
+          </div>
 
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="20" id="attendees" type="number" min="1" class="validate eventInput" required>
+            <label for="attendees">Number of Attendees <i class="red-text text-darken-4">*required</i></label>
+          </div>
 
-      <div class="row">
-
-        <label for="disabled">Date of Event  <i>*required</i></label>
-        <input type="text" class="datepicker eventInput" id="eventDate" class="validate" required>
-
-      </div>
-
-      <div class="row">
-
-        <div class="input-field col s12">
-          <select value="empty" id="eventType" required class="eventSelect">
-            <option disabled selected>Select the Event Type</option>
-            <option value="Birthday">Birthday Party</option>
-            <option value="Anniversary">Anniversary</option>
-            <option value="Work Party">Work Party</option>
-            <option value="Meetup">Meetup</option>
-            <option value="Wedding">Wedding</option>
-            <option value="Other">Other</option>
-          </select>
-          <label>What type of event will it be?  <i>*required</i></label>
         </div>
 
-      </div>
-
-      <div class="row">
-
-        <div class="input-field col s12">
-          <input disabled-value="Number" id="attendees" type="number" class="validate eventInput" required>
-          <label for="disabled">Number of Attendees  <i>*required</i></label>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="timeOfDay" class="validate eventSelect" required>
+              <option disabled selected>Time of Day</option>
+              <option value="Brunch/Breakfast">Brunch/Breakfast</option>
+              <option value="Day Time">Day Time</option>
+              <option value="Night Time">Night Time</option>
+              <option value="After Hours">After Hours</option>
+            </select>
+            <label for="timeOfDay">When time does the party begin?<i class="red-text text-darken-4">*required</i></label>
+          </div>
         </div>
 
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="timeOfDay" class="eventSelect">
-            <option disabled selected>Time of Day</option>
-            <option value="Brunch/Breakfast">Brunch/Breakfast</option>
-            <option value="Day Time">Day Time</option>
-            <option value="Night Time">Night Time</option>
-            <option value="After Hours">After Hours</option>
-          </select>
-          <label>When time does the party begin?</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="dress" class="eventSelect">
-            <option disabled selected>Attire:</option>
-            <option value="Casual">Casual</option>
-            <option value="Semi-Formal">Semi-Formal</option>
-            <option value="Formal">Formal</option>
-            <option value="Costume/Themed">Costume/Themed</option>
-          </select>
-          <label>Dress/Clothing Type</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="themed" class="eventSelect">
-            <option disabled selected>Themed?</option>
-            <option value=false>No</option>
-            <option value=true>Yes</option>
-          </select>
-          <label>Is this a themed party? - Yes/No</label>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="dress" class="eventSelect">
+              <option disabled selected>Attire:</option>
+              <option value="Casual">Casual</option>
+              <option value="Semi-Formal">Semi-Formal</option>
+              <option value="Formal">Formal</option>
+              <option value="Costume/Themed">Costume/Themed</option>
+            </select>
+            <label for="dress">Dress Code</label>
+          </div>
         </div>
 
-      </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="themed" class="eventSelect">
+              <option disabled selected>Themed?</option>
+              <option value=false>No</option>
+              <option value=true>Yes</option>
+            </select>
+            <label for="themed">Is this a themed party? - Yes/No</label>
+          </div>
 
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="food" class="eventSelect">
-            <option disabled selected>Food?</option>
-            <option value=false>No</option>
-            <option value=true>Yes</option>
-          </select>
-          <label>Will food be served at this event? - Yes/No</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="decorations" class="eventSelect">
-            <option disabled selected>Decorations?</option>
-            <option value=false>No</option>
-            <option value=true>Yes</option>
-          </select>
-          <label>Will we be decorating? - Yes/No</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="cake" class="eventSelect">
-            <option disabled selected>Cake/Dessert?</option>
-            <option value=false>No</option>
-            <option value=true>Yes</option>
-          </select>
-          <label>Will you need cake/dessert? - Yes/No</label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="input-field col s12">
-          <select value="empty" id="alcohol" class="eventSelect">
-            <option disabled selected>Alcohol?</option>
-            <option value=false>No</option>
-            <option value=true>Yes</option>
-          </select>
-          <label>Will you be needing alcoholic beverages? - Yes/No</label>
         </div>
 
-      </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="food" class="eventSelect">
+              <option disabled selected>Food?</option>
+              <option value=false>No</option>
+              <option value=true>Yes</option>
+            </select>
+            <label for="food">Will food be served at this event? - Yes/No</label>
+          </div>
+        </div>
 
-      <a id="submitSurvey" class="modal-close waves-effect waves-teal lighten-2 btn-flat"> <i class="material-icons right">send</i>Submit</a>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="decorations" class="eventSelect">
+              <option disabled selected>Decorations?</option>
+              <option value=false>No</option>
+              <option value=true>Yes</option>
+            </select>
+            <label for="decorations">Will we be decorating? - Yes/No</label>
+          </div>
+        </div>
 
-    </form>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="cake" class="eventSelect">
+              <option disabled selected>Cake/Dessert?</option>
+              <option value=false>No</option>
+              <option value=true>Yes</option>
+            </select>
+            <label for="cake">Will you need cake/dessert? - Yes/No</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <select value="empty" id="alcohol" class="eventSelect">
+              <option disabled selected>Alcohol?</option>
+              <option value=false>No</option>
+              <option value=true>Yes</option>
+            </select>
+            <label for="alcohol">Will you be needing alcoholic beverages? - Yes/No</label>
+          </div>
+        </div>
+        <a id="submitSurvey" class="waves-effect waves-teal lighten-2 btn-flat"> <i
+            class="material-icons right">send</i>Submit</a>
+      </form>
+    </div>
   </div>
 </div>
 

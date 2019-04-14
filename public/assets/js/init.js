@@ -107,12 +107,13 @@ $(document).ready(function () {
           }
         }
       })
+      $('#modal1').modal('close');
       $.post("/api/event/new", eventData, function (res) {
         location.reload()
       })
     }
     else {
-      return alert("⚠️ Please complete the required details before submitting! ⚠️")
+      return alert("⚠️ Please complete the required fields before submitting! ⚠️")
     }
   });
 
@@ -130,6 +131,7 @@ $(document).ready(function () {
         var eventInfo = $("<div>")
         console.log(data)
         for (i = 0; i < data.length; i++) {
+        
           eventInfo.append(
             `<h4>${data[i].eventName}</h4>
                     <p class='surveyAnswerDisplay'>Your event took place on ${data[i].eventDate.slice(0, 10)}. You were expecting ${data[i].attendees} guests at your ${data[i].eventType} event. The event took place during ${data[i].timeOfDay}.</p>`
