@@ -6,8 +6,8 @@
     <div id="mySidenav" class="eventSidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-      <div id="userPhoto">
-        {{!-- <img id="koala" class="circle" src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==" alt="cute koala"> --}}
+      <div id="userPhoto center">
+        <img id="koala" class="responsive-img" src="/assets/images/koala.png" alt="cute koala">
       </div>
       <p class="center">You're logged in ✔️</p>
       <div id="sideNavBtns" class="col s12 center">
@@ -20,6 +20,8 @@
             class="material-icons right hvr-icon">plus_one</i>Create Event</a>
         <a class="modal-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow" href="#modal2"><i
             class="material-icons right hvr-icon">check_circle_outline</i>Add Task</a>
+
+        <a class="tap-trigger waves-effect waves-light btn teal lighten-2 hvr-icon-pulse hvr-grow"><i class="material-icons right hvr-icon">info</i>Help</a>
 
       </div>
     </div>
@@ -85,16 +87,17 @@
 
 </section>
 
-<div class="fixed-action-btn tap-trigger">
-  <a id="information" class="btn-floating btn waves-effect waves-light teal lighten-2"><i
-      class="material-icons">info</i></a>
+<div class="fixed-action-btn direction-top">
+   <a id="information" class="btn-floating btn waves-effect waves-light teal lighten-2"></a>
 </div>
 
 <!-- Tap Target Structure -->
-<div class="tap-target" data-target="information">
-  <div class="tap-target-content">
-    <h5>New here? No problem!</h5>
-    <p>feature here</p>
+<div class="tap-target-wrapper">
+  <div class="tap-target" data-target="information">
+    <div class="tap-target-content">
+      <h5>New here? No problem!</h5>
+      <p>feature here</p>
+    </div>
   </div>
 </div>
 
@@ -213,7 +216,7 @@
               <option value=false>No</option>
               <option value=true>Yes</option>
             </select>
-            <label for="themed">Is this a themed party? - Yes/No</label>
+            <label for="themed">Is this a themed event? - Yes/No</label>
           </div>
 
         </div>
