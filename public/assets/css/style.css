@@ -201,8 +201,6 @@ img.signin-bg {
       text-shadow: 4px 4px black;
     }
 
-    
-
     .eventSidenav {
       height: 100%;
       width: 0;
@@ -217,19 +215,13 @@ img.signin-bg {
     }
 
     .eventSidenav a {
-      /* padding: 2px 8px 2px 32px;
-      text-decoration: none; */
-      /* font-size: 25px; */
       color: #f1f1f1;
-      /* display: block; */
-      /* transition: 0.3s; */
       width: 75%;
     }
 
     .eventSidenav .closebtn {
       position: absolute;
       top: 0;
-      /* right: 25px; */
       left: 150px;
       font-size: 36px;
       margin-left: 50px;
@@ -239,10 +231,6 @@ img.signin-bg {
       .eventSidenav {
         padding-top: 15px;
       }
-
-      /* .eventSidenav a {
-        font-size: 18px;
-      } */
     }
 
     #logout {
@@ -253,16 +241,6 @@ img.signin-bg {
     #menu {
       padding-left: 50px;
     }
-
-    /* #koala {
-      max-width: 75%;
-      width: 150px;
-      height: auto;
-      margin-left: 9%;
-      margin-top: 25%;
-      /* border-top: 2px ridge black;
-      border-bottom: 2px ridge black; */
-    /* } */ 
 
     #userPhoto {
         background: url(https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==) 50% 50% no-repeat;
@@ -277,16 +255,48 @@ img.signin-bg {
       width: 100%;
     }
 
-    #taskForm {
-      margin:100px;
-    }
-
-  .modal {
+  #modal1 {
     min-height: 80% !important;
   }
+
   .surveyAnswerDisplay {
     display: inline-block;
     padding: 10px;
   }
 
 /* ================================== JENNIFER ==================================================== */
+
+
+#modal1 label {
+  color: rgb(1, 53, 1);
+  margin-bottom: 5px;
+}
+
+#modal2 label {
+  color: rgb(1, 53, 1);
+
+}
+
+#modal1 .datepicker-modal {
+  width: 95%;
+}
+#modal1 > .modal-content {
+  padding:40px;
+  border-left: 8px solid #4db6ac;
+}
+#modal2 > .modal-content {
+  border-left: 8px solid #4db6ac;
+}
+
+.blackUnderline {
+  text-decoration: underline;
+  text-decoration-color: black;
+}
+
+#pencilIcon, #taskIcon {
+  margin-left: 3px;
+}
+
+#modal2 > .modal-content {
+  padding: 40px;
+}

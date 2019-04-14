@@ -24,10 +24,12 @@ module.exports = {
 
     },
     viewCurrentEvent: function (req, res) {
+        var id = req.session.passport.user
         db.Events
             .findAll({
                 where: {
-                    eventStatus: 1
+                    eventStatus: 1,
+                    UserID: id
                 }
             })
             .then(function (result) {
@@ -38,10 +40,12 @@ module.exports = {
             })
     },
     viewPastEvents: function (req, res) {
+        var id = req.session.passport.user
         db.Events
             .findAll({
                 where: {
-                    eventStatus: 0
+                    eventStatus: 0,
+                    UserID: id
                 }
             })
             .then(function (result) {
