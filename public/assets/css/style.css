@@ -70,8 +70,20 @@ img.signin-bg {
     top: 0;
     left: 0;
     z-index: -2;
-  }
-  
+}
+
+li {
+  display: inline-block;
+  background: url(../images/sticky-note.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* min-width: 100px; */
+  max-width: 200px;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+}
+
   @media screen and (max-width: 1024px) {
     img.signin-bg {
       left: 50%;
@@ -242,13 +254,17 @@ img.signin-bg {
       padding-left: 50px;
     }
 
-    #userPhoto {
-        background: url(https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==) 50% 50% no-repeat;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-left: 19%;
-        margin-top: 16%;
+    #koala {
+        /* background: url(https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5OS83MTYvb3JpZ2luYWwva29hbGFzLXdpdGgtY2hsYW15ZGlhLmpwZw==) 50% 50% no-repeat; */
+        /* width: 135px;
+        height: 135px; */
+        /* border-radius: 50%; */
+        /* margin-left: 19%;
+        margin-top: 16%; */
+        max-width: 105px;
+        display: block;
+        margin: auto;
+        margin-top: 12%;
     }
 
     #concertGoers {

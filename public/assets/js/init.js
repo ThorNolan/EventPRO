@@ -318,9 +318,10 @@ $(document).ready(function () {
   // Initiate feature discovery tap target and listen for click of info button.
   $('.fixed-action-btn').floatingActionButton();
   $('.tap-target').tapTarget();
+
   $('.tap-trigger').on('click', function() {
-    $('.tap-target').tapTarget('open')
-  }); 
+    $('.tap-target').tapTarget('open');
+  });
 
 });
 
