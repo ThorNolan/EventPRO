@@ -335,9 +335,12 @@ $(document).ready(function () {
   
   var m;
 
-  for (m = 0; m < 5; m++) {
+  for (m = 0; m < items.length; m++) {
 
- if (jQuery('#item')[0].hasAttribute('taskActive');){
+
+  }
+
+ if (jQuery('#items')[m].hasAttribute('taskActive')){
 
  }
   $(document).on("getElementById", "#items", function () {
