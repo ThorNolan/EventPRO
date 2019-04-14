@@ -223,10 +223,10 @@ $(document).ready( function () {
       for (i = 0; i < data.length; i++) {
         // if (data[i].eventNameTask === 1) {
         if (data[i].taskStatus) {
-          $("#items").append("<li class='center task'>" + data[i].taskName + "<li>")
+          $("#items").append("<li class='center taskActive'>" + data[i].taskName + "<li>")
         }
         else {
-          $("#items").append("<li class='center task'>" + data[i].taskName + "<li>")
+          $("#items2").append("<li class='center taskInactive'>" + data[i].taskName + "<li>")
         }
       }
     });
@@ -332,27 +332,38 @@ $(document).ready(function () {
 //------------ Mel ------------------------//
 
 $(document).ready(function () {
-  // This WILL work because we are listening on the 'document', 
-  // for a click on an element with an ID of #test-element
+  
+  var m;
+
+  for (m = 0; m < 5; m++) {
+
+ if (jQuery('#item')[0].hasAttribute('taskActive');){
+
+ }
   $(document).on("getElementById", "#items", function () {
 
-    drag();
+   
 
     console.log('changing task');
     var changeTask = {
-      taskName: $("#taskName").val().trim(),
       taskStatus: false,
     }
     console.log('submit new task going to send');
     $.ajax({
       method: "PUT",
-      url: "/api/tasks/???",
+      url: "/api/tasks/modify",
       body: changeTask
     })
       .then(function (data) {
         console.log(data)
       });
     console.log('task has been modified');
+
+    $.post("/api/tasks/create", newTask)
+    .then(function (data) {
+      console.log(data)
+      location.reload();
+    })
 
   });
 
