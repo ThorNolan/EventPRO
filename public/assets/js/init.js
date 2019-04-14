@@ -209,8 +209,8 @@ $(document).ready(function () {
 //------------ Task CRUD------------------//
 
 $(document).ready( function () {
-  $("#items").empty()
-  $("#items2").empty()
+  // $("#items").empty()
+  // $("#items2").empty()
 
   console.log('view event tasks');
   var id = $(this).data("id");
@@ -223,10 +223,10 @@ $(document).ready( function () {
       for (i = 0; i < data.length; i++) {
         // if (data[i].eventNameTask === 1) {
         if (data[i].taskStatus) {
-          $("#items").append("<div class='center task'>" + data[i].taskName + "<div>")
+          $("#items").append("<li class='center task'>" + data[i].taskName + "<li>")
         }
         else {
-          $("#items").append("<div class='center task'>" + data[i].taskName + "<div>")
+          $("#items").append("<li class='center task'>" + data[i].taskName + "<li>")
         }
       }
     });
@@ -314,6 +314,13 @@ $(document).ready(function () {
 
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
+
+  // Initiate feature discovery tap target and listen for click of info button.
+  $('.fixed-action-btn').floatingActionButton();
+  $('.tap-target').tapTarget();
+  $('.tap-trigger').on('click', function() {
+    $('.tap-target').tapTarget('open')
+  }); 
 
 });
 
