@@ -228,10 +228,10 @@ $(document).ready( function () {
       for (i = 0; i < data.length; i++) {
         // if (data[i].eventNameTask === 1) {
         if (data[i].taskStatus) {
-          $("#items").append("<li class='center taskActive'>" + data[i].taskName + "<li>")
+          $("#items").append("<li class='center taskActive'>" + data[i].taskName + "</li>")
         }
         else {
-          $("#items2").append("<li class='center taskInactive'>" + data[i].taskName + "<li>")
+          $("#items2").append("<li class='center taskInactive'>" + data[i].taskName + "</li>")
         }
       }
     });
