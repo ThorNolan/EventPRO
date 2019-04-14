@@ -32,24 +32,6 @@ var Users = sequelize.define("Users", {
     }
 
 
-    // eventId: {
-    //     type: Sequelize.INTEGER,
-    //     allowNull: false,
-    //     references: {
-    //         model: 'Events', // Can be both a string representing the table name or a Sequelize model
-    //         key: 'id'
-    //     }
-    // }
-    // ,
-    // taskId: {
-    //     type: Sequelize.INTEGER,
-    //     references: {
-    //         model: 'Tasks', // Can be both a string representing the table name or a Sequelize model
-    //         key: 'id'
-    //     }
-    // }
-
-
 });
 
 Users.associate = function(models) {
@@ -66,13 +48,3 @@ return Users;
 
 
 
-
-// CREATE TABLE users
-// (
-// userId int NOT NULL AUTO_INCREMENT,
-// userName varchar(255) NOT NULL,
-// userType varchar(255) NOT NULL,
-// PRIMARY KEY (userId),
-// FOREIGN KEY (eventId) REFERENCES events(eventId),
-// FOREIGN KEY (taskId) REFERENCES tasks(taskId)
-// );

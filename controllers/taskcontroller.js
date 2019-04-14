@@ -31,6 +31,7 @@ module.exports = {
         db.Tasks
 
         .findAll()
+    
         .then(function(result){
             
             // console.log(taskobj.tasks)
