@@ -16,8 +16,10 @@ $(document).ready(function () {
   })
     .then(function (data) {
       var eventInfo = $("<div>")
-     
+      
       for (i = 0; i < data.length; i++) {
+        $("#eventNameTask").append(`<option value="${data[i].eventName}">${data[i].eventName}</option>`);
+
         eventInfo.append(
           `<h4>${data[i].eventName}</h4>
                     <p class='surveyAnswerDisplay'>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests to be attending this ${data[i].eventType}. This event will be happening during ${data[i].timeOfDay}.</p>`
@@ -70,7 +72,10 @@ $(document).ready(function () {
                 `)
       
       }
+
       $(".eventArea").append(eventInfo)
+
+      $("#eventNameTask").formSelect();
 
     });
 
