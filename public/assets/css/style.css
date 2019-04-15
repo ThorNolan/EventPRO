@@ -316,3 +316,8 @@ li {
 #modal2 > .modal-content {
   padding: 40px;
 }
+
+.eventArea > h4 {
+  margin-top: 40px;
+}
+
