@@ -7,9 +7,9 @@ From their dashboard, they can manage tasks and add and modify items, select pas
 
 ## 🔑 How to Use the App:
 
-The appliation is intuitive and requires little to no prior knowledge before being ready to use it.
+The appliation is intuitive and requires little to no prior knowledge before being ready to use.
 
-Follow the below steps to have your event up and running:
+Follow the steps below to begin planning and organizing to-do's:
 
 1. Create an individual user profile and log in
    
@@ -27,9 +27,9 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
    
 2. Enter `npm install` into your command line after navigating into the root directory, which will install the dependencies listed in the package.json.
    
-3. Enter `node server.js`, which will initiate the server on http://localhost:3306.
+3. Enter `node server.js`, which will initiate the server on http://localhost:8080.
    
-4. Navigate to http://localhost:3306 in your browser, or ctrl-click the link that will be logged to your console. Enjoy!
+4. Navigate to http://localhost:8080 in your browser, or ctrl-click the link that will be logged to your console. Enjoy!
 
 ## 🔧 Technologies Used  
 
@@ -58,6 +58,8 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
 + **MySQL** for database creation and storing persistent data.
   
 + **Heroku** for live deployment and hosting.
+  
++ **Sortable.js** CDN for drag/sort functionality for to-do's.
 
 ## 🌟 Acknowledgements
 
@@ -66,7 +68,8 @@ This app has been deployed to Heroku, and the link can be found [here](LIVE LINK
 ## 🔗 Authors 
 
 + Melanie Marsollier—https://github.com/Mel-Marsollier
-+ Nick Tom—https://github.com/nicky2quicky
 + Jennifer Powell—https://github.com/jerpowel321
 + Thor Nolan—https://github.com/ThorNolan
++ Nick Tom—https://github.com/nicky2quicky
+
 

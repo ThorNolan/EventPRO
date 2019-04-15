@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <span class="" id="menu" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <span class="" id="menu" style="cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 
     <img class="logo-image brand-logo center shadow" src="/assets/images/evenpro-logo-pilled.png"
       alt="EventPRO logo image">
@@ -44,7 +44,7 @@
   <div class="col s12  l3"></div>
   <div class="col s12 l6 ">
     <section class="objective eventArea center">
-      <h4 class="black-text text-darken-4 center">What are we planning for today?</h4>
+      <h4 class="black-text text-darken-4 center flow-text">What are we planning for today?</h4>
 
       <button id="createEvent" data-target="modal1"
         class="btn waves-effect waves-light modal-trigger teal lighten-2 hvr-icon-pulse hvr-grow"><i
@@ -59,8 +59,8 @@
     <div class="col s12  l3"></div>
     <div class="col s12 l6 offset-3">
       <section class="tasks">
-        <h4 class="black-text text-darken-4 center-align">Organize tasks and start planning for the big day! <i
-            class="fas fa-tasks"></i></h4>
+        <h4 class="black-text text-darken-4 center-align flow-text"><i
+            class="fas fa-tasks"></i> Organize tasks and start planning for the big day!</h4>
     </div>
   </div>
 
@@ -89,7 +89,7 @@
 
 <div class="fixed-action-btn direction-top logoBtn">
   <img id="logoBtn" src="/assets/images/mstile-150x150.png">
-  <a id="information" class="btn-floating btn waves-effect waves-light cyan accent-2">&times;</a>
+  <a id="information" class="btn-floating btn waves-effect waves-light cyan accent-2 black-text">&times;</a>
 </div>
 
 <!-- Tap Target for getting started info -->
@@ -192,7 +192,7 @@
               <option value="Night Time">Night Time</option>
               <option value="After Hours">After Hours</option>
             </select>
-            <label for="timeOfDay">When time does the party begin?<i
+            <label for="timeOfDay">What time does the party begin?<i
                 class="red-text text-darken-4">*required</i></label>
           </div>
         </div>
@@ -240,7 +240,7 @@
               <option value=false>No</option>
               <option value=true>Yes</option>
             </select>
-            <label for="decorations">Will we be decorating? - Yes/No</label>
+            <label for="decorations">Will you be decorating? - Yes/No</label>
           </div>
         </div>
 
@@ -261,7 +261,7 @@
               <option value=false>No</option>
               <option value=true>Yes</option>
             </select>
-            <label for="alcohol">Will you be needing alcoholic beverages? - Yes/No</label>
+            <label for="alcohol">Will you be serving alcoholic beverages? - Yes/No</label>
           </div>
         </div>
         <a id="submitSurvey" class="waves-effect waves-teal lighten-2 btn-flat"> <i
@@ -274,8 +274,7 @@
 
 <script>
 
-
-
+  // Initialize and enable draggable functionality
   var el = document.getElementById('items');
   var el2 = document.getElementById('items2');
 
