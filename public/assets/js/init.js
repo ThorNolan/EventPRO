@@ -117,7 +117,8 @@ $(document).ready(function () {
   // View Past Events
   $("#viewPastEvents").on("click", function () {
     $(".eventArea").empty()
-    $(".eventArea").append("<h4 class='white-text shadow text-darken-4'> Past Events!</h4>")
+    $(".eventArea").append("<h4 class='black-text flow-text'> Past Events:</h4>")
+    $(".eventArea").append("<hr>")
     $.ajax({
       method: "GET",
       url: "/api/event/past/",
@@ -272,10 +273,11 @@ $(".delTask").on("click", function () {
 });
 //------------ Task CRUD------------------//
 
-
+// Initialization for materialize javascript based components
 $(document).ready(function () {
   $('.tap-target').tapTarget();
   $('.modal').modal();
+  $('.fixed-action-btn').floatingActionButton();
   $('input#input_text, textarea#textarea2').characterCounter();
   $('select').formSelect();
   $('.datepicker').datepicker();
@@ -306,8 +308,6 @@ $(document).ready(function () {
 
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;
-
-  $('.fixed-action-btn').floatingActionButton();
 
 });
 

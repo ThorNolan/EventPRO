@@ -116,30 +116,11 @@ img.signin-bg {
   font-size: 34px;
 }
 
-  @media screen and (max-width: 1024px) {
-    img.signin-bg {
-      left: 50%;
-      margin-left: -512px;  
-    }
-  }
-
 #toastDiv{
   width: 100vw;
   position: absolute;
   top: 16%;
 } 
-
-@media only screen and (max-width:640px) {
-  #toastDiv{
-    top: 8%;
-  }
-}
-
-@media only screen and (max-width:380px) {
-  #toastDiv{
-    top: 6%;
-  }
-}
 
 #sideNavBtns > a > i{
   position: relative;
@@ -249,7 +230,7 @@ img.signin-bg {
       height: 100%;
       width: 0;
       position: fixed;
-      z-index: 1;
+      z-index: 500;
       top: 0;
       left: 0;
       background-color: rgba(0,0,0);
@@ -271,18 +252,13 @@ img.signin-bg {
       margin-left: 50px;
     }
 
-    @media screen and (max-height: 450px) {
-      .eventSidenav {
-        padding-top: 15px;
-      }
-    }
-
     #logout {
       padding-right: 50px;
       font-size: 20px;
     }
 
     #menu {
+      font-size:30px;
       padding-left: 50px;
     }
 
@@ -347,6 +323,49 @@ img.signin-bg {
 
 #modal2 > .modal-content {
   padding: 40px;
+}
+
+
+/* ================= MEDIA QUERIES ========================== */
+
+@media screen and (max-width: 1024px) {
+  img.signin-bg {
+      left: 50%;
+      margin-left: -512px;  
+  }
+}
+
+@media only screen and (max-width:640px) {
+  #toastDiv{
+    top: 8%;
+  }
+
+  .logo-image {
+    top: -15px;
+    width: 135px;
+  }  
+
+  #menu {
+    font-size:18px;
+    padding-left: 15px;
+  }
+
+  #logout {
+    padding-right: 12px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .eventSidenav {
+    padding-top: 15px;
+  }
+}
+
+@media only screen and (max-width:380px) {
+  #toastDiv{
+    top: 6%;
+  }
 }
 
 .eventArea > h4 {
