@@ -72,16 +72,48 @@ img.signin-bg {
     z-index: -2;
 }
 
-li {
+.openTasks > ul > li {
   display: inline-block;
+  text-align: center;
   background: url(../images/sticky-note.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  /* min-width: 100px; */
-  max-width: 200px;
+  max-width: 85%;
+  min-width: 70%;
   color: black;
   padding: 10px;
   margin: 10px;
+  border-radius: 2%;
+}
+
+.closedTasks > ul > li {
+  display: inline-block;
+  text-align: center;
+  background: url(../images/sticky-note.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 85%;
+  min-width: 70%;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 2%;
+}
+
+#logoBtn {
+  position: absolute;
+  z-index: 1000;
+  top: 95%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+#information {
+  opacity: 0;
+  font-size: 34px;
 }
 
   @media screen and (max-width: 1024px) {
