@@ -21,7 +21,7 @@ $(document).ready(function () {
         $("#eventNameTask").append(`<option value="${data[i].eventName}">${data[i].eventName}</option>`);
 
         eventInfo.append(
-          `<h4>${data[i].eventName}</h4>
+          `<div class='eventDisplay'><h4>${data[i].eventName}</h4>
                     <p class='surveyAnswerDisplay'>Your event will be on ${data[i].eventDate.slice(0, 10)}, and you are expecting ${data[i].attendees} guests to be attending this ${data[i].eventType}. This event will be happening during ${data[i].timeOfDay}.</p>`
         )
 
@@ -57,18 +57,11 @@ $(document).ready(function () {
                     <p class='themeOptions surveyAnswerDisplay'>This event will have a theme <a href='https://www.partycity.com/pi-theme-party-ideas' target="_blank"> <i class="fas fa-paw"></i>  </p>
                     `)
         }
-
-        eventInfo.append(`
-                <button class="viewEventTasks btn" data-id=${data[i].id} class="btn ">View Tasks</button>
-                `)
-        // eventInfo.append(`
-        //         <button id="createTask" data-id=${data[i].id} class="btn ">New Task</button>
-        //         `)
-        eventInfo.append(`
-                <button class="delEvent btn" data-id=${data[i].id}">Delete Event</button>
+        eventInfo.append(`<br>
+                <button class="delEvent btn" data-id=${data[i].id}>Delete Event</button>
                 `)
         eventInfo.append(`
-                <button class="pastEvent btn" data-id=${data[i].id}>Past Event</button>
+                <button class="pastEvent btn" data-id=${data[i].id}>Make This a Past Event</button></div>
                 `)
       
       }
@@ -84,7 +77,6 @@ $(document).ready(function () {
   $("#submitSurvey").on("click", function (e) {
     e.preventDefault();
     var formIsValid = $("#createEventForm")[0].checkValidity();
-    console.log(formIsValid)
     if (formIsValid) {
       var eventData = {}
       $('.eventInput').each(function () {
@@ -124,7 +116,6 @@ $(document).ready(function () {
 
   // View Past Events
   $("#viewPastEvents").on("click", function () {
-    console.log("View Past Events on init.js is being clicked")
     $(".eventArea").empty()
     $(".eventArea").append("<h4 class='black-text flow-text'> Past Events:</h4>")
     $(".eventArea").append("<hr>")
@@ -135,7 +126,6 @@ $(document).ready(function () {
       .then(function (data) {
 
         var eventInfo = $("<div>")
-        console.log(data)
         for (i = 0; i < data.length; i++) {
         
           eventInfo.append(
@@ -188,21 +178,17 @@ $(document).ready(function () {
       url: "/api/events/delete/" + id,
     })
       .then(function (data) {
-        console.log("This will be deleted")
-        console.log(data)
         location.reload()
       });
   });
 
   // Change Event from Current to Past
   $(".eventArea").on("click", ".pastEvent", function () {
-    console.log("clicked")
     var id = $(this).data("id");
     $.ajax({
       method: "PUT",
       url: "/api/event/past/" + id,
     }).then(function (data) {
-        console.log("This will be updated")
         location.reload(true)
       })
   })
