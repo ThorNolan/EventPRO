@@ -325,6 +325,7 @@ img.signin-bg {
   padding: 40px;
 }
 
+
 /* ================= MEDIA QUERIES ========================== */
 
 @media screen and (max-width: 1024px) {
@@ -366,3 +367,8 @@ img.signin-bg {
     top: 6%;
   }
 }
+
+.eventArea > h4 {
+  margin-top: 40px;
+}
+
