@@ -78,6 +78,5 @@ We would like to thank our instructor Jerome, our awesome TA's Sajeel, Jacob, an
 + Melanie Marsollier—https://github.com/Mel-Marsollier
 + Jennifer Powell—https://github.com/jerpowel321
 + Thor Nolan—https://github.com/ThorNolan
-+ Nick Tom—https://github.com/nicky2quicky
 
 
