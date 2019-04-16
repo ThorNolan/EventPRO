@@ -24,7 +24,7 @@ Follow the steps below to begin planning and organizing to-do's:
 
 ## 📁 Deployment Instructions
 
-This app has been deployed to Heroku, and the link can be found [here](LIVE LINK HERE "live link"). If you would like to run the app locally, follow these instructions: 
+This app has been deployed to Heroku, and the link can be found [here](https://limitless-fortress-24134.herokuapp.com/ "live link"). If you would like to run the app locally, follow these instructions: 
 
 1. Clone this repository down to your machine.
    

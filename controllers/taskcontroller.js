@@ -14,7 +14,6 @@ module.exports = {
                 eventNameTask: req.body.eventNameTask,
                 UserId: id
             }
-            console.log("Denis is the best TA", newTask)
         db.Tasks
         .create(newTask)
         .then(function(result){
