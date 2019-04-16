@@ -27,20 +27,20 @@ module.exports = {
         }
     },
     viewAll: function (req, res) {
+        var id = req.session.passport.user;
+    
         db.Tasks
 
-        .findAll()
-    
+        .findAll({
+            where: {
+                UserID: id
+            }
+        })
         .then(function(result){
             
-            // console.log(taskobj.tasks)
-            // console.log("*********")
-            
-            // console.log(taskobj.tasks[0].taskName)
-            // console.log(taskobj.tasks[0].importance)
             console.log(result);
             res.json(result);
-            // res.json(result)
+ 
         })
         .catch(function(err) {
             console.log(err)

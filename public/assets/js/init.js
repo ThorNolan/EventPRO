@@ -58,6 +58,9 @@ $(document).ready(function () {
                     `)
         }
         eventInfo.append(`<br>
+        <button class="viewEvent btn" data-name="${data[i].eventName}">View Tasks</button>
+        `)
+        eventInfo.append(`
                 <button class="delEvent btn" data-id=${data[i].id}>Delete Event</button>
                 `)
         eventInfo.append(`
@@ -200,26 +203,35 @@ $(document).ready(function () {
 
 //------------ Task CRUD------------------//
 
-$(document).ready( function () {
+$(".eventArea").on("click", ".viewEvent", function () {
   // $("#items").empty()
   // $("#items2").empty()
 
-  console.log('view event tasks');
-  var id = $(this).data("id");
-  console.log("THIS IS THE ID" + id)
+  // console.log('view event tasks');
+  // console.log($(this).text())
+  
+  var eventName = $(this).data('name')
+  console.log(eventName)
   $.ajax({
     method: "GET",
-    url: "/api/tasks/all",
+    url: "/api/tasks/all/" ,
   })
     .then(function (data) {
+  $("#items").empty()
+  $("#items2").empty()
+
       for (i = 0; i < data.length; i++) {
+
         // if (data[i].eventNameTask === 1) {
+        if (data[i].eventNameTask === eventName){
         if (data[i].taskStatus) {
           $("#items").append("<li class='center taskActive'>" + data[i].taskName + "</li>")
         }
         else {
           $("#items2").append("<li class='center taskInactive'>" + data[i].taskName + "</li>")
         }
+      }
+
       }
     });
 
