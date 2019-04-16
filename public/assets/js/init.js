@@ -124,7 +124,6 @@ $(document).ready(function () {
 
   // View Past Events
   $("#viewPastEvents").on("click", function () {
-    console.log("View Past Events on init.js is being clicked")
     $(".eventArea").empty()
     $(".eventArea").append("<h4 class='black-text flow-text'> Past Events:</h4>")
     $(".eventArea").append("<hr>")
