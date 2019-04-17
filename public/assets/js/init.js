@@ -211,14 +211,14 @@ $(".eventArea").on("click", ".viewEvent", function () {
   // console.log($(this).text())
   
   var eventName = $(this).data('name')
-  console.log(eventName)
+  //console.log(eventName)
   $.ajax({
     method: "GET",
     url: "/api/tasks/all/" ,
   })
     .then(function (data) {
-  $("#items").empty()
-  $("#items2").empty()
+      $("#items").empty()
+      $("#items2").empty()
 
       for (i = 0; i < data.length; i++) {
 
@@ -233,18 +233,28 @@ $(".eventArea").on("click", ".viewEvent", function () {
       }
 
       }
+
+      // Initialize and enable draggable functionality
+      var el = document.getElementById('items');
+      var el2 = document.getElementById('items2');
+    
+      new Sortable(el, {
+        group: 'shared', // set both lists to same group
+        animation: 150
+      });
+    
+      new Sortable(el2, {
+        group: 'shared',
+        animation: 150
+      });
     });
-
 })
 
-$(".viewEventTasks", function () {
-  console.log("What isnt this working?")
-})
 
 // Add new Task
 $("#submitNewTask").on("click", function () {
   var eventId = $("#")
-  console.log('submit new task enter');
+  // console.log('submit new task enter');
   var newTask = {
     taskName: $("#newTaskName").val().trim(),
     taskType: false,
@@ -255,7 +265,7 @@ $("#submitNewTask").on("click", function () {
 
     // eventID: 
   }
-  console.log('submit new task going to send', newTask);
+  //console.log('submit new task going to send', newTask);
   // $.ajax({
   //     method: "POST",
   //     url: "/api/tasks/create",
@@ -263,11 +273,11 @@ $("#submitNewTask").on("click", function () {
   // })
   $.post("/api/tasks/create", newTask)
     .then(function (data) {
-      console.log(data)
+      // console.log(data)
       location.reload();
     })
 
-  console.log('submit new task should have sent');
+  // console.log('submit new task should have sent');
   $("#taskForm").hide()
 
   $("#newTaskName").val("")
@@ -346,11 +356,11 @@ $(document).ready(function () {
 
    
 
-    console.log('changing task');
+    // console.log('changing task');
     var changeTask = {
       taskStatus: false,
     }
-    console.log('submit new task going to send');
+    // console.log('submit new task going to send');
     $.ajax({
       method: "PUT",
       url: "/api/tasks/modify",
@@ -359,7 +369,7 @@ $(document).ready(function () {
       .then(function (data) {
         console.log(data)
       });
-    console.log('task has been modified');
+    // console.log('task has been modified');
 
     $.post("/api/tasks/create", newTask)
     .then(function (data) {
